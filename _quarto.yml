@@ -5,7 +5,8 @@ project:
 book:
   title: "Reproducible Research Using R"
   author: "Christian Martinez"
-  date: "2026-02-01" # Or keep your manual date
+  google-analytics: "G-P6M61D660L"
+  date: "2026-02-01"
   chapters:
     - index.qmd
     - 01-Introduction-To-R.qmd
