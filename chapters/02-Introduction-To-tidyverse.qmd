@@ -14,14 +14,14 @@ As discussed in the last chapter, R comes with prebuilt functions, but what make
 
 By the end of this chapter, you will be able to:
 
--   Install and load R packages from CRAN
--   Explain what the tidyverse is and why it is commonly used
--   Use the pipe operator (`|>`) to build readable data workflows
--   Select, filter, arrange, and rename variables in a data frame
--   Create new variables using `mutate()`
--   Apply conditional logic with `if_else()` and `case_when()`
--   Summarize grouped data using `group_by()` and `summarize()`
--   Combine multiple tidyverse verbs into a single reproducible pipeline
+- Install and load R packages from CRAN
+- Explain what the tidyverse is and why it is commonly used
+- Use the pipe operator (`|>`) to build readable data workflows
+- Select, filter, arrange, and rename variables in a data frame
+- Create new variables using `mutate()`
+- Apply conditional logic with `if_else()` and `case_when()`
+- Summarize grouped data using `group_by()` and `summarize()`
+- Combine multiple tidyverse verbs into a single reproducible pipeline
 
 Before we get started, we have to first install `tidyverse`.
 
@@ -76,7 +76,7 @@ cowsay::say("Welcome to tidyverse!", by = "cow")
 
 It isn't always necessary, nor will it be done a lot in this book, but you can use the `::` before the command to specifically mention what package the command is coming from. Most of the time this isn't necessary, but there are times when you will have packages loaded that have overlapping function names. This is when `::` should be called.
 
-To further illustrate the diversity of R packages, let’s introduce an example of working with live, real-world data using the `nycOpenData` package (@R-nycOpenData). This package connects directly to the NYC Open Data Portal and displays the most recent data happening in the city. By using the `nyc_311()` function, we can gather the five most recent 311 calls in New York City. The fun thing is that every time you open this chapter, this data will be different! This is an important aspect of working with live data and needs to be considered when creating reproducible research.
+To further illustrate the diversity of R packages, let’s introduce an example of working with live, real-world data using the `nycOpenData` package (@R-nycOpenData). This package connects directly to the NYC Open Data Portal and displays the most recent data happening in the city. By using the `nyc_pull_dataset()` function, we can gather the most recent 311 calls in New York City. The fun thing is that every time you open this chapter, this data will be different! This is an important aspect of working with live data and needs to be considered when creating reproducible research.
 
 First we install the package.
 
@@ -89,8 +89,17 @@ Now we load it and call the function.
 ```{r}
 #| label: tbl-nycOpenData
 library(nycOpenData)
-head(nyc_311())
+nyc_pull_dataset(
+  dataset = "x311_service_requests_from_2020_to_present",
+  limit = 2
+)
 ```
+
+::: callout-note
+#### Interested in creating your own OpenData package?
+
+`nycOpenData` is part of a growing ecosystem of R packages for accessing open data. If you'd like to build a package for your own city or organization, see *The OpenData Package Developer's Guide* (@Martinez2026OpenDataGuide).
+:::
 
 With some examples under our belt, let's move to the tidyverse!
 
@@ -102,20 +111,20 @@ Last chapter, R was introduced. In this chapter, we will be building on the basi
 
 One of the best things that the `tidyverse` has to offer is called *piping*. It technically comes from the `magrittr` package. What makes the `tidyverse` package so ubiquitous with R is that `tidyverse` is actually a **collection** of R packages in one package. By installing and loading the tidyverse package, you are actually installing and loading a bevy of packages and significantly powering up your R session. Here are the packages included in `tidyverse`:
 
--   `dplyr`
-    -   Tools for data manipulation, including `select()`, `filter()`, `mutate()`, `arrange()`, and `summarize()`.
--   `ggplot2`
-    -   A powerful system for creating data visualizations using the grammar of graphics.
--   `tidyr`
-    -   Tools for reshaping and cleaning data, such as `pivot_longer()` and `pivot_wider()`.
--   `readr`
-    -   Functions for reading data into R (e.g., CSV files) quickly and consistently.
--   `tibble`
-    -   A modern reimagining of data frames with improved printing and behavior.
--   `stringr`
-    -   Tools for working with text data, such as `str_trim()` and `str_to_upper()`.
--   `forcats`
-    -   Tools for working with categorical (factor) variables.
+- `dplyr`
+  - Tools for data manipulation, including `select()`, `filter()`, `mutate()`, `arrange()`, and `summarize()`.
+- `ggplot2`
+  - A powerful system for creating data visualizations using the grammar of graphics.
+- `tidyr`
+  - Tools for reshaping and cleaning data, such as `pivot_longer()` and `pivot_wider()`.
+- `readr`
+  - Functions for reading data into R (e.g., CSV files) quickly and consistently.
+- `tibble`
+  - A modern reimagining of data frames with improved printing and behavior.
+- `stringr`
+  - Tools for working with text data, such as `str_trim()` and `str_to_upper()`.
+- `forcats`
+  - Tools for working with categorical (factor) variables.
 
 Piping is telling R the sequence you want things to be done in code, and uses `|>`. Below is an example of how you would write something.
 
@@ -235,15 +244,15 @@ Note that no matter if we specifically named the columns or used their index num
 
 Now that we can select what columns we want to see, it is time to filter what rows we want. Below are some of the operators we are going to use to filter our data.
 
--   `==`: Equal to
--   `!=`: Not equal to
--   `>=`: Greater than or equal to
--   `<=`: Less than or equal to
--   `>`: Greater than
--   `<`: Less than
--   `&`: And
--   `|`: Or
--   `%in%`: Within
+- `==`: Equal to
+- `!=`: Not equal to
+- `>=`: Greater than or equal to
+- `<=`: Less than or equal to
+- `>`: Greater than
+- `<`: Less than
+- `&`: And
+- `|`: Or
+- `%in%`: Within
 
 ### Filter {#sec-tidyverse-filter}
 
@@ -392,8 +401,8 @@ penguins |>
 
 That code creates the size_category, with the code saying:
 
--   if body_mass_g \>= 3500 then make the value in size_category "Big"
--   if body_mass_g **is not** \>= 3500 then make the value in size_category "Small"
+- if body_mass_g \>= 3500 then make the value in size_category "Big"
+- if body_mass_g **is not** \>= 3500 then make the value in size_category "Small"
 
 But what if there are multiple criteria we want and not binary like big and small?
 
@@ -563,77 +572,77 @@ $package::function()$
 
 The tidyverse is a collection of R packages designed to make data analysis more readable, consistent, and reproducible.
 
--   Loading the tidyverse with library(tidyverse) attaches multiple core packages (such as `dplyr`, `ggplot2`, and `tidyr`) that share a common design philosophy.
--   The pipe operator (`|>`) allows code to be read from left to right, with each step building on the result of the previous step.
--   Each `tidyverse` verb typically performs one clear transformation, making pipelines easier to understand and debug.
--   `select()` changes which columns exist in a dataset, while filter() changes which rows are kept.
--   `arrange()` reorders rows based on variable values but does not modify the data itself.
--   `mutate()` creates new variables or modifies existing ones, enabling feature engineering and transformation.
--   Logical operators (such as `==`, `!=`, `>`, `<`,`&`, and `|`) allow precise control when filtering data.
--   The order of functions in a pipeline matters, as each step depends on the output of the previous one.
--   Understanding `tidyverse` workflows early is essential, as these tools will be used throughout later chapters for visualization, modeling, and statistical analysis.
+- Loading the tidyverse with library(tidyverse) attaches multiple core packages (such as `dplyr`, `ggplot2`, and `tidyr`) that share a common design philosophy.
+- The pipe operator (`|>`) allows code to be read from left to right, with each step building on the result of the previous step.
+- Each `tidyverse` verb typically performs one clear transformation, making pipelines easier to understand and debug.
+- `select()` changes which columns exist in a dataset, while filter() changes which rows are kept.
+- `arrange()` reorders rows based on variable values but does not modify the data itself.
+- `mutate()` creates new variables or modifies existing ones, enabling feature engineering and transformation.
+- Logical operators (such as `==`, `!=`, `>`, `<`,`&`, and `|`) allow precise control when filtering data.
+- The order of functions in a pipeline matters, as each step depends on the output of the previous one.
+- Understanding `tidyverse` workflows early is essential, as these tools will be used throughout later chapters for visualization, modeling, and statistical analysis.
 
 ## Checklist {#sec-tidyverse-checklist}
 
 **When working with tidyverse, have you:**
 
--   [ ] Installed the package using `install.packages()` *(only needed once)*?
--   [ ] Loaded the package for the current R session using `library()`?
--   [ ] Started your pipeline with the correct data source?
--   [ ] Used the pipe operator (`|>`) to make your code readable from **left to right**?
--   [ ] Ensured each step in your pipeline performs **one clear transformation**?
--   [ ] Used `select()` to control **which columns** are included?
--   [ ] Used `filter()` with proper logical operators (`==`, `&`, `|`, `%in%`) to control **which rows** are kept?
--   [ ] Verified that `==` (comparison) is used instead of `=` (assignment) inside `filter()`?
--   [ ] Considered how missing values (`NA`) affect filtering and calculations?
--   [ ] Used `mutate()` to create or modify variables without unintentionally overwriting existing data?
--   [ ] Checked that the **order of functions** in your pipeline makes sense?
--   [ ] Inspected your data after major transformations (e.g., filtering, mutating, grouping)?
--   [ ] Applied `group_by()` *before* `summarize()` when computing grouped summaries?
--   [ ] Re-run your entire pipeline from top to bottom to ensure it is fully reproducible?
+- [ ] Installed the package using `install.packages()` *(only needed once)*?
+- [ ] Loaded the package for the current R session using `library()`?
+- [ ] Started your pipeline with the correct data source?
+- [ ] Used the pipe operator (`|>`) to make your code readable from **left to right**?
+- [ ] Ensured each step in your pipeline performs **one clear transformation**?
+- [ ] Used `select()` to control **which columns** are included?
+- [ ] Used `filter()` with proper logical operators (`==`, `&`, `|`, `%in%`) to control **which rows** are kept?
+- [ ] Verified that `==` (comparison) is used instead of `=` (assignment) inside `filter()`?
+- [ ] Considered how missing values (`NA`) affect filtering and calculations?
+- [ ] Used `mutate()` to create or modify variables without unintentionally overwriting existing data?
+- [ ] Checked that the **order of functions** in your pipeline makes sense?
+- [ ] Inspected your data after major transformations (e.g., filtering, mutating, grouping)?
+- [ ] Applied `group_by()` *before* `summarize()` when computing grouped summaries?
+- [ ] Re-run your entire pipeline from top to bottom to ensure it is fully reproducible?
 
 ## Key Functions & Commands {#sec-tidyverse-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter.
 
--   `install.packages()` *(base R)*
-    -   Installs packages from CRAN onto your local machine. This only needs to be done once per package.
--   `library()` *(base R)*
-    -   Loads an installed package into the current R session so its functions can be used.
--   `|>` *(magrittr / tidyverse)*
-    -   Passes the result of one operation directly into the next, allowing code to be read from left to right.
--   `select()` *(dplyr)*
-    -   Chooses specific columns from a dataset.
--   `filter()` *(dplyr)*
-    -   Keeps rows that meet logical conditions.
--   `arrange()` *(dplyr)*
-    -   Orders rows based on the values of one or more columns.
--   `mutate()` *(dplyr)*
-    -   Creates new columns or modifies existing ones.
--   `rename()` *(dplyr)*
-    -   Changes column names using the format `new_name = old_name`.
--   `distinct()` *(dplyr)*
-    -   Returns unique values or unique combinations of values from one or more columns.
--   `if_else()` *(dplyr)*
-    -   Creates values based on a binary condition, ensuring consistent data types.
--   `case_when()` *(dplyr)*
-    -   Handles multiple conditional rules when creating or transforming variables.
--   `is.na()` *(base R)*
-    -   Identifies missing (`NA`) values.
--   `drop_na()` *(tidyr)*
-    -   Removes rows containing missing values in specified columns.
--   `count()` *(dplyr)*
-    -   Counts the number of observations for each group in a dataset.
--   `group_by()` *(dplyr)*
-    -   Groups data so that summary statistics can be calculated separately for each group.
--   `summarise()` *(dplyr)*
-    -   Computes summary statistics (e.g., means, counts) for grouped data.
--   `n()` *(dplyr)*
-    -   Returns the number of observations within each group when used inside `summarise()`.
--   `sessionInfo()` *(base R)*
-    -   Displays information about the current R session, including loaded packages.
--   `table()` *(base R)*
-    -   Creates frequency tables for categorical data.
+- `install.packages()` *(base R)*
+  - Installs packages from CRAN onto your local machine. This only needs to be done once per package.
+- `library()` *(base R)*
+  - Loads an installed package into the current R session so its functions can be used.
+- `|>` *(magrittr / tidyverse)*
+  - Passes the result of one operation directly into the next, allowing code to be read from left to right.
+- `select()` *(dplyr)*
+  - Chooses specific columns from a dataset.
+- `filter()` *(dplyr)*
+  - Keeps rows that meet logical conditions.
+- `arrange()` *(dplyr)*
+  - Orders rows based on the values of one or more columns.
+- `mutate()` *(dplyr)*
+  - Creates new columns or modifies existing ones.
+- `rename()` *(dplyr)*
+  - Changes column names using the format `new_name = old_name`.
+- `distinct()` *(dplyr)*
+  - Returns unique values or unique combinations of values from one or more columns.
+- `if_else()` *(dplyr)*
+  - Creates values based on a binary condition, ensuring consistent data types.
+- `case_when()` *(dplyr)*
+  - Handles multiple conditional rules when creating or transforming variables.
+- `is.na()` *(base R)*
+  - Identifies missing (`NA`) values.
+- `drop_na()` *(tidyr)*
+  - Removes rows containing missing values in specified columns.
+- `count()` *(dplyr)*
+  - Counts the number of observations for each group in a dataset.
+- `group_by()` *(dplyr)*
+  - Groups data so that summary statistics can be calculated separately for each group.
+- `summarise()` *(dplyr)*
+  - Computes summary statistics (e.g., means, counts) for grouped data.
+- `n()` *(dplyr)*
+  - Returns the number of observations within each group when used inside `summarise()`.
+- `sessionInfo()` *(base R)*
+  - Displays information about the current R session, including loaded packages.
+- `table()` *(base R)*
+  - Creates frequency tables for categorical data.
 
 ## 💡 *Reproducibility Tip:* {#sec-tidyverse-tip}
 

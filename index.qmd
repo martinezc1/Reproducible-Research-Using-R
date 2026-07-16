@@ -1,6 +1,6 @@
 # About {.unnumbered}
 
-This book was inspired by my students—particularly graduate students at Brooklyn College who wanted to ask meaningful research questions but felt held back by tools that were opaque, brittle, or difficult to reproduce. Over time, it became clear that learning *R* was not just about writing code; it was about learning how to think clearly, document decisions, and produce work that others (and your future self) can understand and reuse.
+This book was inspired by my students—particularly graduate students at [Brooklyn College](https://www.brooklyn.edu/) who wanted to ask meaningful research questions but felt held back by tools that were opaque, brittle, or difficult to reproduce. Over time, it became clear that learning *R* was not just about writing code; it was about learning how to think clearly, document decisions, and produce work that others (and your future self) can understand and reuse.
 
 **Reproducible Research in R** is an open educational resource (OER) designed to help students, researchers, and practitioners build confidence using R as a complete research tool—from data import and visualization to statistical analysis and polished reporting. The goal of this book is not just to teach *what* buttons to press or *which* functions to call, but to teach a **workflow** that is transparent, explainable, and most importantly, reproducible.
 
@@ -86,14 +86,14 @@ That's why they put erasers on pencils
 
 The datasets used throughout this book are provided in the companion R package `reproresearchR`, allowing readers to load data directly into R without manually downloading files. This ensures that all examples run the same way for everyone. All figures, tables, and analyses in this book are generated directly from code—never copied and pasted from external software—so that every result is fully reproducible. Chapters @sec-intro-cat-analysis, @sec-intro-cor, and @sec-linear-reg all use data from the pakage.
 
-The `reproresearchR` package also includes two versions of each chapter’s R script:
+The `reproresearchR` (@R-reproresearchR) package also includes two versions of each chapter’s R script:
 
 -   Full Script: the complete code used to generate all analyses and figures in the chapter.
 -   Helper Script: a partially completed script with key sections removed, allowing you to work along with the textbook by filling in the missing code.
 
 Once R and the `reproresearchR` package are installed (with RStudio recommended), readers have everything they need to follow along and successfully complete the analyses in this textbook.
 
-### R and RStudio
+### R and RStudio {#R-and-RStudio-mentioning}
 
 If it isn't already evident, this textbook is about the programming language R. If you want to work with R on your computer, it is suggested that you have both:
 
@@ -119,6 +119,25 @@ The Gallery reflects what is possible when reproducibility, open data, and struc
 This book would not exist without the curiosity, questions, and persistence of students at Brooklyn College. Their willingness to wrestle with messy data and imperfect code shaped both the content and the tone of this text.
 
 Additional thanks go to the Open Educational Resources team at Brooklyn College and to the broader R community, whose commitment to open tools and shared knowledge makes projects like this possible.
+
+## Interested in Teaching with this Textbook? {#interested-in-teaching-textbook}
+
+If you are an instructor planning to use *Reproducible Research Using R* in your course, you may also find the companion textbook, *Teaching Reproducible Research Using R* (@Martinez_Teaching_Reproducible_Research_2026), helpful.
+
+It includes course design guidance, implementation strategies, and instructional resources for integrating reproducible research into undergraduate and graduate classrooms.
+
+- 📖 [Read the companion textbook](https://martinezc1-teaching-reproducible-research-using-r.share.connect.posit.cloud/)
+
+::: {.callout-note}
+### Part of a Larger Ecosystem
+
+*Reproducible Research Using R* is one component of the NYC Open Data Lab ecosystem, which brings together open educational resources, open-source software, and public-facing research to support reproducible workflows.
+
+As you continue through this book, you'll be introduced to tools such as `nycOpenData` and other resources developed through the Lab.
+
+🌐 Learn more about the NYC Open Data Lab: <https://www.nycopendatalab.org>
+
+:::
 
 ## License
 
