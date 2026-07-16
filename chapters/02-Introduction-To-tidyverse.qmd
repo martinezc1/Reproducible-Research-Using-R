@@ -90,7 +90,7 @@ Now we load it and call the function.
 #| label: tbl-nycOpenData
 library(nycOpenData)
 
-kable(nycOpenData::nyc_pull_dataset(dataset = "x311_service_requests_from_2020_to_present",
+head(nycOpenData::nyc_pull_dataset(dataset = "x311_service_requests_from_2020_to_present",
   limit = 2))
 ```
 
