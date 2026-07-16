@@ -104,7 +104,7 @@ If you are not able to download both on your computer but still want to learn/us
 
 ## The NYC Open Data Student Gallery {#sec-nyc-gallery}
 
-This textbook is part of a broader reproducible research initiative built around real civic data. Students at Brooklyn College used the workflow outlined in this book to conduct original research projects using datasets from [New York City’s Open Data portal](https://opendata.cityofnewyork.us/).
+This textbook is part of a broader reproducible research initiative built around real civic data. Students at Brooklyn College used the workflow outlined in this book to conduct original research projects using datasets from [New York City’s Open Data portal](https://opendata.cityofnewyork.us/) @Martinez_NYC_Open_Data_2026. 
 
 Each student developed a fully reproducible analysis in R, compiled their work into a structured report, and produced a final research project grounded in real public data. These projects were then assembled into a collective publication: the NYC Open Data Student Gallery.
 
@@ -122,7 +122,7 @@ Additional thanks go to the Open Educational Resources team at Brooklyn College 
 
 ## Interested in Teaching with this Textbook? {#interested-in-teaching-textbook}
 
-If you are an instructor planning to use *Reproducible Research Using R* in your course, you may also find the companion textbook, *Teaching Reproducible Research Using R* (@Martinez_Teaching_Reproducible_Research_2026), helpful.
+If you are an instructor planning to use *Reproducible Research Using R* in your course, you may also find the companion textbook, *Teaching Reproducible Research Using R* @Martinez_Teaching_Reproducible_Research_2026, helpful.
 
 It includes course design guidance, implementation strategies, and instructional resources for integrating reproducible research into undergraduate and graduate classrooms.
 

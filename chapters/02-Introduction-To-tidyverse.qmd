@@ -76,7 +76,7 @@ cowsay::say("Welcome to tidyverse!", by = "cow")
 
 It isn't always necessary, nor will it be done a lot in this book, but you can use the `::` before the command to specifically mention what package the command is coming from. Most of the time this isn't necessary, but there are times when you will have packages loaded that have overlapping function names. This is when `::` should be called.
 
-To further illustrate the diversity of R packages, let’s introduce an example of working with live, real-world data using the `nycOpenData` package (@R-nycOpenData). This package connects directly to the NYC Open Data Portal and displays the most recent data happening in the city. By using the `nyc_pull_dataset()` function, we can gather the most recent 311 calls in New York City. The fun thing is that every time you open this chapter, this data will be different! This is an important aspect of working with live data and needs to be considered when creating reproducible research.
+To further illustrate the diversity of R packages, let’s introduce an example of working with live, real-world data using the `nycOpenData` package (@R-nycOpenData). This package connects directly to the NYC Open Data Portal and displays the most recent data happening in the city. By using the `nyc_pull_dataset()` function, we can gather the most recent 311 calls in New York City. The fun thing is that every time you run this code, this data will be different! This is an important aspect of working with live data and needs to be considered when creating reproducible research.
 
 First we install the package.
 
@@ -90,8 +90,8 @@ Now we load it and call the function.
 #| label: tbl-nycOpenData
 library(nycOpenData)
 
-nycOpenData::nyc_pull_dataset(dataset = "x311_service_requests_from_2020_to_present",
-  limit = 2)
+kable(nycOpenData::nyc_pull_dataset(dataset = "x311_service_requests_from_2020_to_present",
+  limit = 2))
 ```
 
 ::: callout-note
