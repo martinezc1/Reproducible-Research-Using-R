@@ -10,7 +10,7 @@
     "has_parameters": false
   },
   "quarto": {
-    "version": "1.8.25",
+    "version": "1.9.38",
     "engines": ["markdown", "knitr"]
   },
   "packages": {
@@ -79,35 +79,35 @@
       "description": {
         "Package": "DBI",
         "Title": "R Database Interface",
-        "Version": "1.2.3",
-        "Date": "2024-06-02",
+        "Version": "1.3.0",
+        "Date": "2026-02-11",
         "Authors@R": "c(\n    person(\"R Special Interest Group on Databases (R-SIG-DB)\", role = \"aut\"),\n    person(\"Hadley\", \"Wickham\", role = \"aut\"),\n    person(\"Kirill\", \"Müller\", , \"kirill@cynkra.com\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0002-1416-3412\")),\n    person(\"R Consortium\", role = \"fnd\")\n  )",
         "Description": "A database interface definition for communication between R\n    and relational database management systems.  All classes in this\n    package are virtual and need to be extended by the various R/DBMS\n    implementations.",
         "License": "LGPL (>= 2.1)",
         "URL": "https://dbi.r-dbi.org, https://github.com/r-dbi/DBI",
         "BugReports": "https://github.com/r-dbi/DBI/issues",
         "Depends": "methods, R (>= 3.0.0)",
-        "Suggests": "arrow, blob, covr, DBItest, dbplyr, downlit, dplyr, glue,\nhms, knitr, magrittr, nanoarrow (>= 0.3.0.1), RMariaDB,\nrmarkdown, rprojroot, RSQLite (>= 1.1-2), testthat (>= 3.0.0),\nvctrs, xml2",
+        "Suggests": "arrow, blob, callr, covr, DBItest (>= 1.8.2), dbplyr,\ndownlit, dplyr, glue, hms, knitr, magrittr, nanoarrow (>=\n0.3.0.1), otel, otelsdk, RMariaDB, rmarkdown, rprojroot,\nRSQLite (>= 1.1-2), testthat (>= 3.0.0), vctrs, xml2",
         "VignetteBuilder": "knitr",
         "Config/autostyle/scope": "line_breaks",
         "Config/autostyle/strict": "false",
         "Config/Needs/check": "r-dbi/DBItest",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.1",
         "Config/Needs/website": "r-dbi/DBItest, r-dbi/dbitemplate, adbi,\nAzureKusto, bigrquery, DatabaseConnector, dittodb, duckdb,\nimplyr, lazysf, odbc, pool, RAthena, IMSMWU/RClickhouse, RH2,\nRJDBC, RMariaDB, RMySQL, RPostgres, RPostgreSQL, RPresto,\nRSQLite, sergeant, sparklyr, withr",
         "Config/testthat/edition": "3",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.3.3.9000",
         "NeedsCompilation": "no",
-        "Packaged": "2024-06-02 20:26:05 UTC; kirill",
-        "Author": "R Special Interest Group on Databases (R-SIG-DB) [aut],\n  Hadley Wickham [aut],\n  Kirill Müller [aut, cre] (<https://orcid.org/0000-0002-1416-3412>),\n  R Consortium [fnd]",
+        "Packaged": "2026-02-24 17:22:33 UTC; kirill",
+        "Author": "R Special Interest Group on Databases (R-SIG-DB) [aut],\n  Hadley Wickham [aut],\n  Kirill Müller [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-1416-3412>),\n  R Consortium [fnd]",
         "Maintainer": "Kirill Müller <kirill@cynkra.com>",
         "Repository": "CRAN",
-        "Date/Publication": "2024-06-02 21:50:02 UTC",
-        "Built": "R 4.5.0; ; 2025-03-31 21:50:56 UTC; unix",
+        "Date/Publication": "2026-02-25 06:31:27 UTC",
+        "Built": "R 4.5.2; ; 2026-02-25 09:45:39 UTC; unix",
         "RemoteType": "standard",
         "RemotePkgRef": "DBI",
         "RemoteRef": "DBI",
         "RemoteRepos": "https://cran.rstudio.com",
-        "RemoteSha": "1.2.3"
+        "RemoteSha": "1.3.0"
       }
     },
     "Deriv": {
@@ -1663,7 +1663,7 @@
       "description": {
         "Package": "cpp11",
         "Title": "A C++11 Interface for R's C Interface",
-        "Version": "0.5.3",
+        "Version": "0.5.4",
         "Authors@R": "\n    c(\n      person(\"Davis\", \"Vaughan\", email = \"davis@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0003-4777-038X\")),\n      person(\"Jim\",\"Hester\", role = \"aut\", comment = c(ORCID = \"0000-0002-2739-7082\")),\n      person(\"Romain\", \"François\", role = \"aut\", comment = c(ORCID = \"0000-0002-2444-4226\")),\n      person(\"Benjamin\", \"Kietzman\", role = \"ctb\"),\n      person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"))\n    )",
         "Description": "Provides a header only, C++11 interface to R's C\n    interface.  Compared to other approaches 'cpp11' strives to be safe\n    against long jumps from the C API as well as C++ exceptions, conform\n    to normal R function semantics and supports interaction with 'ALTREP'\n    vectors.",
         "License": "MIT + file LICENSE",
@@ -1676,14 +1676,14 @@
         "Config/testthat/edition": "3",
         "Config/Needs/cpp11/cpp_register": "brio, cli, decor, desc, glue, tibble,\nvctrs",
         "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
+        "RoxygenNote": "7.3.3",
         "NeedsCompilation": "no",
-        "Packaged": "2026-01-20 13:50:54 UTC; davis",
+        "Packaged": "2026-04-03 18:50:48 UTC; davis",
         "Author": "Davis Vaughan [aut, cre] (ORCID:\n    <https://orcid.org/0000-0003-4777-038X>),\n  Jim Hester [aut] (ORCID: <https://orcid.org/0000-0002-2739-7082>),\n  Romain François [aut] (ORCID: <https://orcid.org/0000-0002-2444-4226>),\n  Benjamin Kietzman [ctb],\n  Posit Software, PBC [cph, fnd]",
         "Maintainer": "Davis Vaughan <davis@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-01-20 15:20:02 UTC",
-        "Built": "R 4.5.2; ; 2026-01-20 19:50:22 UTC; unix"
+        "Date/Publication": "2026-04-04 05:11:17 UTC",
+        "Built": "R 4.5.2; ; 2026-04-04 05:36:50 UTC; unix"
       }
     },
     "crayon": {
@@ -1930,7 +1930,7 @@
         "Type": "Package",
         "Package": "dplyr",
         "Title": "A Grammar of Data Manipulation",
-        "Version": "1.2.0",
+        "Version": "1.2.1",
         "Authors@R": "c(\n    person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0003-4757-117X\")),\n    person(\"Romain\", \"François\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-2444-4226\")),\n    person(\"Lionel\", \"Henry\", role = \"aut\"),\n    person(\"Kirill\", \"Müller\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-1416-3412\")),\n    person(\"Davis\", \"Vaughan\", , \"davis@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0003-4777-038X\")),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"))\n  )",
         "Description": "A fast, consistent tool for working with data frame like\n    objects, both in memory and out of memory.",
         "License": "MIT + file LICENSE",
@@ -1947,12 +1947,12 @@
         "LazyData": "true",
         "RoxygenNote": "7.3.3",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-01-30 23:05:30 UTC; hadleywickham",
+        "Packaged": "2026-04-02 19:51:05 UTC; hadleywickham",
         "Author": "Hadley Wickham [aut, cre] (ORCID:\n    <https://orcid.org/0000-0003-4757-117X>),\n  Romain François [aut] (ORCID: <https://orcid.org/0000-0002-2444-4226>),\n  Lionel Henry [aut],\n  Kirill Müller [aut] (ORCID: <https://orcid.org/0000-0002-1416-3412>),\n  Davis Vaughan [aut] (ORCID: <https://orcid.org/0000-0003-4777-038X>),\n  Posit Software, PBC [cph, fnd]",
         "Maintainer": "Hadley Wickham <hadley@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-02-03 08:50:47 UTC",
-        "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-02-03 12:35:08 UTC; unix",
+        "Date/Publication": "2026-04-03 07:30:08 UTC",
+        "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-04-03 11:02:49 UTC; unix",
         "Archs": "dplyr.so.dSYM"
       }
     },
@@ -3803,7 +3803,7 @@
         "Type": "Package",
         "Package": "magrittr",
         "Title": "A Forward-Pipe Operator for R",
-        "Version": "2.0.4",
+        "Version": "2.0.5",
         "Authors@R": "c(\n    person(\"Stefan Milton\", \"Bache\", , \"stefan@stefanbache.dk\", role = c(\"aut\", \"cph\"),\n           comment = \"Original author and creator of magrittr\"),\n    person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = \"aut\"),\n    person(\"Lionel\", \"Henry\", , \"lionel@posit.co\", role = \"cre\"),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"),\n            comment = c(ROR = \"03wc8by49\"))\n  )",
         "Description": "Provides a mechanism for chaining commands with a new\n    forward-pipe operator, %>%. This operator will forward a value, or the\n    result of an expression, into the next function call/expression.\n    There is flexible support for the type of right-hand side expressions.\n    For more information, see package vignette.  To quote Rene Magritte,\n    \"Ceci n'est pas un pipe.\"",
         "License": "MIT + file LICENSE",
@@ -3817,12 +3817,12 @@
         "Encoding": "UTF-8",
         "RoxygenNote": "7.3.3",
         "NeedsCompilation": "yes",
-        "Packaged": "2025-09-11 16:45:15 UTC; lionel",
+        "Packaged": "2026-04-03 08:09:48 UTC; lionel",
         "Author": "Stefan Milton Bache [aut, cph] (Original author and creator of\n    magrittr),\n  Hadley Wickham [aut],\n  Lionel Henry [cre],\n  Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
         "Maintainer": "Lionel Henry <lionel@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2025-09-12 07:20:14 UTC",
-        "Built": "R 4.5.0; aarch64-apple-darwin20; 2025-09-12 08:49:30 UTC; unix",
+        "Date/Publication": "2026-04-04 08:00:02 UTC",
+        "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-04-04 10:13:02 UTC; unix",
         "Archs": "magrittr.so.dSYM"
       }
     },
@@ -4383,39 +4383,32 @@
       }
     },
     "nycOpenData": {
-      "Source": "github",
-      "Repository": null,
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
       "description": {
         "Package": "nycOpenData",
         "Type": "Package",
-        "Title": "Convenient Access to NYC Open Data API Endpoints",
-        "Version": "0.1.6",
+        "Title": "A Lightweight Interface to NYC Open Data APIs",
+        "Version": "0.2.2",
         "Authors@R": "\n    c(\n      person(\"Christian\", \"Martinez\", \n             email = \"c.martinez0@outlook.com\", \n             role = c(\"aut\", \"cre\"),\n             comment = c(\n               GitHub = \"martinezc1\",\n               ORCID = \"0009-0005-6026-6454\"\n             )),\n      person(\"Crystal\", \"Adote\",\n             role = \"ctb\",\n             comment = c(GitHub = \"crystalna20\")),\n      person(\"Jonah\", \"Dratfield\", \n             role = \"ctb\",\n             comment = c(GitHub = \"jdratfield38\")),\n      person(\"Joyce\", \"Escatel-Flores\",\n             role = \"ctb\",\n             comment = c(GitHub = \"JoyceEscatel\")),\n      person(\"Rob\", \"Hutto\", \n             role = \"ctb\",\n             comment = c(GitHub = \"robhutto\")),\n      person(\"Isley\", \"Jean-Pierre\",\n             role = \"ctb\",\n             comment = c(GitHub = \"ijpier\")),\n      person(\"Shannon\", \"Joyce\",\n             role = \"ctb\",\n             comment = c(GitHub = \"shannonjoyce\")),\n      person(\"Laura\", \"Rose-Werner\",\n             role = \"ctb\",\n             comment = c(GitHub = \"laurarosewerner\")),\n      person(\"Emma\", \"Tupone\",\n             role = \"ctb\",\n             comment = c(GitHub = \"emmatup0205\")),\n      person(\"Xinru\", \"Wang\",\n             role = \"ctb\",\n             comment = c(GitHub = \"xrwangxr\"))\n    )",
         "Description": "Provides a unified set of helper functions to access datasets \n    from the NYC Open Data platform <https://opendata.cityofnewyork.us/>. \n    Functions return results as tidy tibbles and support optional filtering, \n    sorting, and row limits via the Socrata API. The package includes endpoints \n    for 311 service requests, DOB job applications, juvenile justice metrics, \n    school safety, environmental data, event permitting, and additional citywide datasets.",
         "License": "MIT + file LICENSE",
         "Encoding": "UTF-8",
         "RoxygenNote": "7.3.3",
-        "Imports": "httr, jsonlite, tibble, curl",
-        "Suggests": "dplyr, ggplot2, knitr, rmarkdown, scales, testthat (>=\n3.0.0), tidyr, vcr (>= 0.6.0), webmockr",
+        "Imports": "httr, jsonlite, tibble, janitor, curl, dplyr, rlang",
+        "Suggests": "ggplot2, knitr, rmarkdown, scales, testthat (>= 3.0.0),\ntidyr, vcr (>= 0.6.0), webmockr",
         "URL": "https://martinezc1.github.io/nycOpenData/,\nhttps://github.com/martinezc1/nycOpenData",
         "BugReports": "https://github.com/martinezc1/nycOpenData/issues",
         "VignetteBuilder": "knitr",
         "Config/testthat/edition": "3",
-        "RemoteType": "github",
-        "RemoteHost": "api.github.com",
-        "RemoteRepo": "nycOpenData",
-        "RemoteUsername": "martinezc1",
-        "RemoteRef": "HEAD",
-        "RemoteSha": "22524c04d7c954000869d8814d10c805b5b8efa9",
-        "GithubRepo": "nycOpenData",
-        "GithubUsername": "martinezc1",
-        "GithubRef": "HEAD",
-        "GithubSHA1": "22524c04d7c954000869d8814d10c805b5b8efa9",
+        "Depends": "R (>= 4.1.0)",
         "NeedsCompilation": "no",
-        "Packaged": "2026-02-19 15:19:25 UTC; christianmartinez",
+        "Packaged": "2026-06-18 01:44:58 UTC; christianmartinez",
         "Author": "Christian Martinez [aut, cre] (GitHub: martinezc1, ORCID:\n    <https://orcid.org/0009-0005-6026-6454>),\n  Crystal Adote [ctb] (GitHub: crystalna20),\n  Jonah Dratfield [ctb] (GitHub: jdratfield38),\n  Joyce Escatel-Flores [ctb] (GitHub: JoyceEscatel),\n  Rob Hutto [ctb] (GitHub: robhutto),\n  Isley Jean-Pierre [ctb] (GitHub: ijpier),\n  Shannon Joyce [ctb] (GitHub: shannonjoyce),\n  Laura Rose-Werner [ctb] (GitHub: laurarosewerner),\n  Emma Tupone [ctb] (GitHub: emmatup0205),\n  Xinru Wang [ctb] (GitHub: xrwangxr)",
         "Maintainer": "Christian Martinez <c.martinez0@outlook.com>",
-        "Built": "R 4.5.1; ; 2026-02-19 15:19:26 UTC; unix"
+        "Repository": "CRAN",
+        "Date/Publication": "2026-06-18 08:10:08 UTC",
+        "Built": "R 4.5.2; ; 2026-06-18 14:47:18 UTC; unix"
       }
     },
     "openssl": {
@@ -4425,7 +4418,7 @@
         "Package": "openssl",
         "Type": "Package",
         "Title": "Toolkit for Encryption, Signatures and Certificates Based on\nOpenSSL",
-        "Version": "2.3.5",
+        "Version": "2.4.2",
         "Authors@R": "c(person(\"Jeroen\", \"Ooms\", role = c(\"aut\", \"cre\"), email = \"jeroenooms@gmail.com\",\n    comment = c(ORCID = \"0000-0002-4035-0289\")),\n    person(\"Oliver\", \"Keyes\", role = \"ctb\"))",
         "Description": "Bindings to OpenSSL libssl and libcrypto, plus custom SSH key parsers.\n    Supports RSA, DSA and EC curves P-256, P-384, P-521, and curve25519. Cryptographic\n    signatures can either be created and verified manually or via x509 certificates. \n    AES can be used in cbc, ctr or gcm mode for symmetric encryption; RSA for asymmetric\n    (public key) encryption or EC for Diffie Hellman. High-level envelope functions \n    combine RSA and AES for encrypting arbitrary sized data. Other utilities include key\n    generators, hash functions (md5, sha1, sha256, etc), base64 encoder, a secure random\n    number generator, and 'bignum' math methods for manually performing crypto \n    calculations on large multibyte integers.",
         "License": "MIT + file LICENSE",
@@ -4435,16 +4428,44 @@
         "VignetteBuilder": "knitr",
         "Imports": "askpass",
         "Suggests": "curl, testthat (>= 2.1.0), digest, knitr, rmarkdown,\njsonlite, jose, sodium",
-        "RoxygenNote": "7.3.2",
         "Encoding": "UTF-8",
+        "Config/roxygen2/version": "8.0.0",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-02-26 12:59:14 UTC; jeroen",
+        "Packaged": "2026-06-09 10:51:42 UTC; jeroen",
         "Author": "Jeroen Ooms [aut, cre] (ORCID: <https://orcid.org/0000-0002-4035-0289>),\n  Oliver Keyes [ctb]",
         "Maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-02-26 13:50:09 UTC",
-        "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-02-26 15:33:15 UTC; unix",
+        "Date/Publication": "2026-06-09 13:30:02 UTC",
+        "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-06-09 16:12:46 UTC; unix",
         "Archs": "openssl.so.dSYM"
+      }
+    },
+    "otel": {
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
+      "description": {
+        "Package": "otel",
+        "Title": "OpenTelemetry R API",
+        "Version": "0.2.0",
+        "Authors@R": "\n    person(\"Gábor\", \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\"))",
+        "Description": "High-quality, ubiquitous, and portable telemetry to enable\n    effective observability. OpenTelemetry is a collection of tools,\n    APIs, and SDKs used to instrument, generate, collect, and export\n    telemetry data (metrics, logs, and traces) for analysis in order to\n    understand your software's performance and behavior.\n    This package implements the OpenTelemetry API:\n    <https://opentelemetry.io/docs/specs/otel/>.\n    Use this package as a dependency if you want to instrument your R\n    package for OpenTelemetry.",
+        "License": "MIT + file LICENSE",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.3.2.9000",
+        "Depends": "R (>= 3.6.0)",
+        "Suggests": "callr, cli, glue, jsonlite, otelsdk, processx, shiny,\nspelling, testthat (>= 3.0.0), utils, withr",
+        "Config/Needs/website": "tidyverse/tidytemplate",
+        "Config/testthat/edition": "3",
+        "URL": "https://otel.r-lib.org, https://github.com/r-lib/otel",
+        "Additional_repositories": "https://github.com/r-lib/otelsdk/releases/download/devel",
+        "BugReports": "https://github.com/r-lib/otel/issues",
+        "NeedsCompilation": "no",
+        "Packaged": "2025-08-29 12:46:28 UTC; gaborcsardi",
+        "Author": "Gábor Csárdi [aut, cre]",
+        "Maintainer": "Gábor Csárdi <csardi.gabor@gmail.com>",
+        "Repository": "CRAN",
+        "Date/Publication": "2025-08-29 13:30:07 UTC",
+        "Built": "R 4.5.0; ; 2025-09-01 01:35:46 UTC; unix"
       }
     },
     "pROC": {
@@ -4933,35 +4954,35 @@
         "Type": "Package",
         "Package": "promises",
         "Title": "Abstractions for Promise-Based Asynchronous Programming",
-        "Version": "1.3.3",
-        "Authors@R": "c(\n    person(\"Joe\", \"Cheng\", , \"joe@posit.co\", role = c(\"aut\", \"cre\")),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"), comment = c(ROR = \"03wc8by49\"))\n  )",
+        "Version": "1.5.0",
+        "Authors@R": "c(\n    person(\"Joe\", \"Cheng\", , \"joe@posit.co\", role = \"aut\"),\n    person(\"Barret\", \"Schloerke\", , \"barret@posit.co\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0001-9986-114X\")),\n    person(\"Winston\", \"Chang\", , \"winston@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-1576-2126\")),\n    person(\"Charlie\", \"Gao\", , \"charlie.gao@posit.co\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-0750-061X\")),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"),\n           comment = c(ROR = \"03wc8by49\"))\n  )",
         "Description": "Provides fundamental abstractions for doing asynchronous\n    programming in R using promises. Asynchronous programming is useful\n    for allowing a single R process to orchestrate multiple tasks in the\n    background while also attending to something else. Semantics are\n    similar to 'JavaScript' promises, but with a syntax that is idiomatic\n    R.",
         "License": "MIT + file LICENSE",
         "URL": "https://rstudio.github.io/promises/,\nhttps://github.com/rstudio/promises",
         "BugReports": "https://github.com/rstudio/promises/issues",
-        "Imports": "fastmap (>= 1.1.0), later, magrittr (>= 1.5), R6, Rcpp, rlang,\nstats",
-        "Suggests": "future (>= 1.21.0), knitr, purrr, rmarkdown, spelling,\ntestthat (>= 3.0.0), vembedr",
-        "LinkingTo": "later, Rcpp",
+        "Depends": "R (>= 4.1.0)",
+        "Imports": "fastmap (>= 1.1.0), later, lifecycle, magrittr (>= 1.5), otel\n(>= 0.2.0), R6, rlang",
+        "Suggests": "future (>= 1.21.0), knitr, mirai, otelsdk (>= 0.2.0), purrr,\nRcpp, rmarkdown, spelling, testthat (>= 3.0.0), vembedr",
         "VignetteBuilder": "knitr",
         "Config/Needs/website": "rsconnect, tidyverse/tidytemplate",
         "Config/testthat/edition": "3",
         "Config/usethis/last-upkeep": "2025-05-27",
         "Encoding": "UTF-8",
         "Language": "en-US",
-        "RoxygenNote": "7.3.2",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-05-29 15:29:40 UTC; barret",
-        "Author": "Joe Cheng [aut, cre],\n  Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
-        "Maintainer": "Joe Cheng <joe@posit.co>",
+        "RoxygenNote": "7.3.3",
+        "NeedsCompilation": "no",
+        "Packaged": "2025-10-31 20:26:43 UTC; barret",
+        "Author": "Joe Cheng [aut],\n  Barret Schloerke [aut, cre] (ORCID:\n    <https://orcid.org/0000-0001-9986-114X>),\n  Winston Chang [aut] (ORCID: <https://orcid.org/0000-0002-1576-2126>),\n  Charlie Gao [aut] (ORCID: <https://orcid.org/0000-0002-0750-061X>),\n  Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
+        "Maintainer": "Barret Schloerke <barret@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2025-05-29 16:30:02 UTC",
-        "Built": "R 4.5.0; aarch64-apple-darwin20; 2025-05-29 17:12:45 UTC; unix",
-        "Archs": "promises.so.dSYM",
+        "Date/Publication": "2025-11-01 06:30:02 UTC",
+        "Built": "R 4.5.0; ; 2025-11-01 08:07:07 UTC; unix",
         "RemoteType": "standard",
         "RemotePkgRef": "promises",
         "RemoteRef": "promises",
-        "RemoteRepos": "https://cran.rstudio.com",
-        "RemoteSha": "1.3.3"
+        "RemoteRepos": "https://cran.rstudio.com/",
+        "RemotePkgPlatform": "aarch64-apple-darwin20",
+        "RemoteSha": "1.5.0"
       }
     },
     "proxy": {
@@ -5587,7 +5608,7 @@
       "Repository": "https://cran.rstudio.com",
       "description": {
         "Package": "rlang",
-        "Version": "1.1.7",
+        "Version": "1.2.0",
         "Title": "Functions for Base Types and Core R and 'Tidyverse' Features",
         "Description": "A toolbox for working with base types, core R features\n  like the condition system, and core 'Tidyverse' features like tidy\n  evaluation.",
         "Authors@R": "c(\n    person(\"Lionel\", \"Henry\", ,\"lionel@posit.co\", c(\"aut\", \"cre\")),\n    person(\"Hadley\", \"Wickham\", ,\"hadley@posit.co\", \"aut\"),\n    person(given = \"mikefc\",\n           email = \"mikefc@coolbutuseless.com\",\n           role = \"cph\",\n           comment = \"Hash implementation based on Mike's xxhashlite\"),\n    person(given = \"Yann\",\n           family = \"Collet\",\n           role = \"cph\",\n           comment = \"Author of the embedded xxHash library\"),\n    person(given = \"Posit, PBC\", role = c(\"cph\", \"fnd\"))\n    )",
@@ -5596,7 +5617,7 @@
         "Biarch": "true",
         "Depends": "R (>= 4.0.0)",
         "Imports": "utils",
-        "Suggests": "cli (>= 3.1.0), covr, crayon, desc, fs, glue, knitr,\nmagrittr, methods, pillar, pkgload, rmarkdown, stats, testthat\n(>= 3.2.0), tibble, usethis, vctrs (>= 0.2.3), withr",
+        "Suggests": "cli (>= 3.1.0), covr, crayon, desc, fs, glue, knitr,\nmagrittr, methods, pillar, pkgload, rmarkdown, stats, testthat\n(>= 3.3.2), tibble, usethis, vctrs (>= 0.2.3), withr",
         "Enhances": "winch",
         "Encoding": "UTF-8",
         "RoxygenNote": "7.3.3",
@@ -5606,12 +5627,12 @@
         "Config/testthat/edition": "3",
         "Config/Needs/website": "dplyr, tidyverse/tidytemplate",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-01-08 10:35:58 UTC; lionel",
+        "Packaged": "2026-04-02 12:23:10 UTC; lionel",
         "Author": "Lionel Henry [aut, cre],\n  Hadley Wickham [aut],\n  mikefc [cph] (Hash implementation based on Mike's xxhashlite),\n  Yann Collet [cph] (Author of the embedded xxHash library),\n  Posit, PBC [cph, fnd]",
         "Maintainer": "Lionel Henry <lionel@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-01-09 12:10:02 UTC",
-        "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-01-09 16:51:14 UTC; unix",
+        "Date/Publication": "2026-04-06 10:40:02 UTC",
+        "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-04-08 22:25:16 UTC; unix",
         "Archs": "rlang.so.dSYM"
       }
     },
@@ -5747,22 +5768,22 @@
         "Package": "rstudioapi",
         "Title": "Safely Access the RStudio API",
         "Description": "Access the RStudio API (if available) and provide informative error\n    messages when it's not.",
-        "Version": "0.17.1",
+        "Version": "0.19.0",
         "Authors@R": "c(\n    person(\"Kevin\", \"Ushey\", role = c(\"aut\", \"cre\"), email = \"kevin@rstudio.com\"),\n    person(\"JJ\", \"Allaire\", role = c(\"aut\"), email = \"jj@posit.co\"),\n    person(\"Hadley\", \"Wickham\", role = c(\"aut\"), email = \"hadley@posit.co\"),\n    person(\"Gary\", \"Ritchie\", role = c(\"aut\"), email = \"gary@posit.co\"),\n    person(family = \"RStudio\", role = \"cph\")\n    )",
         "Maintainer": "Kevin Ushey <kevin@rstudio.com>",
         "License": "MIT + file LICENSE",
         "URL": "https://rstudio.github.io/rstudioapi/,\nhttps://github.com/rstudio/rstudioapi",
         "BugReports": "https://github.com/rstudio/rstudioapi/issues",
-        "RoxygenNote": "7.3.2",
-        "Suggests": "testthat, knitr, rmarkdown, clipr, covr",
+        "Suggests": "testthat, knitr, rmarkdown, clipr, covr, curl, jsonlite, R6,\nwithr",
         "VignetteBuilder": "knitr",
         "Encoding": "UTF-8",
+        "Config/roxygen2/version": "8.0.0",
         "NeedsCompilation": "no",
-        "Packaged": "2024-10-22 20:55:52 UTC; kevin",
+        "Packaged": "2026-06-11 21:44:33 UTC; kevin",
         "Author": "Kevin Ushey [aut, cre],\n  JJ Allaire [aut],\n  Hadley Wickham [aut],\n  Gary Ritchie [aut],\n  RStudio [cph]",
         "Repository": "CRAN",
-        "Date/Publication": "2024-10-22 22:40:02 UTC",
-        "Built": "R 4.5.0; ; 2025-01-21 00:24:34 UTC; unix"
+        "Date/Publication": "2026-06-11 23:10:02 UTC",
+        "Built": "R 4.5.2; ; 2026-06-12 01:20:42 UTC; unix"
       }
     },
     "rvest": {
@@ -7022,16 +7043,16 @@
       "checksum": "eea0aad18cff262ddfbf2d4fdab88008"
     },
     ".RData": {
-      "checksum": "468bf3d47638d5d16542cf92577dcb6c"
+      "checksum": "b225ae232603a515f9e111aea8295048"
     },
     "bibliography/packages.bib": {
-      "checksum": "5af33feba77c880cb4ffded0dbab5070"
+      "checksum": "89dec94e2c607cdd0d3ff44267183c12"
     },
     "chapters/01-Introduction-To-R.qmd": {
       "checksum": "c36242221475c4f6c3b18b5306459b85"
     },
     "chapters/02-Introduction-To-tidyverse.qmd": {
-      "checksum": "10ba66a3294b89115843d2e014f1122c"
+      "checksum": "592800d18655d57eea657e5132d14f9d"
     },
     "chapters/03-Visualizations.qmd": {
       "checksum": "732a28296fab114dfa2aad504c08285f"
@@ -7043,13 +7064,13 @@
       "checksum": "f701375f5d65a08e1c10ded679e3791c"
     },
     "chapters/06-Analyzing-Categorical-Data.qmd": {
-      "checksum": "898380ff81cc83255a0062a87daa1223"
+      "checksum": "acfede60eb23bedd8036deca3e957b0a"
     },
     "chapters/07-Correlation.qmd": {
-      "checksum": "737ed9fcd386a98a069397299a3307f8"
+      "checksum": "d8d8000966105ded91558b815215c6ae"
     },
     "chapters/08-Linear-Regression.qmd": {
-      "checksum": "07dc0e8547e75d13bf518f8971e4fc15"
+      "checksum": "3f8cc74e70b1bfcd38dd30f0591792e5"
     },
     "chapters/09-Logistic-Regression.qmd": {
       "checksum": "301252abfdc2a147bf2ccac0f02bee52"
@@ -7064,7 +7085,7 @@
       "checksum": "af5a984033d79777ccd9775057269666"
     },
     "chapters/13-Package-References.qmd": {
-      "checksum": "4899f17486aace60fe7e7e707a5dde0f"
+      "checksum": "d30f2759a23125fc757db991d15c5c54"
     },
     "chapters/14-References.qmd": {
       "checksum": "6d2f6afcdb905c3e63857ee3c7881382"
@@ -7097,13 +7118,10 @@
       "checksum": "558757eb7f182fd7b9ae5e5adba72aa6"
     },
     "index.qmd": {
-      "checksum": "edaed375696a85e128233695f686adac"
+      "checksum": "2d8985a75d9346f5e2df5b365fd9f12e"
     },
     "LICENSE": {
       "checksum": "30af09970c4a1aaf2fd2f967b212bf09"
-    },
-    "packages.bib": {
-      "checksum": "f766bff5682c039c9a4c75913f9b7482"
     },
     "README.md": {
       "checksum": "dc87fc9c4d36ed78cad93fbaac9d0618"
@@ -7112,7 +7130,7 @@
       "checksum": "de83aeec639bc1db0ec3965baedaee3b"
     },
     "scripts/packages-bib-creation.R": {
-      "checksum": "e129cf29beda4f5c9a1c2a37439d6549"
+      "checksum": "9f976b29d8e7a681b25acf0eacc79a5f"
     }
   },
   "users": null
