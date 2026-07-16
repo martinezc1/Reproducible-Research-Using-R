@@ -89,7 +89,7 @@ Now we load it and call the function.
 ```{r}
 #| label: tbl-nycOpenData
 library(nycOpenData)
-nyc_pull_dataset(
+nycOpenData::nyc_pull_dataset(
   dataset = "x311_service_requests_from_2020_to_present",
   limit = 2
 )
