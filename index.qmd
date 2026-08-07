@@ -126,7 +126,7 @@ These individual portfolios are brought together in the **Student Portfolio Boo
 
 The result demonstrates a central idea behind the Accidental Author framework: students do not necessarily need an entirely new capstone project to create something substantial. With the right structure, the work they are already doing throughout a course can accumulate into something larger.
 
-You can explore the collection here: [**Student Portfolio Book**](https://martinezc1-reproducible-research-using-r--student-work-in-pract.share.connect.posit.cloud/) @Martinez_Student_Portfolio_2026.
+You can explore the collection here: [**Student Portfolio Book**](https://martinezc1-reproducible-research-using-r--student-work-in-pract.share.connect.posit.cloud/) [@Martinez_Student_Portfolio_2026].
 
 ## The NYC Open Data Student Gallery {#sec-nyc-gallery}
 
@@ -136,7 +136,7 @@ Each student developed a fully reproducible analysis in R, compiled their work i
 
 The Gallery showcases student research on topics ranging from public health and environmental conditions to social infrastructure and urban policy—demonstrating that reproducibility is not just a technical skill, but a tool for meaningful civic inquiry.
 
-You can explore the full collection of student projects here: [**NYC Open Data Student Gallery**](https://martinezc1-nyc-open-data-student-gallery.share.connect.posit.cloud/) @Martinez_NYC_Open_Data_2026.
+You can explore the full collection of student projects here: [**NYC Open Data Student Gallery**](https://martinezc1-nyc-open-data-student-gallery.share.connect.posit.cloud/) [@Martinez_NYC_Open_Data_2026].
 
 The Gallery reflects what is possible when reproducibility, open data, and structured workflows are integrated into the classroom from day one.
 
@@ -148,7 +148,7 @@ Additional thanks go to the Open Educational Resources team at Brooklyn College 
 
 ## Interested in Teaching with this Textbook? {#interested-in-teaching-textbook}
 
-If you are an instructor planning to use *Reproducible Research Using R* in your course, you may also find the companion textbook, *Teaching Reproducible Research Using R* @Martinez_Teaching_Reproducible_Research_2026, helpful.
+If you are an instructor planning to use *Reproducible Research Using R* in your course, you may also find the companion textbook, *Teaching Reproducible Research Using R* [@Martinez_Teaching_Reproducible_Research_2026], helpful.
 
 It includes course design guidance, implementation strategies, and instructional resources for integrating reproducible research into undergraduate and graduate classrooms.
 

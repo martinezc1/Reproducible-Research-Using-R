@@ -22,14 +22,14 @@ You *do not* need to memorize this chapter; think of it as a reference you will 
 
 By the end of this chapter, you will be able to:
 
--   Navigate the RStudio interface and identify the purpose of each pane
--   Use R as a calculator to perform basic mathematical operations
--   Build and work with objects, vectors, and different data types
--   Create and explore simple data frames
--   Access and modify data frame columns using `$`
--   Import data from external files such as CSVs and Excel spreadsheets
--   Install, load, and understand the role of R packages
--   Use built-in help tools and error messages to troubleshoot basic issues
+- Navigate the RStudio interface and identify the purpose of each pane
+- Use R as a calculator to perform basic mathematical operations
+- Build and work with objects, vectors, and different data types
+- Create and explore simple data frames
+- Access and modify data frame columns using `$`
+- Import data from external files such as CSVs and Excel spreadsheets
+- Install, load, and understand the role of R packages
+- Use built-in help tools and error messages to troubleshoot basic issues
 
 First, it's important to understand RStudio and its layout.
 
@@ -51,14 +51,14 @@ knitr::include_graphics(here("images", "r-studio-image.png"))
 
 Here, there are 4 quadrants/panes
 
--   Source - top left
-    -   This is where 99% of all of your code will be written.
--   Console - bottom left
-    -   This is where we will see if our code ran or if we have errors. That remaining 1% of code written from before will be done here.
--   Environment - top right
-    -   This is where you see what is being stored in your environment, such as data, values, and functions.
--   Files/Plots/Packages/etc - bottom right
-    -   There are many tabs here, which are mostly self-explanatory
+- Source - top left
+  - This is where 99% of all of your code will be written.
+- Console - bottom left
+  - This is where we will see if our code ran or if we have errors. That remaining 1% of code written from before will be done here.
+- Environment - top right
+  - This is where you see what is being stored in your environment, such as data, values, and functions.
+- Files/Plots/Packages/etc - bottom right
+  - There are many tabs here, which are mostly self-explanatory
 
 ::: callout-note
 ## Don't panic if your screen looks different!
@@ -129,12 +129,12 @@ value name `<-` whatever you want inside the value
 
 Now, a few tips:
 
--   R does not like spaces. Try to use underscores or elongated words.
-    -   For example: `first object <- 5` does not work, but `first_object <- 5` does.
--   R is case sensitive.
-    -   For example: `x` and `X` would not be considered the same.
--   R overwrites code.
-    -   For example: If I wrote `x <- 5` on one line and then `x <- 6` on the next line, x will be equal to 6 and not 5.
+- R does not like spaces. Try to use underscores or elongated words.
+  - For example: `first object <- 5` does not work, but `first_object <- 5` does.
+- R is case sensitive.
+  - For example: `x` and `X` would not be considered the same.
+- R overwrites code.
+  - For example: If I wrote `x <- 5` on one line and then `x <- 6` on the next line, x will be equal to 6 and not 5.
 
 Below is some code to demonstrate.
 
@@ -269,8 +269,8 @@ True or False: logical vectors are possible in R?
 
 R is able to handle logistic values (True and False). In R, you can either write it as the full word in all caps or the first letter capitalized:
 
--   `TRUE` or `FALSE`
--   `T` or `F`
+- `TRUE` or `FALSE`
+- `T` or `F`
 
 ::: callout-tip
 ## See anything in particular regarding your code?
@@ -406,15 +406,15 @@ The data frame `roster` was created using three different vectors: `names_vec`, 
 
 When exploring datasets, there are some great functions to do this:
 
--   `head()`: Returns the first part of data.
--   `tail()`: Returns the last part of data.
--   `str()`: Displays the structure of the data.
--   `summary()`: Provides a summary of summary of your data.
--   `View()`: Opens your dataset as a new window in R.
--   `colnames()`: Returns the names of all of your columns.
--   `table()`: Returns a frequency table.
--   `nrow()`: Returns the total number of rows.
--   `ncol()`: Returns the total number of columns.
+- `head()`: Returns the first part of data.
+- `tail()`: Returns the last part of data.
+- `str()`: Displays the structure of the data.
+- `summary()`: Provides a summary of summary of your data.
+- `View()`: Opens your dataset as a new window in R.
+- `colnames()`: Returns the names of all of your columns.
+- `table()`: Returns a frequency table.
+- `nrow()`: Returns the total number of rows.
+- `ncol()`: Returns the total number of columns.
 
 Thankfully, R comes preinstalled with datasets to explore and practice R with. Below we will test these functions out using the dataset *iris.*
 
@@ -472,10 +472,10 @@ So far, we have created our own data in R or used datasets that are prebuilt in 
 
 In the case when you have your own data on your computer that you want to bring into R, there are two main ways:
 
--   `read.csv()`: Imports a CSV file into R.
--   `read_xlsx()`: Imports an excel file into R (from the package `readxl`, but more about packages later).
--   `getwd()`: Gets the path of the directory you are working in.
--   `setwd()`: Sets the path in your directory that you want to work in.
+- `read.csv()`: Imports a CSV file into R.
+- `read_xlsx()`: Imports an excel file into R (from the package `readxl`, but more about packages later).
+- `getwd()`: Gets the path of the directory you are working in.
+- `setwd()`: Sets the path in your directory that you want to work in.
 
 Below is code to assist with uploading data.
 
@@ -513,15 +513,15 @@ Packages are going to be an essential part of this course, especially in the nex
 
 As previously stated, there are an innumerable amount of things that can be done in R. With so many capabilities, it is impossible to remember everything and get everything right all the time. Sometimes you may get errors when trying to run code. When your code does not work, try looking for:
 
--   Misspelling of function names
--   Unclosed brackets, parenthesis, or quotation marks
--   Spaces in names or columns
--   Not having the `<-`
--   Missing a required field from a function
+- Misspelling of function names
+- Unclosed brackets, parenthesis, or quotation marks
+- Spaces in names or columns
+- Not having the `<-`
+- Missing a required field from a function
 
 A good portion of the time, R will provide you with an error message which will have the clues to exactly what is the problem. If at any time you need help, you can ask R. The formula to follow is (no parenthesis in this case):
 
--   ?command_name
+- ?command_name
 
 Imagine for the life of you you are unable to remember what `str()` does. The below code is an example of how to ask R for help.
 
@@ -536,82 +536,82 @@ Sometimes, you may encounter an issue that is really just giving you problems. I
 
 This chapter provides the foundational skills needed to begin working with data in R. Here are some key takeaways from the chapter:
 
--   R is a programming language designed for **working with data**, where results are stored and reused rather than calculated once and discarded.
--   All work in R is built around **objects**, which allow you to store values, vectors, and datasets for later use.
--   **Vectors** store multiple values of the same type, while **data frames** combine multiple vectors into a table where rows represent observations and columns represent variables.
--   R is **case-sensitive** and does not allow spaces in object names, making consistent naming an important habit.
--   Functions in R follow a consistent structure: a function name followed by inputs inside parentheses.
--   Data can be created manually, explored using built-in datasets, or imported from external files such as CSVs or Excel spreadsheets.
--   Packages extend R’s functionality and allow you to perform more advanced analyses beyond base R.
--   Getting comfortable **reading error messages and using help tools** (`?function_name`) is an essential part of working effectively in R.
--   This chapter establishes the foundation for all analyses in the book — later chapters build on these ideas using additional tools, workflows, and statistical methods.
--   Developing consistent workflows and documenting your steps early supports reproducible research, a theme that will be emphasized throughout this book.
+- R is a programming language designed for **working with data**, where results are stored and reused rather than calculated once and discarded.
+- All work in R is built around **objects**, which allow you to store values, vectors, and datasets for later use.
+- **Vectors** store multiple values of the same type, while **data frames** combine multiple vectors into a table where rows represent observations and columns represent variables.
+- R is **case-sensitive** and does not allow spaces in object names, making consistent naming an important habit.
+- Functions in R follow a consistent structure: a function name followed by inputs inside parentheses.
+- Data can be created manually, explored using built-in datasets, or imported from external files such as CSVs or Excel spreadsheets.
+- Packages extend R’s functionality and allow you to perform more advanced analyses beyond base R.
+- Getting comfortable **reading error messages and using help tools** (`?function_name`) is an essential part of working effectively in R.
+- This chapter establishes the foundation for all analyses in the book — later chapters build on these ideas using additional tools, workflows, and statistical methods.
+- Developing consistent workflows and documenting your steps early supports reproducible research, a theme that will be emphasized throughout this book.
 
 ## Checklist: Before Moving On {#sec-intro-checklist}
 
 Before continuing to the next chapter, can you confidently say that you have:
 
--   [ ] Opened RStudio and can identify the **Source**, **Console**, **Environment**, and **Files/Plots** panes?
--   [ ] Run basic arithmetic directly in R and interpreted the output?
--   [ ] Created objects using `<-` and reused them later in your code?
--   [ ] Created **numeric**, **character**, and **logical** vectors using `c()`?
--   [ ] Indexed values from a vector using brackets `[]`?
--   [ ] Combined multiple vectors into a **data frame**?
--   [ ] Accessed and created data frame columns using `$`?
--   [ ] Used at least one function (e.g., `mean()`, `summary()`, `str()`) and understood its structure?
--   [ ] Installed and loaded a package using `install.packages()` and `library()`?
--   [ ] Used `?function_name` to look up help when unsure?
+- [ ] Opened RStudio and can identify the **Source**, **Console**, **Environment**, and **Files/Plots** panes?
+- [ ] Run basic arithmetic directly in R and interpreted the output?
+- [ ] Created objects using `<-` and reused them later in your code?
+- [ ] Created **numeric**, **character**, and **logical** vectors using `c()`?
+- [ ] Indexed values from a vector using brackets `[]`?
+- [ ] Combined multiple vectors into a **data frame**?
+- [ ] Accessed and created data frame columns using `$`?
+- [ ] Used at least one function (e.g., `mean()`, `summary()`, `str()`) and understood its structure?
+- [ ] Installed and loaded a package using `install.packages()` and `library()`?
+- [ ] Used `?function_name` to look up help when unsure?
 
 ## Key Functions & Commands {#sec-intro-key-functions}
 
 The following functions, operators, and commands are introduced for the first time in this chapter and form the foundation for working in R.
 
--   `<-` *(base R)*
-    -   Assigns values to objects for later use.
--   `c()` *(base R)*
-    -   Combines multiple values into a single vector.
--   `:` *(base R)*
-    -   Creates integer sequences (e.g., `1:10`).
--   `[]` *(base R)*
-    -   Indexes and subsets elements from vectors or data frames.
--   `$` *(base R)*
-    -   Accesses or creates columns within a data frame.
--   `sqrt()` *(base R)*
-    -   Computes square roots.
--   `log()` / `log10()` *(base R)*
-    -   Computes natural and base-10 logarithms.
--   `round()` *(base R)*
-    -   Rounds numeric values to a specified number of digits.
--   `class()` *(base R)*
-    -   Identifies the data type (class) of an object.
--   `length()` *(base R)*
-    -   Returns the number of elements in a vector.
--   `factor()` *(base R)*
-    -   Converts character data into categorical (factor) variables.
--   `levels()` *(base R)*
-    -   Displays the levels associated with a factor.
--   `data.frame()` *(base R)*
-    -   Combines vectors into a tabular data structure.
--   `head()` / `tail()` *(base R)*
-    -   Displays the first or last rows of a dataset.
--   `str()` *(base R)*
-    -   Displays the internal structure and data types of a dataset.
--   `summary()` *(base R)*
-    -   Produces descriptive summaries of variables in a dataset.
--   `nrow()` / `ncol()` *(base R)*
-    -   Returns the number of rows or columns in a dataset.
--   `colnames()` *(base R)*
-    -   Displays or modifies column names of a data frame.
--   `read.csv()` *(base R)*
-    -   Imports CSV files into R as data frames.
--   `getwd()` / `setwd()` *(base R)*
-    -   Gets or sets the current working directory.
--   `install.packages()` *(base R)*
-    -   Installs packages from CRAN.
--   `library()` *(base R)*
-    -   Loads an installed package into the current R session.
--   `?function_name` *(base R)*
-    -   Accesses built-in help documentation for a function.
+- `<-` *(base R)*
+  - Assigns values to objects for later use.
+- `c()` *(base R)*
+  - Combines multiple values into a single vector.
+- `:` *(base R)*
+  - Creates integer sequences (e.g., `1:10`).
+- `[]` *(base R)*
+  - Indexes and subsets elements from vectors or data frames.
+- `$` *(base R)*
+  - Accesses or creates columns within a data frame.
+- `sqrt()` *(base R)*
+  - Computes square roots.
+- `log()` / `log10()` *(base R)*
+  - Computes natural and base-10 logarithms.
+- `round()` *(base R)*
+  - Rounds numeric values to a specified number of digits.
+- `class()` *(base R)*
+  - Identifies the data type (class) of an object.
+- `length()` *(base R)*
+  - Returns the number of elements in a vector.
+- `factor()` *(base R)*
+  - Converts character data into categorical (factor) variables.
+- `levels()` *(base R)*
+  - Displays the levels associated with a factor.
+- `data.frame()` *(base R)*
+  - Combines vectors into a tabular data structure.
+- `head()` / `tail()` *(base R)*
+  - Displays the first or last rows of a dataset.
+- `str()` *(base R)*
+  - Displays the internal structure and data types of a dataset.
+- `summary()` *(base R)*
+  - Produces descriptive summaries of variables in a dataset.
+- `nrow()` / `ncol()` *(base R)*
+  - Returns the number of rows or columns in a dataset.
+- `colnames()` *(base R)*
+  - Displays or modifies column names of a data frame.
+- `read.csv()` *(base R)*
+  - Imports CSV files into R as data frames.
+- `getwd()` / `setwd()` *(base R)*
+  - Gets or sets the current working directory.
+- `install.packages()` *(base R)*
+  - Installs packages from CRAN.
+- `library()` *(base R)*
+  - Loads an installed package into the current R session.
+- `?function_name` *(base R)*
+  - Accesses built-in help documentation for a function.
 
 ## 💡 *Reproducibility Tip:* {#sec-intro-tip}
 
