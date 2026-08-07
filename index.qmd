@@ -104,7 +104,7 @@ If you are not able to download both on your computer but still want to learn/us
 
 ## The Accidental Author {#sec-accidental-author}
 
-The learning experience built around this textbook extends beyond completing individual assignments. It is informed by *The Accidental Author*, a teaching framework designed around a simple idea: **student work should outlive the semester**.
+The learning experience built around this textbook extends beyond completing individual assignments. It is informed by *The Accidental Author*, a teaching framework designed around a simple idea: **student work should outlive the semester**.
 
 Rather than treating assignments as isolated exercises that are submitted, graded, and set aside, the Accidental Author framework encourages students to revise, accumulate, and organize their work over time. Individual assignments become parts of a larger body of work, allowing students to leave a course with tangible evidence of what they learned and created.
 
@@ -112,9 +112,9 @@ In courses using this textbook, reproducible research provides the technical fou
 
 The framework is designed to be broader than any particular technology, course, or discipline. R and Quarto are simply how it is implemented here.
 
-You can learn more about the framework and how it can be implemented in the classroom here: [***The Accidental Author: An Implementation Guide***](https://martinezc1-the-accidental-author.share.connect.posit.cloud/)
+- 📖 Learn more about the framework and how it can be implemented in the classroom: [***The Accidental Author: An Implementation Guide***](https://martinezc1-the-accidental-author.share.connect.posit.cloud/)
 
-A condensed overview is also available here: [***The Accidental Author: At a Glance***](https://martinezc1-the-accidental-author--at-a-glance.share.connect.posit.cloud/)
+- 📖 A condensed overview is also available: [***The Accidental Author: At a Glance***](https://martinezc1-the-accidental-author--at-a-glance.share.connect.posit.cloud/)
 
 ## From Assignments to Portfolios {#sec-student-portfolios}
 
@@ -122,11 +122,11 @@ One way the Accidental Author framework is implemented alongside this textbook i
 
 Throughout the course, students complete reproducible assignments using R and Quarto. Rather than allowing those assignments to remain separate files, students revise and compile their work into individual Quarto books. By the end of the course, what began as a series of assignments has become a structured portfolio documenting their development and demonstrating the skills they built along the way.
 
-These individual portfolios are brought together in the **Student Portfolio Book**, a collective resource that provides access to each student's work in one place.
+These individual portfolios are brought together in the **Student Portfolio Book**, a collective resource that provides access to each student's work in one place.
 
 The result demonstrates a central idea behind the Accidental Author framework: students do not necessarily need an entirely new capstone project to create something substantial. With the right structure, the work they are already doing throughout a course can accumulate into something larger.
 
-You can explore the collection here: [**Student Portfolio Book**](https://martinezc1-reproducible-research-using-r--student-work-in-pract.share.connect.posit.cloud/) [@Martinez_Student_Portfolio_2026].
+- 📖 Check out the collection: [**Student Portfolio Book**](https://martinezc1-reproducible-research-using-r--student-work-in-pract.share.connect.posit.cloud/) [@Martinez_Student_Portfolio_2026].
 
 ## The NYC Open Data Student Gallery {#sec-nyc-gallery}
 
@@ -136,7 +136,7 @@ Each student developed a fully reproducible analysis in R, compiled their work i
 
 The Gallery showcases student research on topics ranging from public health and environmental conditions to social infrastructure and urban policy—demonstrating that reproducibility is not just a technical skill, but a tool for meaningful civic inquiry.
 
-You can explore the full collection of student projects here: [**NYC Open Data Student Gallery**](https://martinezc1-nyc-open-data-student-gallery.share.connect.posit.cloud/) [@Martinez_NYC_Open_Data_2026].
+- 📖 Explore the full collection of student projects: [**NYC Open Data Student Gallery**](https://martinezc1-nyc-open-data-student-gallery.share.connect.posit.cloud/) [@Martinez_NYC_Open_Data_2026].
 
 The Gallery reflects what is possible when reproducibility, open data, and structured workflows are integrated into the classroom from day one.
 
@@ -152,7 +152,7 @@ If you are an instructor planning to use *Reproducible Research Using R* in your
 
 It includes course design guidance, implementation strategies, and instructional resources for integrating reproducible research into undergraduate and graduate classrooms.
 
-- 📖 [Read the companion textbook](https://martinezc1-teaching-reproducible-research-using-r.share.connect.posit.cloud/)
+- 📖 Read the companion textbook [Teaching Reproducible Research Using R](https://martinezc1-teaching-reproducible-research-using-r.share.connect.posit.cloud/)
 
 ::: callout-note
 ### Part of a Larger Ecosystem
