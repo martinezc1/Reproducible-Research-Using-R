@@ -10,12 +10,12 @@ This book was created in conjunction with the Open Educational Resources initiat
 
 By working through this book, you will learn how to:
 
--   Use R and RStudio as an integrated research environment\
--   Import, clean, and explore data using modern R tools\
--   Visualize data clearly and intentionally\
--   Conduct common statistical analyses used in applied research\
--   Interpret results in context—not just report numbers\
--   Create fully reproducible reports using R Markdown and Bookdown
+- Use R and RStudio as an integrated research environment\
+- Import, clean, and explore data using modern R tools\
+- Visualize data clearly and intentionally\
+- Conduct common statistical analyses used in applied research\
+- Interpret results in context—not just report numbers\
+- Create fully reproducible reports using Quarto
 
 Throughout the book, reproducibility is treated not as an “extra” or an advanced topic, but as a **default practice**.
 
@@ -23,9 +23,9 @@ Throughout the book, reproducibility is treated not as an “extra” or an adva
 
 You do *not* need prior experience with:
 
--   R
--   Programming
--   Command-line tools
+- R
+- Programming
+- Command-line tools
 
 Basic familiarity with research methods and statistics is helpful, but the focus of this book is on **implementation and workflow**, not statistical theory.
 
@@ -33,9 +33,9 @@ Basic familiarity with research methods and statistics is helpful, but the focus
 
 This book is not intended to be:
 
--   A comprehensive statistics theory textbook\
--   A software engineering or computer science text\
--   An advanced machine learning or big-data resource
+- A comprehensive statistics theory textbook\
+- A software engineering or computer science text\
+- An advanced machine learning or big-data resource
 
 Instead, it focuses on the tools and practices most commonly needed to conduct and present reproducible research in applied settings.
 
@@ -47,28 +47,28 @@ This book is designed to be flexible. You can read it cover-to-cover, jump direc
 
 The breakdown of the book is as follows:
 
--   Part I: Foundations
-    -   Getting Started with R
-    -   Working with Data Using the tidyverse
-    -   Data Visualization with ggplot2
--   Part II: Making Comparisons
-    -   Comparing Two Groups: Data Wrangling, Visualization, and t-Tests
-    -   Comparing Multiple Means
-    -   Analyzing Categorical Data
--   Part III: Relationships and Modeling
-    -   Correlation
-    -   Linear Regression
-    -   Logistic Regression
--   Part IV: Reproducible Communication
-    -   Reproducible Reporting with R Markdown
+- Part I: Foundations
+  - Getting Started with R
+  - Working with Data Using the tidyverse
+  - Data Visualization with ggplot2
+- Part II: Making Comparisons
+  - Comparing Two Groups: Data Wrangling, Visualization, and t-Tests
+  - Comparing Multiple Means
+  - Analyzing Categorical Data
+- Part III: Relationships and Modeling
+  - Correlation
+  - Linear Regression
+  - Logistic Regression
+- Part IV: Reproducible Communication
+  - Reproducible Reporting with Quarto
 
 Most chapters follow a consistent structure:
 
--   Conceptual explanation of *why* a tool or method is useful\
--   Step-by-step code examples\
--   Visualizations and outputs\
--   Interpretation and best practices\
--   A checklist to reinforce reproducible habits
+- Conceptual explanation of *why* a tool or method is useful\
+- Step-by-step code examples\
+- Visualizations and outputs\
+- Interpretation and best practices\
+- A checklist to reinforce reproducible habits
 
 This repetition is intentional. Consistency helps build intuition.
 
@@ -77,19 +77,19 @@ This repetition is intentional. Consistency helps build intuition.
 All code in this book is meant to be **run**, **modified**, and occasionally **broken**. Learning happens when you experiment.
 
 ::: callout-tip
-## As my father always says:
+### As my father always says:
 
 That's why they put erasers on pencils
 :::
 
 ### The reproresearchR Package {#sec-reproresearchR-package}
 
-The datasets used throughout this book are provided in the companion R package `reproresearchR`, allowing readers to load data directly into R without manually downloading files. This ensures that all examples run the same way for everyone. All figures, tables, and analyses in this book are generated directly from code—never copied and pasted from external software—so that every result is fully reproducible. Chapters @sec-intro-cat-analysis, @sec-intro-cor, and @sec-linear-reg all use data from the pakage.
+The datasets used throughout this book are provided in the companion R package `reproresearchR` (@R-reproresearchR), allowing readers to load data directly into R without manually downloading files. This ensures that all examples run the same way for everyone. All figures, tables, and analyses in this book are generated directly from code—never copied and pasted from external software—so that every result is fully reproducible. Chapters @sec-intro-cat-analysis, @sec-intro-cor, and @sec-linear-reg all use data from the pakage.
 
-The `reproresearchR` (@R-reproresearchR) package also includes two versions of each chapter’s R script:
+The `reproresearchR` package also includes two versions of each chapter’s R script:
 
--   Full Script: the complete code used to generate all analyses and figures in the chapter.
--   Helper Script: a partially completed script with key sections removed, allowing you to work along with the textbook by filling in the missing code.
+- Full Script: the complete code used to generate all analyses and figures in the chapter.
+- Helper Script: a partially completed script with key sections removed, allowing you to work along with the textbook by filling in the missing code.
 
 Once R and the `reproresearchR` package are installed (with RStudio recommended), readers have everything they need to follow along and successfully complete the analyses in this textbook.
 
@@ -102,15 +102,41 @@ If it isn't already evident, this textbook is about the programming language R. 
 
 If you are not able to download both on your computer but still want to learn/use R, you can use the online version [here](https://posit.cloud/content/yours?sort=name_asc).
 
+## The Accidental Author {#sec-accidental-author}
+
+The learning experience built around this textbook extends beyond completing individual assignments. It is informed by *The Accidental Author*, a teaching framework designed around a simple idea: **student work should outlive the semester**.
+
+Rather than treating assignments as isolated exercises that are submitted, graded, and set aside, the Accidental Author framework encourages students to revise, accumulate, and organize their work over time. Individual assignments become parts of a larger body of work, allowing students to leave a course with tangible evidence of what they learned and created.
+
+In courses using this textbook, reproducible research provides the technical foundation for this process. R and Quarto allow analyses, explanations, visualizations, and results to be combined into documents that can be revised and eventually assembled into larger projects and portfolios.
+
+The framework is designed to be broader than any particular technology, course, or discipline. R and Quarto are simply how it is implemented here.
+
+You can learn more about the framework and how it can be implemented in the classroom here: [***The Accidental Author: An Implementation Guide***](https://martinezc1-the-accidental-author.share.connect.posit.cloud/)
+
+A condensed overview is also available here: [***The Accidental Author: At a Glance***](https://martinezc1-the-accidental-author--at-a-glance.share.connect.posit.cloud/)
+
+## From Assignments to Portfolios {#sec-student-portfolios}
+
+One way the Accidental Author framework is implemented alongside this textbook is through student portfolios.
+
+Throughout the course, students complete reproducible assignments using R and Quarto. Rather than allowing those assignments to remain separate files, students revise and compile their work into individual Quarto books. By the end of the course, what began as a series of assignments has become a structured portfolio documenting their development and demonstrating the skills they built along the way.
+
+These individual portfolios are brought together in the **Student Portfolio Book**, a collective resource that provides access to each student's work in one place.
+
+The result demonstrates a central idea behind the Accidental Author framework: students do not necessarily need an entirely new capstone project to create something substantial. With the right structure, the work they are already doing throughout a course can accumulate into something larger.
+
+You can explore the collection here: [**Student Portfolio Book**](https://martinezc1-reproducible-research-using-r--student-work-in-pract.share.connect.posit.cloud/) @Martinez_Student_Portfolio_2026.
+
 ## The NYC Open Data Student Gallery {#sec-nyc-gallery}
 
-This textbook is part of a broader reproducible research initiative built around real civic data. Students at Brooklyn College used the workflow outlined in this book to conduct original research projects using datasets from [New York City’s Open Data portal](https://opendata.cityofnewyork.us/) @Martinez_NYC_Open_Data_2026. 
+Alongside their individual portfolios, students at Brooklyn College used the workflow outlined in this book to conduct original research projects using datasets from [New York City’s Open Data portal](https://opendata.cityofnewyork.us/).
 
 Each student developed a fully reproducible analysis in R, compiled their work into a structured report, and produced a final research project grounded in real public data. These projects were then assembled into a collective publication: the NYC Open Data Student Gallery.
 
 The Gallery showcases student research on topics ranging from public health and environmental conditions to social infrastructure and urban policy—demonstrating that reproducibility is not just a technical skill, but a tool for meaningful civic inquiry.
 
-You can explore the full collection of student projects here: [**NYC Open Data Student Gallery**](https://martinezc1-nyc-open-data-student-gallery.share.connect.posit.cloud/)
+You can explore the full collection of student projects here: [**NYC Open Data Student Gallery**](https://martinezc1-nyc-open-data-student-gallery.share.connect.posit.cloud/) @Martinez_NYC_Open_Data_2026.
 
 The Gallery reflects what is possible when reproducibility, open data, and structured workflows are integrated into the classroom from day one.
 
@@ -128,7 +154,7 @@ It includes course design guidance, implementation strategies, and instructional
 
 - 📖 [Read the companion textbook](https://martinezc1-teaching-reproducible-research-using-r.share.connect.posit.cloud/)
 
-::: {.callout-note}
+::: callout-note
 ### Part of a Larger Ecosystem
 
 *Reproducible Research Using R* is one component of the NYC Open Data Lab ecosystem, which brings together open educational resources, open-source software, and public-facing research to support reproducible workflows.
@@ -136,7 +162,6 @@ It includes course design guidance, implementation strategies, and instructional
 As you continue through this book, you'll be introduced to tools such as `nycOpenData` and other resources developed through the Lab.
 
 🌐 Learn more about the NYC Open Data Lab: <https://www.nycopendatalab.org>
-
 :::
 
 ## License
@@ -145,12 +170,12 @@ This work is licensed under a Creative Commons Attribution 4.0 International Lic
 
 You are free to:
 
--   Share — copy and redistribute the material
--   Adapt — remix, transform, and build upon the material
+- Share — copy and redistribute the material
+- Adapt — remix, transform, and build upon the material
 
 Under the following terms:
 
--   Attribution — You must give appropriate credit.
+- Attribution — You must give appropriate credit.
 
 [Full license](https://creativecommons.org/licenses/by/4.0/)
 
@@ -164,6 +189,6 @@ Martinez, C. (2026). *Reproducible Research Using R* (Version 1.0.0). Zenodo. ht
 
 #### v1.0.0 (2026)
 
--   Initial public release
--   Full textbook curriculum covering data analysis, visualization, and modeling in R
--   Used in Fall 2025 coursework at Brooklyn College (CUNY)
+- Initial public release
+- Full textbook curriculum covering data analysis, visualization, and modeling in R
+- Used in Fall 2025 coursework at Brooklyn College (CUNY)

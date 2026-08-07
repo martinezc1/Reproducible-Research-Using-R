@@ -106,69 +106,119 @@ With some examples under our belt, let's move to the tidyverse!
 
 Last chapter, R was introduced. In this chapter, we will be building on the basic language and syntax we learned and build upon it with `tidyverse`.
 
-### The Pipe {#sec-tidyverse-pipe}
+What makes the `tidyverse` package so ubiquitous with R is that `tidyverse` is actually a **collection** of R packages in one package. By installing and loading the tidyverse package, you are actually installing and loading a bevy of packages and significantly powering up your R session. Here are the packages included in `tidyverse`:
 
-One of the best things that the `tidyverse` has to offer is called *piping*. It technically comes from the `magrittr` package. What makes the `tidyverse` package so ubiquitous with R is that `tidyverse` is actually a **collection** of R packages in one package. By installing and loading the tidyverse package, you are actually installing and loading a bevy of packages and significantly powering up your R session. Here are the packages included in `tidyverse`:
-
-- `dplyr`
-  - Tools for data manipulation, including `select()`, `filter()`, `mutate()`, `arrange()`, and `summarize()`.
 - `ggplot2`
   - A powerful system for creating data visualizations using the grammar of graphics.
+- `dplyr`
+  - Tools for data manipulation, including `select()`, `filter()`, `mutate()`, `arrange()`, and `summarize()`.
 - `tidyr`
   - Tools for reshaping and cleaning data, such as `pivot_longer()` and `pivot_wider()`.
 - `readr`
   - Functions for reading data into R (e.g., CSV files) quickly and consistently.
+- `purrr`
+  - Tools for functional programming and working with lists, including functions such as `map()`.
 - `tibble`
   - A modern reimagining of data frames with improved printing and behavior.
 - `stringr`
   - Tools for working with text data, such as `str_trim()` and `str_to_upper()`.
+- `lubridate`
+  - Tools for working with dates and times.
 - `forcats`
   - Tools for working with categorical (factor) variables.
 
-Piping is telling R the sequence you want things to be done in code, and uses `|>`. Below is an example of how you would write something.
+This is what's called a *metapackage*: a package designed to install and load a collection of related packages. Could you install and load each of these packages individually? *Absolutely.* Is it often much easier to just install and load the `tidyverse` instead? *100%.*
 
-```{r}
+To stay up to date and learn more about the `tidyverse`, check out the official documentation [here](https://tidyverse.org/).
+
+### The Pipe {#sec-tidyverse-pipe} {#sec-tidyverse-pipe}
+
+As your R code becomes more complex, you will often want to perform several operations in sequence. **Piping** provides a convenient way to do this by passing the result of one operation directly into the next.
+
+Modern R includes a built-in pipe operator:
+
+```         
+|>
+```
+
+You can think of the pipe as meaning **"and then."** It allows you to write code as a sequence of steps that can be read from left to right.
+
+For example, in base R, we can find the square root of a number using:
+
+```         
 #| label: pipe-intro
-# In base R, to find the square root of a number, we would use this:
 sqrt(42)
+```
 
-# With piping, we could rewrite it like this:
+Using the pipe, we can rewrite this as:
+
+```         
 42 |> sqrt()
 ```
 
+Both pieces of code produce the same result. The second can be read as:
+
+> Take `42`, **and then** apply `sqrt()`.
+
+As pipelines become longer, this left-to-right structure can make code much easier to read.
+
 ::: callout-note
-## The Native Pipe `|>` vs. `%>%`
+#### The Native Pipe `|>` vs. `%>%`
 
-The native pipe `|>` is built into R and is the modern standard. However, you will often see older code using `%>%`. That version requires the **magrittr** or **tidyverse** package to be loaded to work.
-:::
+If you look at R code online, in textbooks, or in older projects, you may also encounter another pipe:
 
-In base R, code is written inside out. What I mean by that is that base R code is often evaluated from the inside out. You take the 42 (inside the square root) and then square root it. With piping, it is read left to right. First this, then this, etc.
-
-Let's use a more potent example. You're starting this book and have been thinking, " i love r! ". It is all lowercase and has whitespace before and after the words. However, you love R so much you want it to be in all caps, and you don't want whitespace ruining your exclamation. Below is the way to do this in base R and then using piping.
-
-For reference, the `str_to_upper()` command capitalizes everything in a string, and the `str_trim()` removes leading and trailing whitespace in a string. Both are a part of the `stringr` package in the `tidyverse`.
-
-```{r}
-#| label: pipe-cleaning
-str_to_upper(str_trim(" i love r! "))
-
-" i love r! " |> str_trim() |> str_to_upper()
-
-# You can also move down instead if you like
-# " Adelie " |>
-#   str_trim() |>
-#  str_to_upper()
+```         
+%>%
 ```
 
-Those two pieces of code do the same thing, but they look **very** different:
+The `%>%` pipe comes from the **magrittr** package and became especially popular through its use with the **tidyverse**. The `|>`pipe was later added directly to base R.
 
-1.  The first reads right to left, or middle to outer. It starts with the string inside the `str_trim()`, then you have to move outward to the `str_to_upper()`, moving right to left moving from parenthesis to parenthesis.
-2.  The second reads left to right. It goes string %\>% function %\>% function. It takes the string, trims the whitespace, then turns it to uppercase.
+In this book, we will primarily use the native R pipe, `|>`. However, it is important to recognize `%>%` because it is still common in existing R and tidyverse code.
 
-**The first starts with a function, the second starts with what we want the function(s) to be applied to.**
+For most of the pipelines used in this book, they serve the same purpose: passing the result of one step into the next.
+:::
+
+Let's look at a more useful example. You're starting this book and have been thinking, `" i love r! "`. It is all lowercase and has whitespace before and after the words. However, you love R so much that you want it to be in all caps, and you don't want whitespace ruining your exclamation.
+
+For reference, `str_to_upper()` capitalizes everything in a string, while `str_trim()` removes leading and trailing whitespace. Both functions come from the `stringr` package, which is part of the tidyverse.
+
+Without piping, we could write:
+
+```         
+#| label: pipe-cleaning
+str_to_upper(str_trim(" i love r! "))
+```
+
+This works, but R evaluates the nested functions from the **inside out**. First, `" i love r! "` is passed to `str_trim()`. The result is then passed to `str_to_upper()`.
+
+Using a pipe, we can instead write:
+
+```         
+" i love r! " |> str_trim() |> str_to_upper()
+```
+
+Or, to make each step even easier to see:
+
+```         
+" i love r! " |>
+  str_trim() |>
+  str_to_upper()
+```
+
+The two approaches produce the same result, but the pipeline follows the order in which we think about the operations:
+
+1.  Start with `" i love r! "`.
+
+2.  Trim the whitespace.
+
+3.  Convert the text to uppercase.
+
+Instead of nesting one function inside another, the pipe lets us start with the object we are working with and then move through each transformation from left to right.
+
+**The first approach starts with the functions. The pipeline starts with the object we want those functions to be applied to.**
 
 ::: callout-tip
-## When piping, the rule of thumb is:
+#### When piping, the rule of thumb is:
 
 Each line in a pipeline should perform one clear transformation.
 :::
