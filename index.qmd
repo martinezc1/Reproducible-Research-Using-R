@@ -84,7 +84,7 @@ That's why they put erasers on pencils
 
 ### The reproresearchR Package {#sec-reproresearchR-package}
 
-The datasets used throughout this book are provided in the companion R package `reproresearchR` (@R-reproresearchR), allowing readers to load data directly into R without manually downloading files. This ensures that all examples run the same way for everyone. All figures, tables, and analyses in this book are generated directly from code—never copied and pasted from external software—so that every result is fully reproducible. Chapters @sec-intro-cat-analysis, @sec-intro-cor, and @sec-linear-reg all use data from the pakage.
+The datasets used throughout this book are provided in the companion R package `reproresearchR` (@R-reproresearchR), allowing readers to load data directly into R without manually downloading files. This ensures that all examples run the same way for everyone. All figures, tables, and analyses in this book are generated directly from code—never copied and pasted from external software—so that every result is fully reproducible. Chapters @sec-cat-analysis, @sec-cor, and @sec-linear-reg all use data from the package
 
 The `reproresearchR` package also includes two versions of each chapter’s R script:
 
@@ -92,6 +92,20 @@ The `reproresearchR` package also includes two versions of each chapter’s R sc
 - Helper Script: a partially completed script with key sections removed, allowing you to work along with the textbook by filling in the missing code.
 
 Once R and the `reproresearchR` package are installed (with RStudio recommended), readers have everything they need to follow along and successfully complete the analyses in this textbook.
+
+::: callout-tip
+#### Getting a chapter script
+
+Each chapter has both a *helper* and a *full* chapter script for users who want to code alongside the textbook. The helper script provides a starting point for working through the chapter, while the full script contains the completed code.
+
+With the `reproresearchR` package installed and loaded, simply choose the chapter and the version you want. For example:
+
+```         
+chapter_script(3, "helper", dest = tmp, overwrite = TRUE)
+```
+
+This retrieves the helper script for Chapter 3. Check out the `reproresearchR` package documentation to learn more about the available chapter scripts.
+:::
 
 ### R and RStudio {#R-and-RStudio-mentioning}
 

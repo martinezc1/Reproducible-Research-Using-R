@@ -1,6 +1,5 @@
----
-title: "Reproducible Reporting: R Markdown"
----
+
+# Reproducible Reporting: R Markdown {#sec-markdown}
 
 ## Introduction {#sec-intro-r-markdown}
 
@@ -8,10 +7,10 @@ Throughout this book, we have been writing R code in separate R scripts. This is
 
 This is exactly where R Markdown comes into play. With R Markdown, you are able to:
 
--   Write code just as you would in an R script
--   Have dedicated spaces for text
--   Show outputs for numbers and visuals
--   Share with people outside of the R environment
+- Write code just as you would in an R script
+- Have dedicated spaces for text
+- Show outputs for numbers and visuals
+- Share with people outside of the R environment
 
 In fact, this entire book was written using R Markdown! Each chapter is a different R Markdown file all put together.
 
@@ -21,18 +20,18 @@ In this chapter, we are going to go through the benefits of R Markdown and how t
 
 By the end of this chapter, you will be able to:
 
--   Explain the purpose of R Markdown and how it supports reproducible research
--   Describe the limitations of standalone R scripts for communicating analysis
--   Create a new R Markdown document and select an appropriate output format
--   Identify and modify the core components of an R Markdown file, including the YAML, text, and R code chunks
--   Write and format narrative text using Markdown syntax
--   Create, name, and manage R code chunks to control how code and output are displayed
--   Display numerical output, tables, and visualizations within an R Markdown document
--   Improve table and figure presentation using captions and formatting tools
--   Organize analyses using sections and subsections to create a clear document structure
--   Knit an R Markdown document and troubleshoot common knitting errors
--   Publish and share R Markdown output outside of the R environment
--   Apply best practices to ensure an R Markdown document is reproducible and understandable on its own
+- Explain the purpose of R Markdown and how it supports reproducible research
+- Describe the limitations of standalone R scripts for communicating analysis
+- Create a new R Markdown document and select an appropriate output format
+- Identify and modify the core components of an R Markdown file, including the YAML, text, and R code chunks
+- Write and format narrative text using Markdown syntax
+- Create, name, and manage R code chunks to control how code and output are displayed
+- Display numerical output, tables, and visualizations within an R Markdown document
+- Improve table and figure presentation using captions and formatting tools
+- Organize analyses using sections and subsections to create a clear document structure
+- Knit an R Markdown document and troubleshoot common knitting errors
+- Publish and share R Markdown output outside of the R environment
+- Apply best practices to ensure an R Markdown document is reproducible and understandable on its own
 
 ## Creating an R Markdown File {#sec-r-markdown-creation}
 
@@ -54,11 +53,11 @@ R Markdown is very similar to a traditional R script, but it has more rules and 
 
 At the top of the document you will find what is called the YAML, which contains the metadata for the document. It has four default components:
 
--   title: What the title of your R Markdown is.
--   author: Who the author is (you).
--   date: The date of the R Markdown (defaults to the date of your computer).
--   output: The output you designated the document to be created into
-    -   There are some cool things you can add here, like change the overall theme or add TOC (table of contents). Like anything in R, take some time to explore and experiment with this.
+- title: What the title of your R Markdown is.
+- author: Who the author is (you).
+- date: The date of the R Markdown (defaults to the date of your computer).
+- output: The output you designated the document to be created into
+  - There are some cool things you can add here, like change the overall theme or add TOC (table of contents). Like anything in R, take some time to explore and experiment with this.
 
 You'll also notice that the YAML is contained within `---`. Besides being at the top of the document, this is R's way of knowing that this *specific* part of the document is the YAML.
 
@@ -68,9 +67,9 @@ In an R script, every line is dedicated to writing code, with you having to spec
 
 Instead of the default being R code, anything you write in a document is treated as text. This is incredibly useful when you want to:
 
--   narrate or tell a story
--   describe your code
--   describe the output of your code
+- narrate or tell a story
+- describe your code
+- describe the output of your code
 
 For instance, what you're reading right now is text inside an R Markdown file. There is no special way of telling R in an R Markdown file that this is text, because it by default **knows** that this is text.
 
@@ -265,10 +264,10 @@ In chapter 3, I showed you all a picture of a Adelie penguin. Below is the code 
 
 The formula for this goes:
 
--   `!`: Letting R know that you're about to add a picture.
--   `[]`: Providing a description for the picture for people unable to see the picture.
--   `()`: The link to the picture.
-    -   The image needs to live in the same part of your computer that your R Markdown file lives.
+- `!`: Letting R know that you're about to add a picture.
+- `[]`: Providing a description for the picture for people unable to see the picture.
+- `()`: The link to the picture.
+  - The image needs to live in the same part of your computer that your R Markdown file lives.
 
 ### Checklists {#sec-r-markdown-checklist-creation}
 
@@ -308,67 +307,67 @@ Each R chunk is unique and requires different settings based upon what is inside
 
 ## Key Takeaways {#sec-r-markdown-takeaways}
 
--   R Markdown allows you to combine code, narrative text, and output in a single document, making analyses easier to understand, share, and reproduce.
--   While an R script can be reproducible, R Markdown improves reproducibility by clearly linking analysis decisions, results, and interpretation in one place.
--   Every R Markdown document is structured around three core components: YAML metadata, text, and R code chunks.
--   The YAML section controls important document-level information such as the title, author, date, and output format.
--   Text in R Markdown is written using Markdown syntax, allowing you to format headings, lists, emphasis, links, images, and quotes without writing code.
--   All R code must be written inside R chunks, which behave like a mini R script and are executed from top to bottom when the document is knitted.
--   Naming R chunks helps organize your analysis and prevents errors during knitting.
--   Calling objects, functions, or plots inside a chunk automatically displays their output in the final document.
--   Functions like `kable()` allow you to present tables in a cleaner, more readable format than raw console output.
--   Knitting an R Markdown file runs the entire document in a clean environment, which helps identify missing objects, forgotten packages, and reproducibility issues.
--   Publishing an R Markdown document allows you to share your work beyond R, turning analyses into polished, shareable artifacts.
--   This chapter brings together everything from earlier chapters, showing how data manipulation, visualization, and analysis can be communicated clearly and reproducibly in a final report.
+- R Markdown allows you to combine code, narrative text, and output in a single document, making analyses easier to understand, share, and reproduce.
+- While an R script can be reproducible, R Markdown improves reproducibility by clearly linking analysis decisions, results, and interpretation in one place.
+- Every R Markdown document is structured around three core components: YAML metadata, text, and R code chunks.
+- The YAML section controls important document-level information such as the title, author, date, and output format.
+- Text in R Markdown is written using Markdown syntax, allowing you to format headings, lists, emphasis, links, images, and quotes without writing code.
+- All R code must be written inside R chunks, which behave like a mini R script and are executed from top to bottom when the document is knitted.
+- Naming R chunks helps organize your analysis and prevents errors during knitting.
+- Calling objects, functions, or plots inside a chunk automatically displays their output in the final document.
+- Functions like `kable()` allow you to present tables in a cleaner, more readable format than raw console output.
+- Knitting an R Markdown file runs the entire document in a clean environment, which helps identify missing objects, forgotten packages, and reproducibility issues.
+- Publishing an R Markdown document allows you to share your work beyond R, turning analyses into polished, shareable artifacts.
+- This chapter brings together everything from earlier chapters, showing how data manipulation, visualization, and analysis can be communicated clearly and reproducibly in a final report.
 
 ## Checklist {#sec-r-markdown-checklist}
 
 **When creating an R Markdown document, have you:**
 
--   [ ] Chosen the appropriate output format (HTML, PDF, or Word) based on how the document will be shared?
--   [ ] Clearly defined the YAML metadata (title, author, date, output)?
--   [ ] Written narrative text that explains *why* the analysis is being done, not just *what* the code does?
--   [ ] Organized the document into logical sections using headers (`#`, `##`, `###`)?
--   [ ] Named your R chunks clearly so their purpose is easy to understand?
--   [ ] Loaded all required packages within the document to ensure reproducibility?
--   [ ] Verified that the document knits successfully from top to bottom without errors?
--   [ ] Checked that all tables and figures are readable and appropriately formatted?
--   [ ] Added captions to tables (`kable()`) and figures (`fig.cap`) where explanation is helpful?
--   [ ] Avoided printing unnecessary output (e.g., overly large tables or intermediate objects)?
--   [ ] Used text formatting (bold, italics, lists, quotes) intentionally to guide the reader?
--   [ ] Asked: *Could someone unfamiliar with this analysis understand the results by reading this document alone?*
+- [ ] Chosen the appropriate output format (HTML, PDF, or Word) based on how the document will be shared?
+- [ ] Clearly defined the YAML metadata (title, author, date, output)?
+- [ ] Written narrative text that explains *why* the analysis is being done, not just *what* the code does?
+- [ ] Organized the document into logical sections using headers (`#`, `##`, `###`)?
+- [ ] Named your R chunks clearly so their purpose is easy to understand?
+- [ ] Loaded all required packages within the document to ensure reproducibility?
+- [ ] Verified that the document knits successfully from top to bottom without errors?
+- [ ] Checked that all tables and figures are readable and appropriately formatted?
+- [ ] Added captions to tables (`kable()`) and figures (`fig.cap`) where explanation is helpful?
+- [ ] Avoided printing unnecessary output (e.g., overly large tables or intermediate objects)?
+- [ ] Used text formatting (bold, italics, lists, quotes) intentionally to guide the reader?
+- [ ] Asked: *Could someone unfamiliar with this analysis understand the results by reading this document alone?*
 
 ## Key Functions & Commands {#sec-r-markdown-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support reproducible reporting and polished output in R Markdown documents.
 
--   `knitr::opts_chunk$set()` *(knitr)*
-    -   Sets global options for all R code chunks in an R Markdown document.
--   `kable()` *(knitr)*
-    -   Creates clean, well-formatted tables from data frames for display in R Markdown output.
+- `knitr::opts_chunk$set()` *(knitr)*
+  - Sets global options for all R code chunks in an R Markdown document.
+- `kable()` *(knitr)*
+  - Creates clean, well-formatted tables from data frames for display in R Markdown output.
 
 ## Summary of Common R Markdown Syntax {#sec-r-markdown-syntax-summary}
 
 In addition to R functions, R Markdown relies on a small set of Markdown syntax rules to format text and structure documents. These elements are not functions, but they are essential for writing clear, readable, and professional reports.
 
--   Text emphasis:
-    -   `*text*`: Italicizes text.
-    -   `**text**`: Bolds text.
-    -   `***text***`: Bold and italic text.
--   Headings:
-    -   `#`: Primary heading (chapter-level).
-    -   `##`: Section heading.
-    -   `###`: Subsection heading.
--   Lists:
-    -   `-`: Creates a bulleted list.
-    -   `1.`: Creates a numbered list.
-    -   `[ ]`: Creates a checklist.
--   Links:
-    -   `[text](url)`: Creates a clickable hyperlink.
--   Images:
-    -   `![alt text](path)`: Inserts an image into the document, with alternative text for accessibility.
--   Block quotes:
-    -   `>`: Highlights a block of text, often used for emphasis or reflection.
+- Text emphasis:
+  - `*text*`: Italicizes text.
+  - `**text**`: Bolds text.
+  - `***text***`: Bold and italic text.
+- Headings:
+  - `#`: Primary heading (chapter-level).
+  - `##`: Section heading.
+  - `###`: Subsection heading.
+- Lists:
+  - `-`: Creates a bulleted list.
+  - `1.`: Creates a numbered list.
+  - `[ ]`: Creates a checklist.
+- Links:
+  - `[text](url)`: Creates a clickable hyperlink.
+- Images:
+  - `![alt text](path)`: Inserts an image into the document, with alternative text for accessibility.
+- Block quotes:
+  - `>`: Highlights a block of text, often used for emphasis or reflection.
 
 ## 💡 *Reproducibility Tip:* {#sec-rmd-tip}
 

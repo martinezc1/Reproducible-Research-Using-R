@@ -1,81 +1,80 @@
----
-title: "Reproducibility Checklist for Data Analysis in R"
----
+
+# Reproducibility Checklist for Data Analysis in R {#sec-checklist}
 
 This appendix synthesizes the reproducibility principles and workflow habits introduced throughout this book.\
 Use this checklist before submitting, sharing, or publishing an analysis to ensure your work is transparent, interpretable, and reproducible.
 
 ## Project & Environment
 
--   [ ] Am I working inside an **R Project** to keep files organized and paths consistent?
--   [ ] Can my analysis run from a **clean R session** without manual intervention?
--   [ ] Are all required packages explicitly loaded within the script or R Markdown document?
--   [ ] Have I avoided relying on objects created outside the current file?
+- [ ] Am I working inside an **R Project** to keep files organized and paths consistent?
+- [ ] Can my analysis run from a **clean R session** without manual intervention?
+- [ ] Are all required packages explicitly loaded within the script or R Markdown document?
+- [ ] Have I avoided relying on objects created outside the current file?
 
 ## Data Integrity & Structure
 
--   [ ] Have I visually inspected my data using commands such as`head()`, `summary()`, or `View()`?
--   [ ] Have I verified variable types using `str()`?
--   [ ] Are categorical variables correctly stored as factors or characters (not numeric)?
--   [ ] Do numeric variables represent meaningful quantities (not IDs or codes)?
--   [ ] Have I addressed missing values or unexpected levels?
+- [ ] Have I visually inspected my data using commands such as`head()`, `summary()`, or `View()`?
+- [ ] Have I verified variable types using `str()`?
+- [ ] Are categorical variables correctly stored as factors or characters (not numeric)?
+- [ ] Do numeric variables represent meaningful quantities (not IDs or codes)?
+- [ ] Have I addressed missing values or unexpected levels?
 
 ## Data Transformation & Workflow
 
--   [ ] Are related data-cleaning steps grouped into clear, readable pipelines?
--   [ ] Does each transformation perform **one clear task**?
--   [ ] Are intermediate objects created only when they serve a clear purpose?
--   [ ] Does the order of transformations make logical sense?
--   [ ] Can the entire workflow be re-run from top to bottom without errors?
+- [ ] Are related data-cleaning steps grouped into clear, readable pipelines?
+- [ ] Does each transformation perform **one clear task**?
+- [ ] Are intermediate objects created only when they serve a clear purpose?
+- [ ] Does the order of transformations make logical sense?
+- [ ] Can the entire workflow be re-run from top to bottom without errors?
 
 ## Merging & Reshaping Data
 
--   [ ] Have I verified row counts **before and after** joins using `nrow()`?
--   [ ] Do my joins reflect the intended relationship (one-to-one, one-to-many)?
--   [ ] Have I checked for unintended “data explosions” after merges?
--   [ ] Are reshaped datasets structured as expected after pivoting?
+- [ ] Have I verified row counts **before and after** joins using `nrow()`?
+- [ ] Do my joins reflect the intended relationship (one-to-one, one-to-many)?
+- [ ] Have I checked for unintended “data explosions” after merges?
+- [ ] Are reshaped datasets structured as expected after pivoting?
 
 ## Visualization & Communication
 
--   [ ] Does each figure answer a clear, identifiable question?
--   [ ] Are axes, legends, and titles clearly labeled using `labs()`?
--   [ ] Would the figure make sense if viewed **without surrounding text**?
--   [ ] Have I used informative captions for figures (`fig.cap`) and tables (`kable()`)?
--   [ ] Are visual choices (scales, colors, facets) intentional and interpretable?
--   [ ] Are color palettes accessible (e.g., colorblind-friendly)?
+- [ ] Does each figure answer a clear, identifiable question?
+- [ ] Are axes, legends, and titles clearly labeled using `labs()`?
+- [ ] Would the figure make sense if viewed **without surrounding text**?
+- [ ] Have I used informative captions for figures (`fig.cap`) and tables (`kable()`)?
+- [ ] Are visual choices (scales, colors, facets) intentional and interpretable?
+- [ ] Are color palettes accessible (e.g., colorblind-friendly)?
 
 ## Statistical Reasoning
 
--   [ ] Do the variables used in analyses make **theoretical and real-world sense** together?
--   [ ] Have I visualized relationships before relying on statistical tests?
--   [ ] Are statistical assumptions appropriate for the methods used?
--   [ ] Have I avoided interpreting statistically strong but implausible relationships?
+- [ ] Do the variables used in analyses make **theoretical and real-world sense** together?
+- [ ] Have I visualized relationships before relying on statistical tests?
+- [ ] Are statistical assumptions appropriate for the methods used?
+- [ ] Have I avoided interpreting statistically strong but implausible relationships?
 
 ## Modeling & Inference
 
--   [ ] Have I justified why each model was fit?
--   [ ] Did I examine correlations before fitting regression models?
--   [ ] Have I checked diagnostics (residuals, fit measures, assumptions)?
--   [ ] Have I favored **parsimony** over unnecessary complexity?
--   [ ] Are modeling decisions clearly documented and defensible?
+- [ ] Have I justified why each model was fit?
+- [ ] Did I examine correlations before fitting regression models?
+- [ ] Have I checked diagnostics (residuals, fit measures, assumptions)?
+- [ ] Have I favored **parsimony** over unnecessary complexity?
+- [ ] Are modeling decisions clearly documented and defensible?
 
 ## Randomness & Evaluation
 
--   [ ] Have I set a seed using `set.seed()` whenever randomness is involved?
--   [ ] Are train/test splits reproducible and documented?
--   [ ] Have I clearly stated evaluation choices (split ratio, thresholds)?
--   [ ] Would someone re-running my code obtain the same results?
+- [ ] Have I set a seed using `set.seed()` whenever randomness is involved?
+- [ ] Are train/test splits reproducible and documented?
+- [ ] Have I clearly stated evaluation choices (split ratio, thresholds)?
+- [ ] Would someone re-running my code obtain the same results?
 
 ## Reporting & Execution
 
--   [ ] Does my Quarto document render successfully from top to bottom?
--   [ ] Are all outputs readable, relevant, and appropriately formatted?
--   [ ] Is unnecessary output suppressed or removed?
--   [ ] Could someone unfamiliar with this project understand the results by reading the document alone?
+- [ ] Does my Quarto document render successfully from top to bottom?
+- [ ] Are all outputs readable, relevant, and appropriately formatted?
+- [ ] Is unnecessary output suppressed or removed?
+- [ ] Could someone unfamiliar with this project understand the results by reading the document alone?
 
 ## Final Check
 
--   [ ] Can this analysis be re-run, understood, and trusted by someone else?
--   [ ] Could *future me* reproduce this work without guesswork?
+- [ ] Can this analysis be re-run, understood, and trusted by someone else?
+- [ ] Could *future me* reproduce this work without guesswork?
 
 Reproducibility is not a single step—it is the accumulation of small, intentional habits practiced consistently throughout an analysis.

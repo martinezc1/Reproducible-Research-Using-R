@@ -1,6 +1,5 @@
----
-title: "Reproducible Reporting"
----
+
+# Reproducible Reporting {#sec-quarto}
 
 ## Introduction {#sec-intro-quarto}
 
@@ -8,17 +7,17 @@ Throughout this book, we have been writing R code in separate R scripts. This is
 
 This is exactly where Quarto comes into play. With Quarto, you are able to:
 
--   Write code just as you would in an R script
--   Have dedicated spaces for text
--   Show outputs for numbers and visuals
--   Share with people outside of the R environment
+- Write code just as you would in an R script
+- Have dedicated spaces for text
+- Show outputs for numbers and visuals
+- Share with people outside of the R environment
 
 In fact, this entire book was written using Quarto! Each chapter is a different Quarto document all put together. What is fantastic about Quarto is that it is built for the future. It can incorporate code other than R (such as Python), provide you with a better visual preview of your code (see @sec-source-visual), and is a true upgrade from traditional R Markdown.
 
 In this chapter, we are going to go through the benefits of Quarto and how to properly utilize it.
 
 ::: callout-note
-## Deeper dive into Quarto
+### Deeper dive into Quarto
 
 To learn even more about Quarto than this chapter provides, please go to their website: [Quarto](https://quarto.org/).
 :::
@@ -27,18 +26,18 @@ To learn even more about Quarto than this chapter provides, please go to their w
 
 By the end of this chapter, you will be able to:
 
--   Explain the purpose of Quarto and how it supports reproducible research
--   Describe the limitations of standalone R scripts for communicating analysis
--   Create a new Quarto document and select an appropriate output format
--   Identify and modify the core components of a Quarto document, including the YAML, text, and R code chunks
--   Write and format narrative text using Markdown syntax
--   Create, name, and manage R code chunks to control how code and output are displayed
--   Display numerical output, tables, and visualizations within a Quarto document
--   Improve table and figure presentation using captions and formatting tools
--   Organize analyses using sections and subsections to create a clear document structure
--   Render a Quarto document and troubleshoot common rendering errors
--   Publish and share Quarto output outside of the R environment
--   Apply best practices to ensure a Quarto document is reproducible and understandable on its own
+- Explain the purpose of Quarto and how it supports reproducible research
+- Describe the limitations of standalone R scripts for communicating analysis
+- Create a new Quarto document and select an appropriate output format
+- Identify and modify the core components of a Quarto document, including the YAML, text, and R code chunks
+- Write and format narrative text using Markdown syntax
+- Create, name, and manage R code chunks to control how code and output are displayed
+- Display numerical output, tables, and visualizations within a Quarto document
+- Improve table and figure presentation using captions and formatting tools
+- Organize analyses using sections and subsections to create a clear document structure
+- Render a Quarto document and troubleshoot common rendering errors
+- Publish and share Quarto output outside of the R environment
+- Apply best practices to ensure a Quarto document is reproducible and understandable on its own
 
 ## Creating a Quarto document {#sec-quarto-creation}
 
@@ -74,10 +73,10 @@ editor: visual
 
 It has four default components:
 
--   title: What the title of your Quarto is.
--   format: The output you designated the document to be created into
-    -   There are some cool things you can add here, like change the overall theme or add TOC (table of contents). Like anything in R, take some time to explore and experiment with this.
--   editor: tells Quarto (and RStudio) to open the document in the Visual Editor by default, instead of the Source Editor (more about this in @sec-source-visual).
+- title: What the title of your Quarto is.
+- format: The output you designated the document to be created into
+  - There are some cool things you can add here, like change the overall theme or add TOC (table of contents). Like anything in R, take some time to explore and experiment with this.
+- editor: tells Quarto (and RStudio) to open the document in the Visual Editor by default, instead of the Source Editor (more about this in @sec-source-visual).
 
 You'll also notice that the YAML is contained within `---`. Besides being at the top of the document, this is Quarto's way of knowing that this *specific* part of the document is the YAML.
 
@@ -95,9 +94,9 @@ In an R script, every line is dedicated to writing code, with you having to spec
 
 Instead of the default being R code, anything you write in a document is treated as text. This is incredibly useful when you want to:
 
--   narrate or tell a story
--   describe your code
--   describe the output of your code
+- narrate or tell a story
+- describe your code
+- describe the output of your code
 
 For instance, what you're reading right now is text inside a Quarto document. There is no special way of telling Quarto that this content is text, because text is the default.
 
@@ -146,7 +145,7 @@ Additionally, each R chunk has `{}`, and inside of that bracket is the letter "r
 It is typically best practice to also name your R chunks. Each one should be a unique name, not only for a way for you to distinguish them from each other, but for R to distinguish them as well. To name your R chunk, you will use the `#|` (called the hash-pipe) and then the `label:`.
 
 ::: callout-tip
-## What is the `#|` anyway?
+#### What is the `#|` anyway?
 
 In Quarto, that is used to give information regarding the R chunk, and tells Quarto that anything on this line *is not* R code to run.
 :::
@@ -192,7 +191,7 @@ With the above R code, our Quarto document shows both the `sqrt(25)` code as wel
 This is the same no matter if it is square root, ANOVAs, linear regressions, and anything else in this chapter.
 
 ::: callout-tip
-## Naming your R chunks:
+##### Naming your R chunks:
 
 Part of making your document reproducible is making sure people can follow along, and part of that is naming your R chunks. To do this, you can use the following: `#| label:`. The `#|` lets R know that the information is related to the chunk itself and is not R code, while `label:` allows you to name the R chunk. You can name it whatever you want, for example:
 
@@ -200,8 +199,8 @@ Part of making your document reproducible is making sure people can follow along
 
 If your R chunk has a table or graph that will be *displayed*, you need to tell R that by providing prefixes to your label names. They are as follows:
 
--   tables: `tbl-`
--   figures: `fig-`
+- tables: `tbl-`
+- figures: `fig-`
 :::
 
 Now let's move on to displaying tables and graphs.
@@ -217,7 +216,7 @@ penguins_new
 By calling `penguins_new`, the Quarto document now displays the output, which in this case is `penguins_new`.
 
 ::: callout-tip
-## Naming Table Chunks:
+###### Naming Table Chunks:
 
 To let Quarto know that there is a table in your R chunk that you are going to display, make sure its name starts with `tbl-`.
 :::
@@ -231,7 +230,7 @@ penguins_new
 Now, that works, but in Quarto, there is an even better way to display tables. Using the `knitr` package (@R-knitr), we can display tables with the `kable()` function, which is purposely dedicated to displaying tabular data in Quarto.
 
 ::: callout-tip
-## Displaying Tables with `kable()`
+###### Displaying Tables with `kable()`
 
 Throughout this book, we often use the `kable()` function to format tables for display in Quarto. This improves readability and ensures tables render cleanly in the final document.
 
@@ -249,7 +248,7 @@ kable(head(penguins_new), caption = "This is an example of displaying a table us
 If we compare and contrast the output from just `penguins_new` vs the output from the `kable()` function, there is a stark difference. One of the most important differences is that you can add a caption that can illuminate the table more than just a simple output.
 
 ::: callout-tip
-## Captions with tables:
+###### Captions with tables:
 
 You could create a caption for your table using `#| tbl-cap:` if you were not using `kable()`. However, it is best practice to use `kable()`.
 :::
@@ -259,7 +258,7 @@ In the code above, we could have just called `penguins_new` and not just the `he
 If we did not call `head()` then `kable()` would have produced a table displaying *all* rows from `penguins_new`, which would have the user scrolling for a long time. It is always your call as the creator of the document, but keep this in mind:
 
 ::: callout-tip
-## Remember:
+###### Remember:
 
 You don't always have to show *all* your data.
 :::
@@ -271,7 +270,7 @@ By calling `head()`, your audience still gets a good picture of what your data l
 In Quarto, just how we can display tables, we can also display graphs.
 
 ::: callout-tip
-## Naming Graph Chunks:
+###### Naming Graph Chunks:
 
 To let Quarto know that there is a graph in your R chunk that you are going to display, make sure its name starts with `fig-`.
 :::
@@ -311,7 +310,7 @@ Headers, just like R chunks, also need labeling. To do that, inside `{}` on the 
 `{#sec-creating-sections}`
 
 ::: callout-warning
-## Label Correctly!
+#### Label Correctly!
 
 Use proper naming convention when naming anything inside your Quarto document.
 :::
@@ -327,7 +326,7 @@ For instance, back in @sec-quarto-graphs, we created the graph @fig-example-ggpl
 That right there is a cross-reference. By typing `@fig-example-ggplot2` in my text, Quarto automatically turned it into a clickable link, with the `@` symbol bring the driving factor. It even indexes the figures based on the order they're created. If I were to add another graph earlier in the chapter, Quarto would automatically update the numbering so this one becomes "Figure 2" without me having to change a thing.
 
 ::: callout-warning
-## Labeling is Key!
+#### Labeling is Key!
 
 This can only be done with proper naming convention, so make sure to properly label your tables and graphs!
 :::
@@ -339,7 +338,7 @@ So far, we have created our Quarto document, filled it with text, code, and we n
 At the top of your screen, you will see a new button that we have not seen before: "Render". When we press the Render button, we get to see what the finished output looks like. After pressing Render, a pop-up will appear with the outputted version.
 
 ::: callout-warning
-## Issues with Rendering:
+### Issues with Rendering:
 
 If it **does not** Render, you will get an error, which will indicate why it failed and what to fix, just like any other error in R.
 :::
@@ -351,7 +350,7 @@ When your document successfully Renders, you are now ready to proudly share it w
 When our document is ready, or "refrigerator-worthy" as I'd call it, we can move a little to the right of the Render button to the "Publish" button. A pop-up will appear with options on where to publish, and Quarto provides their own publishing service [Quarto Pub](https://quarto.org/docs/publishing/quarto-pub.html). This is a free hosting website dedicated to sharing R documents (like this).
 
 ::: callout-tip
-## Using Quarto Pub:
+### Using Quarto Pub:
 
 In my family we have a saying:
 
@@ -391,10 +390,10 @@ In @sec-tidyverse-filter, I showed you all a picture of an Adelie penguin. Below
 
 The formula for this goes:
 
--   `!`: Letting R know that you're about to add a picture.
--   `[]`: Providing a description for the picture for people unable to see the picture.
--   `()`: The link to the picture.
-    -   The image needs to live in the same part of your computer that your Quarto document lives.
+- `!`: Letting R know that you're about to add a picture.
+- `[]`: Providing a description for the picture for people unable to see the picture.
+- `()`: The link to the picture.
+  - The image needs to live in the same part of your computer that your Quarto document lives.
 
 ### Checklists {#sec-quarto-checklist-creation}
 
@@ -427,7 +426,7 @@ Simple as that! This can be a vital addition when used correctly.
 Throughout this book, there have been many callout boxes. These typically have been with tips, notes, and sometimes even warnings. Here is an example of the first ever one found back in chapter 1:
 
 ::: callout-tip
-## Data is art, and as you will read many times in this book:
+#### Data is art, and as you will read many times in this book:
 
 R puts the **r** in Artist.
 :::
@@ -443,14 +442,14 @@ R puts the **r** in Artist.
 
 There are a few things to notice:
 
--   The callout boxes start and end with `:::`.
--   `{callout-}`: This tells R that it is all callout box, and whatever is after the `-` tell it *which* type of callout box it is. The choices are:
-    -   tip
-    -   note
-    -   warning
-    -   important
-    -   caution
--   Anything after the `{callout-}` is text inside the box.
+- The callout boxes start and end with `:::`.
+- `{callout-}`: This tells R that it is all callout box, and whatever is after the `-` tell it *which* type of callout box it is. The choices are:
+  - tip
+  - note
+  - warning
+  - important
+  - caution
+- Anything after the `{callout-}` is text inside the box.
 
 These can be a fantastic tool to help guide your readers through whatever analytical, reproducible story you're trying to tell in your Quarto documents.
 
@@ -463,7 +462,7 @@ To the right of each R chunk there is a circular gear icon. Here is where you ca
 3.  Slider options: You can further customize the output of an individual R chunk with these four options. You'll mostly be interested in the first two, as they're typically the most powerful. For instance, when you first load `tidyverse` a big message appears, which you can stop by switching "Show messages" to the left.
 
 ::: callout-important
-## The gear icon and the `#|`
+#### The gear icon and the `#|`
 
 You will notice that each of these manipulations add a line to the beginning of the R chunk, each starting the `#|`.
 :::
@@ -472,96 +471,96 @@ Each R chunk is unique and requires different settings based on what is inside a
 
 ## Key Takeaways {#sec-quarto-takeaways}
 
--   Quarto allows you to combine **code, narrative text, and output** in a single document, making analyses easier to understand, evaluate, share, and reproduce.
--   While a standalone R script can be reproducible, Quarto strengthens reproducibility by **explicitly linking analytical decisions, results, and interpretation** in one place.
--   Every Quarto document is built around three core components: **YAML metadata**, **Markdown text**, and **R code chunks**.
--   The YAML section controls document-level settings such as the title, author, date, output format, and optional features like themes and tables of contents.
--   Narrative text in Quarto is written using Markdown syntax, allowing you to structure and format reports without writing additional code.
--   All R code must be written inside R chunks, which are executed **from top to bottom** each time the document is rendered.
--   Naming R chunks clearly helps organize analyses, improves readability, and prevents rendering errors.
--   Any object, function, table, or plot that is called inside a chunk will automatically appear in the final output.
--   Tables and figures can be enhanced with captions and formatting to make results easier to interpret and reference.
--   Cross-referencing automates the connection between your narrative and your results; by using the `@` symbol with proper prefixes (fig-, tbl-, or sec-), Quarto handles all numbering and hyperlinking for you, ensuring your document remains organized even as you add or move content.
--   Rendering a Quarto document runs the entire analysis in a **clean session**, helping expose missing packages, undefined objects, and hidden dependencies.
--   Publishing a Quarto document transforms an analysis into a **polished, shareable artifact** that can be viewed outside of R.
--   This chapter demonstrates how all earlier analytical skills—data wrangling, visualization, and modeling—come together in a clear, reproducible final report.
+- Quarto allows you to combine **code, narrative text, and output** in a single document, making analyses easier to understand, evaluate, share, and reproduce.
+- While a standalone R script can be reproducible, Quarto strengthens reproducibility by **explicitly linking analytical decisions, results, and interpretation** in one place.
+- Every Quarto document is built around three core components: **YAML metadata**, **Markdown text**, and **R code chunks**.
+- The YAML section controls document-level settings such as the title, author, date, output format, and optional features like themes and tables of contents.
+- Narrative text in Quarto is written using Markdown syntax, allowing you to structure and format reports without writing additional code.
+- All R code must be written inside R chunks, which are executed **from top to bottom** each time the document is rendered.
+- Naming R chunks clearly helps organize analyses, improves readability, and prevents rendering errors.
+- Any object, function, table, or plot that is called inside a chunk will automatically appear in the final output.
+- Tables and figures can be enhanced with captions and formatting to make results easier to interpret and reference.
+- Cross-referencing automates the connection between your narrative and your results; by using the `@` symbol with proper prefixes (fig-, tbl-, or sec-), Quarto handles all numbering and hyperlinking for you, ensuring your document remains organized even as you add or move content.
+- Rendering a Quarto document runs the entire analysis in a **clean session**, helping expose missing packages, undefined objects, and hidden dependencies.
+- Publishing a Quarto document transforms an analysis into a **polished, shareable artifact** that can be viewed outside of R.
+- This chapter demonstrates how all earlier analytical skills—data wrangling, visualization, and modeling—come together in a clear, reproducible final report.
 
 ## Checklist {#sec-quarto-checklist}
 
 **When creating a Quarto document, have you:**
 
--   [ ] Selected an appropriate output format (HTML, PDF, or Word) based on how the document will be shared?
--   [ ] Clearly defined document metadata in the YAML (title, author, date, output)?
--   [ ] Written narrative text that explains *why* analytical decisions were made, not just *what* the code does?
--   [ ] Organized the document into logical sections using headers (`#`, `##`, `###`)?
--   [ ] Named your R chunks clearly so their purpose is easy to understand?
--   [ ] Loaded all required packages within the document to ensure reproducibility?
--   [ ] Confirmed that the document renders successfully from top to bottom without errors?
--   [ ] Checked that all tables and figures are readable and appropriately formatted?
--   [ ] Added informative captions to tables (`tbl-cap`) and figures (`fig-cap`) where explanation is helpful?
--   [ ] Utilized cross-references (\@) for sections, tables, and figures to help the reader navigate the document?
--   [ ] Avoided displaying unnecessary or distracting output (e.g., very large tables or intermediate objects)?
--   [ ] Used text formatting (bold, italics, lists, quotes) intentionally to guide the reader?
--   [ ] Asked yourself: *Could someone unfamiliar with this project understand the analysis by reading this document alone?*
+- [ ] Selected an appropriate output format (HTML, PDF, or Word) based on how the document will be shared?
+- [ ] Clearly defined document metadata in the YAML (title, author, date, output)?
+- [ ] Written narrative text that explains *why* analytical decisions were made, not just *what* the code does?
+- [ ] Organized the document into logical sections using headers (`#`, `##`, `###`)?
+- [ ] Named your R chunks clearly so their purpose is easy to understand?
+- [ ] Loaded all required packages within the document to ensure reproducibility?
+- [ ] Confirmed that the document renders successfully from top to bottom without errors?
+- [ ] Checked that all tables and figures are readable and appropriately formatted?
+- [ ] Added informative captions to tables (`tbl-cap`) and figures (`fig-cap`) where explanation is helpful?
+- [ ] Utilized cross-references (\@) for sections, tables, and figures to help the reader navigate the document?
+- [ ] Avoided displaying unnecessary or distracting output (e.g., very large tables or intermediate objects)?
+- [ ] Used text formatting (bold, italics, lists, quotes) intentionally to guide the reader?
+- [ ] Asked yourself: *Could someone unfamiliar with this project understand the analysis by reading this document alone?*
 
 ## Key Functions & Commands {#sec-quarto-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support reproducible reporting and polished output in Quarto documents.
 
--   **R code chunks**
-    -   Encapsulate all executable R code and ensure analyses run in a controlled, reproducible order.
--   **Chunk metadata (`#|`)**
-    -   Used to label chunks, control output behavior, and add captions for tables and figures.
--   `kable()` *(knitr)*
-    -   A convenient tool for displaying clean, readable tables in rendered Quarto output.
--   **Rendering**
-    -   Executes the entire document in a fresh session, producing a complete, reproducible report.
+- **R code chunks**
+  - Encapsulate all executable R code and ensure analyses run in a controlled, reproducible order.
+- **Chunk metadata (`#|`)**
+  - Used to label chunks, control output behavior, and add captions for tables and figures.
+- `kable()` *(knitr)*
+  - A convenient tool for displaying clean, readable tables in rendered Quarto output.
+- **Rendering**
+  - Executes the entire document in a fresh session, producing a complete, reproducible report.
 
 ## Summary of Common Quarto Syntax {#sec-quarto-syntax-summary}
 
 In addition to R functions, Quarto relies on a small set of Markdown syntax rules to format text and structure documents. These elements are not functions, but they are essential for writing clear, readable, and professional reports.
 
--   Text emphasis:
-    -   `*text*`: Italicizes text.
-    -   `**text**`: Bolds text.
-    -   `***text***`: Bold and italic text.
--   Headings:
-    -   `#`: Primary heading (chapter-level).
-    -   `##`: Section heading.
-    -   `###`: Subsection heading.
-    -   `{#sec-name}`: Added after a header to create a label for cross-referencing.
--   Lists:
-    -   `-`: Creates a bulleted list.
-    -   `1.`: Creates a numbered list.
-    -   `[ ]`: Creates a checklist.
--   Links:
-    -   `[text](url)`: Creates a clickable hyperlink.
--   Images:
-    -   `![alt text](path)`: Inserts an image into the document, with alternative text for accessibility.
--   Block quotes:
-    -   `>`: Highlights a block of text, often used for emphasis or reflection.
--   **Callout boxes**
-    -   `::: {.callout-tip}`: Highlights helpful tips or best practices.
-    -   `::: {.callout-note}`: Provides additional context or clarification.
-    -   `::: {.callout-warning}`: Draws attention to potential problems or common mistakes.
-    -   `::: {.callout-important}`: Emphasizes critical information that should not be overlooked.
-    -   `::: {.callout-caution}`: Signals situations that require extra care.
-    -   `:::`: Ends a callout box.
--   Cross-Referencing
-    -   `@`: The symbol used to trigger a link to a label (e.g., `@sec-name`, `@fig-name`, or `@tbl-name`).
+- Text emphasis:
+  - `*text*`: Italicizes text.
+  - `**text**`: Bolds text.
+  - `***text***`: Bold and italic text.
+- Headings:
+  - `#`: Primary heading (chapter-level).
+  - `##`: Section heading.
+  - `###`: Subsection heading.
+  - `{#sec-name}`: Added after a header to create a label for cross-referencing.
+- Lists:
+  - `-`: Creates a bulleted list.
+  - `1.`: Creates a numbered list.
+  - `[ ]`: Creates a checklist.
+- Links:
+  - `[text](url)`: Creates a clickable hyperlink.
+- Images:
+  - `![alt text](path)`: Inserts an image into the document, with alternative text for accessibility.
+- Block quotes:
+  - `>`: Highlights a block of text, often used for emphasis or reflection.
+- **Callout boxes**
+  - `::: {.callout-tip}`: Highlights helpful tips or best practices.
+  - `::: {.callout-note}`: Provides additional context or clarification.
+  - `::: {.callout-warning}`: Draws attention to potential problems or common mistakes.
+  - `::: {.callout-important}`: Emphasizes critical information that should not be overlooked.
+  - `::: {.callout-caution}`: Signals situations that require extra care.
+  - `:::`: Ends a callout box.
+- Cross-Referencing
+  - `@`: The symbol used to trigger a link to a label (e.g., `@sec-name`, `@fig-name`, or `@tbl-name`).
 
 ## Common Rendering Errors and How to Fix Them {#sec-quarto-render-errors}
 
--   Object not found: An object is used before it is created.
-    -   *Fix*: Make sure all objects are defined earlier in the document and not only in the R environment.
--   Missing package: A required package is not loaded or installed.
-    -   *Fix*: Load all necessary packages inside the Quarto document using library().
--   Duplicate chunk labels: Two R chunks share the same name.
-    -   *Fix*: Ensure every R chunk has a unique #\| label:.
--   File not found: An image or data file cannot be located.
-    -   *Fix*: Check file names, capitalization, and that files are stored in the correct directory.
--   Code runs in console but not when rendering: The document relies on objects outside the file.
-    -   Fix: Restart R and render the document to confirm it runs in a clean session.
+- Object not found: An object is used before it is created.
+  - *Fix*: Make sure all objects are defined earlier in the document and not only in the R environment.
+- Missing package: A required package is not loaded or installed.
+  - *Fix*: Load all necessary packages inside the Quarto document using library().
+- Duplicate chunk labels: Two R chunks share the same name.
+  - *Fix*: Ensure every R chunk has a unique #\| label:.
+- File not found: An image or data file cannot be located.
+  - *Fix*: Check file names, capitalization, and that files are stored in the correct directory.
+- Code runs in console but not when rendering: The document relies on objects outside the file.
+  - Fix: Restart R and render the document to confirm it runs in a clean session.
 
 ## 💡 *Reproducibility Tip:* {#sec-quarto-tip}
 

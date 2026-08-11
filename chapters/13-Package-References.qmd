@@ -1,6 +1,5 @@
----
-title: "Functions References"
----
+
+# Functions References {#sec-functions}
 
 # Functions Reference {#sec-packages-functions-reference}
 

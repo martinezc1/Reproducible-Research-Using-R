@@ -1,6 +1,4 @@
----
-title: "Introduction To tidyverse"
----
+# Introduction To tidyverse {#sec-tidyverse}
 
 ## Introduction {#sec-intro-tidyverse}
 
@@ -131,7 +129,7 @@ This is what's called a *metapackage*: a package designed to install and load a 
 
 To stay up to date and learn more about the `tidyverse`, check out the official documentation [here](https://tidyverse.org/).
 
-### The Pipe {#sec-tidyverse-pipe} {#sec-tidyverse-pipe}
+### The Pipe {#sec-tidyverse-pipe}
 
 As your R code becomes more complex, you will often want to perform several operations in sequence. **Piping** provides a convenient way to do this by passing the result of one operation directly into the next.
 

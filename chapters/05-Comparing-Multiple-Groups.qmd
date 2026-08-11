@@ -1,6 +1,5 @@
----
-title: "Comparing Multiple Groups"
----
+
+# Comparing Multiple Groups {#sec-anova}
 
 ## Introduction {#sec-intro-anova}
 
@@ -9,7 +8,7 @@ In Chapter @sec-intro-two-means we learned what to do when we have two groups an
 Picture this: You just ran an experiment and had three groups. You want to see if they performed differently, but do not know how. You learned in the last chapter that if we had two groups, we could run a t.test, but now you have one more. This sounds like the perfect opportunity to run an **Analysis of Variance** (ANOVA). An **ANOVA** tests whether the means of three or more groups are significantly different from one another. It does this by comparing the variance between groups to the variance within groups.
 
 ::: callout-note
-## In this lesson, we will explore how to use **ANOVAs** to answer the question:
+### In this lesson, we will explore how to use **ANOVAs** to answer the question:
 
 *How do studying methods influence memory scores?*
 :::
@@ -20,11 +19,11 @@ We will create a dataset called `memory`, which includes students’ method of s
 
 By the end of this chapter, you will be able to:
 
--   Create a reproducible dataset in R.
--   Conduct one-way and two-way ANOVAs.
--   Interpret ANOVA output (F, p, SS, MS).
--   Run post-hoc comparisons with Tukey’s HSD.
--   Compare models using AIC.
+- Create a reproducible dataset in R.
+- Conduct one-way and two-way ANOVAs.
+- Interpret ANOVA output (F, p, SS, MS).
+- Run post-hoc comparisons with Tukey’s HSD.
+- Compare models using AIC.
 
 Although the statistical method used here is called ANOVA, the goal of this chapter is to understand how group comparisons scale beyond two groups.
 
@@ -40,7 +39,7 @@ With our focus being reproducibility, how can we manage to make sure that the da
 Imagine we had a deck of cards. We need to shuffle them before we deal them to our players. `set.seed()` is the equivalent to that deck of cards being shuffled in a specific order, that way, if it is shuffled that way every single time, each player is going to be dealt the same cards.
 
 ::: callout-important
-## With regards to set.seed()
+### With regards to `set.seed()`
 
 As long as we put the same number in `set.seed()` then the same data will be created.
 :::
@@ -188,22 +187,22 @@ supernova(anova_model)  # clearer ANOVA table
 
 Just as the `aov` command should look similar, the output of running the anova should look familiar. Reviewing the data we get:
 
--   Sum of Squares (SS): the total amount of variation explained by each source
-    -   Method SS - the amount of variation explained by the studying method - 2657
-    -   Residual SS- the amount of variation explained by everything other than method - 3063
-    -   The total is 5720, which means that **about 46% of all variation in scores is due to studying method.**
--   Df: degrees of freedom
-    -   There are 2 degrees of freedom (3-1), since there are 3 studying methods
--   Mean square: SS ÷ Df.
-    -   provides us with the average variability per degree of freedom.
-    -   Mean Method SS = 2657 / 2 = 1328.5
-    -   Mean Residuals SS = 3064 / 57 = 53.8
-    -   There is more variation explained per degree of freedom by studying method vs everything else.
--   F value: how much larger the variation between groups is compared to the variation within groups
--   24.72: there is more variation between the studying method groups than within each group.
--   pr(\>F): the p-value
-    -   It is lower than 0.05, meaning there is a statistically significant difference in memory scores based on studying technique.
-    -   Hint: The number of \* by the p-value indicates if it is significant or not. \*\*\* is statistically significant.
+- Sum of Squares (SS): the total amount of variation explained by each source
+  - Method SS - the amount of variation explained by the studying method - 2657
+  - Residual SS- the amount of variation explained by everything other than method - 3063
+  - The total is 5720, which means that **about 46% of all variation in scores is due to studying method.**
+- Df: degrees of freedom
+  - There are 2 degrees of freedom (3-1), since there are 3 studying methods
+- Mean square: SS ÷ Df.
+  - provides us with the average variability per degree of freedom.
+  - Mean Method SS = 2657 / 2 = 1328.5
+  - Mean Residuals SS = 3064 / 57 = 53.8
+  - There is more variation explained per degree of freedom by studying method vs everything else.
+- F value: how much larger the variation between groups is compared to the variation within groups
+- 24.72: there is more variation between the studying method groups than within each group.
+- pr(\>F): the p-value
+  - It is lower than 0.05, meaning there is a statistically significant difference in memory scores based on studying technique.
+  - Hint: The number of \* by the p-value indicates if it is significant or not. \*\*\* is statistically significant.
 
 With all of that, we can now conclude that there is a statistically significant difference in memory scores due to studying technique. While this tells us that the difference is significant, it does not tell us **what the difference between the techniques is.** Through visualizations and descriptive statistics, we think testing is the best method, but it is important to make sure.
 
@@ -219,8 +218,8 @@ TukeyHSD(anova_model)
 
 We have three different rows, with each studying technique compared to each other. The ‘diff’ column shows the mean difference between groups (Group 2 − Group 1).
 
--   Positive = first group has a higher mean.
--   Negative = first group has a lower mean.
+- Positive = first group has a higher mean.
+- Negative = first group has a lower mean.
 
 Looking here, we can see that testing has a higher mean than both flashcards and rereading when compared against the two. We also look at the p adj, which is just the p-value. All three are statistically significant, specifically the two related to testing.
 
@@ -282,7 +281,7 @@ ggplot(memory2, aes(x = method, y = score, color = caffeine, group = caffeine)) 
 ```
 
 ::: callout-tip
-## What the p-value is actually telling you:
+### What the p-value is actually telling you:
 
 In the graph above, we see that the lines for both high and low are nearly parallel. This gives you an indication that caffeine does not have a significant impact on study method
 :::
@@ -311,53 +310,53 @@ We will review model comparisons in more detail in @sec-more-variables. For righ
 
 ## Key Takeaways {#sec-anova-takeaways}
 
--   ANOVA (Analysis of Variance) is used to compare **means across more than two groups**.
--   A **significant F-statistic** indicates that at least one group mean is different.\
--   **Post-hoc tests** (like Tukey’s HSD) reveal **which** groups differ from each other.\
--   The **Sum of Squares (SS)** separates total variation into between-group and within-group sources.\
--   The **Mean Square (MS)** is the average variation per degree of freedom (SS ÷ df).\
--   The **F value** is a ratio comparing between-group to within-group variability.\
--   **Two-way ANOVA** adds an additional factor (e.g., caffeine level) to test main effects and interactions.
--   **AIC** (Akaike Information Criterion) helps compare models — *lower values indicate better fit*.\
--   Always visualize your data before and after running ANOVA to confirm patterns in group means.
--   Reproducibility matters — use `set.seed()` whenever you simulate or randomize data.
+- ANOVA (Analysis of Variance) is used to compare **means across more than two groups**.
+- A **significant F-statistic** indicates that at least one group mean is different.\
+- **Post-hoc tests** (like Tukey’s HSD) reveal **which** groups differ from each other.\
+- The **Sum of Squares (SS)** separates total variation into between-group and within-group sources.\
+- The **Mean Square (MS)** is the average variation per degree of freedom (SS ÷ df).\
+- The **F value** is a ratio comparing between-group to within-group variability.\
+- **Two-way ANOVA** adds an additional factor (e.g., caffeine level) to test main effects and interactions.
+- **AIC** (Akaike Information Criterion) helps compare models — *lower values indicate better fit*.\
+- Always visualize your data before and after running ANOVA to confirm patterns in group means.
+- Reproducibility matters — use `set.seed()` whenever you simulate or randomize data.
 
 ## Checklist {#sec-anova-checklist}
 
 **When running an ANOVA, have you:**
 
--   [ ] Verified that your **dependent variable is numeric** and your **independent variable(s) are categorical**?\
--   [ ] Created or imported your dataset reproducibly (used `set.seed()` if simulated)?\
--   [ ] Summarized descriptive statistics for each group?\
--   [ ] Visualized group means and distributions using boxplots or bar charts?\
--   [ ] Fit your model using `aov()` or `supernova()`?\
--   [ ] Interpreted the **F statistic**, **df**, and **p-value**?\
--   [ ] Conducted **post-hoc tests** (e.g., `TukeyHSD`) to identify where differences lie?\
--   [ ] Checked **residuals** or **assumptions** (optional but good practice)?\
--   [ ] Added a **second factor** if relevant (two-way ANOVA)?\
--   [ ] Compared models using **AIC** or another fit statistic?\
--   [ ] Written a clear interpretation that answers your research question?
+- [ ] Verified that your **dependent variable is numeric** and your **independent variable(s) are categorical**?\
+- [ ] Created or imported your dataset reproducibly (used `set.seed()` if simulated)?\
+- [ ] Summarized descriptive statistics for each group?\
+- [ ] Visualized group means and distributions using boxplots or bar charts?\
+- [ ] Fit your model using `aov()` or `supernova()`?\
+- [ ] Interpreted the **F statistic**, **df**, and **p-value**?\
+- [ ] Conducted **post-hoc tests** (e.g., `TukeyHSD`) to identify where differences lie?\
+- [ ] Checked **residuals** or **assumptions** (optional but good practice)?\
+- [ ] Added a **second factor** if relevant (two-way ANOVA)?\
+- [ ] Compared models using **AIC** or another fit statistic?\
+- [ ] Written a clear interpretation that answers your research question?
 
 ## Key Functions & Commands {#sec-anova-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support analysis of variance (ANOVA), post-hoc testing, and model comparison.
 
--   `set.seed()` *(base R)*
-    -   Ensures reproducibility when generating random data.
--   `rnorm()` *(stats)*
-    -   Generates random values from a normal distribution with a specified mean and standard deviation.
--   `aov()` *(stats)*
-    -   Fits one-way and two-way analysis of variance (ANOVA) models.
--   `summary()` *(base R)*
-    -   Produces summaries of ANOVA model results, including F statistics and p-values.
--   `supernova()` *(supernova)*
-    -   Displays ANOVA results in a clear, structured table emphasizing sums of squares and variance explained.
--   `TukeyHSD()` *(stats)*
-    -   Performs post-hoc pairwise comparisons following a significant ANOVA.
--   `plot()` *(base R)*
-    -   Visualizes post-hoc comparison results, such as Tukey’s HSD confidence intervals.
--   `aictab()` *(AICcmodavg)*
-    -   Compares competing statistical models using Akaike Information Criterion (AIC).
+- `set.seed()` *(base R)*
+  - Ensures reproducibility when generating random data.
+- `rnorm()` *(stats)*
+  - Generates random values from a normal distribution with a specified mean and standard deviation.
+- `aov()` *(stats)*
+  - Fits one-way and two-way analysis of variance (ANOVA) models.
+- `summary()` *(base R)*
+  - Produces summaries of ANOVA model results, including F statistics and p-values.
+- `supernova()` *(supernova)*
+  - Displays ANOVA results in a clear, structured table emphasizing sums of squares and variance explained.
+- `TukeyHSD()` *(stats)*
+  - Performs post-hoc pairwise comparisons following a significant ANOVA.
+- `plot()` *(base R)*
+  - Visualizes post-hoc comparison results, such as Tukey’s HSD confidence intervals.
+- `aictab()` *(AICcmodavg)*
+  - Compares competing statistical models using Akaike Information Criterion (AIC).
 
 ## Example APA-style Write-up {#sec-anova-apa}
 

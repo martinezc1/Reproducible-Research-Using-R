@@ -1,8 +1,7 @@
----
-title: "References"
----
 
-# References {#package-reference}
+# References {#sec-reference}
+
+## References {#package-reference}
 
 ::: {#refs}
 :::

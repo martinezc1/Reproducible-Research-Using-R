@@ -1,13 +1,11 @@
----
-title: "Linear Regression"
----
+# Linear Regression {#sec-linear-reg}
 
-## Introduction {#sec-linear-reg}
+## Introduction {#sec-intro-linear-reg}
 
 In this lesson, we will explore how to use **linear regression** to not only understand, but to also predict relationships between variables.
 
 ::: callout-note
-## Everyone loves pizza (cowabunga!) and like many pizza establishments, we will be trying to answer the question:
+### Everyone loves pizza (cowabunga!) and like many pizza establishments, we will be trying to answer the question:
 
 *Can we predict the amount of pizza sold based on its price?*
 :::
@@ -18,17 +16,17 @@ We'll use a dataset called `pizza_prices`, which contains weekly pizza sales and
 
 By the end of this chapter, you will be able to:
 
--   Explain the purpose of linear regression as a tool for modeling and prediction
--   Visualize and assess linear relationships between numeric variables using scatterplots
--   Use correlation to evaluate whether variables are appropriate for regression modeling
--   Fit a simple linear regression model using `lm()` and interpret the slope and intercept
--   Interpret key model outputs including coefficients, p-values, R², adjusted R², and the F-statistic
--   Generate predicted values and calculate residuals from a fitted regression model
--   Diagnose model assumptions by visually and statistically evaluating residuals
--   Test for heteroscedasticity using the Breusch–Pagan test
--   Extend simple regression to multiple regression by adding additional predictors
--   Compare competing regression models using adjusted R² and AIC
--   Select a parsimonious model that balances explanatory power and complexity
+- Explain the purpose of linear regression as a tool for modeling and prediction
+- Visualize and assess linear relationships between numeric variables using scatterplots
+- Use correlation to evaluate whether variables are appropriate for regression modeling
+- Fit a simple linear regression model using `lm()` and interpret the slope and intercept
+- Interpret key model outputs including coefficients, p-values, R², adjusted R², and the F-statistic
+- Generate predicted values and calculate residuals from a fitted regression model
+- Diagnose model assumptions by visually and statistically evaluating residuals
+- Test for heteroscedasticity using the Breusch–Pagan test
+- Extend simple regression to multiple regression by adding additional predictors
+- Compare competing regression models using adjusted R² and AIC
+- Select a parsimonious model that balances explanatory power and complexity
 
 ## Loading Our Data {#sec-linear-reg-data}
 
@@ -159,24 +157,22 @@ We have identified that there is a significant negative correlation between the 
 With a linear regression model, we are trying to build the line of best fit and figure out the equation for the line.
 
 ::: callout-note
-## The formula for a line is:
+### The formula for a line is:
 
-y = mx + b
+$$y = mx + b$$ Where:
+
+- *y* is the predicted value (in this case, volume)
+- *m* is the slope
+- *x* is the given value (in this case, price)
+- *b* is the y intercept (the y value when x is 0)
 :::
-
-Where:
-
--   y is the predicted value (in this case, volume)
--   m is the slope
--   x is the given value (in this case, price)
--   b is the y intercept (the y value when x is 0)
 
 When we are able to get the slope and the intercept, we can then begin to predict values.
 
 To run a linear regression model, we can use the lm command. It follows the structure:
 
--   lm(y \~ x, data = dataset)
--   lm(what we want to predict \~ the predictor, data = our dataset)
+- lm(y \~ x, data = dataset)
+- lm(what we want to predict \~ the predictor, data = our dataset)
 
 ```{r }
 #| label: tbl-lm
@@ -190,15 +186,15 @@ summary(pizza_lm)
 
 Congratulations! We have just run our first linear regression model! We have some key insights, including:
 
--   Intercept: *385,442.* This is our **b value** on our line equation. This means that when the price of pizza is 0 (free pizza would be nice, but really just a dream), the y value would be 385442.
--   price: *-111,669.* This is our slope, or our **m** value on our line equation. This tells us that for every one-unit increase in price, sales volume decreased by approximately 111,669 units. This makes sense, since we have a negative correlation.
--   Multiple R-squared: As we have seen before, this tells us how much of the variability our model explains. For our example, about 43% of the variance in pizza sales volume is explained by price alone. **Warning:** Multiple R-squared in linear regression models always increases with each new predictor added to a model, regardless of how potent it is.
--   Adjusted R-squared: This is almost identical to the Multiple R-squared value, except that it takes into account each new predictor added, and does not go up just because a new predictor was added to the model.
--   p-value: There are three p-values here. The first two, on the intercept and price lines, indicate if the relationships are statistically significant, which they are. The bottom one is if the model itself is significant, which it is.
--   F-statistic: This tells us how strong our model is. 116.6 is a high value.
+- Intercept: *385,442.* This is our **b value** on our line equation. This means that when the price of pizza is 0 (free pizza would be nice, but really just a dream), the y value would be 385442.
+- price: *-111,669.* This is our slope, or our **m** value on our line equation. This tells us that for every one-unit increase in price, sales volume decreased by approximately 111,669 units. This makes sense, since we have a negative correlation.
+- Multiple R-squared: As we have seen before, this tells us how much of the variability our model explains. For our example, about 43% of the variance in pizza sales volume is explained by price alone. **Warning:** Multiple R-squared in linear regression models always increases with each new predictor added to a model, regardless of how potent it is.
+- Adjusted R-squared: This is almost identical to the Multiple R-squared value, except that it takes into account each new predictor added, and does not go up just because a new predictor was added to the model.
+- p-value: There are three p-values here. The first two, on the intercept and price lines, indicate if the relationships are statistically significant, which they are. The bottom one is if the model itself is significant, which it is.
+- F-statistic: This tells us how strong our model is. 116.6 is a high value.
 
 ::: callout-note
-## Putting this all together, our line formula is:
+### Putting this all together, our line formula is:
 
 y = -111,669x + 385,442
 :::
@@ -231,7 +227,7 @@ Our finalized equation is y (-111,669 \* price) + 385,442. All we need to do is 
 ## Checking the residuals {#sec-residual-checking}
 
 ::: callout-tip
-## To make sure that our data for the line looks good, it is important to answer the question:
+### To make sure that our data for the line looks good, it is important to answer the question:
 
 How close are our predicted values to our actual values?
 :::
@@ -287,15 +283,15 @@ ggplot(pizza_sales, aes(x = predicted, y = residuals)) +
 The red line in the graph above has a slight curve, showing that our model is less accurate at the extremes (low and high prices). Thankfully, this pattern isn’t very pronounced.
 
 ::: callout-tip
-## To accompany the visual, we want to statistically test for heteroscedasticity, meaning:
+### To accompany the visual, we want to statistically test for heteroscedasticity, meaning:
 
 Are the residuals roughly equal in variance across all predicted values?
 :::
 
 We will either see:
 
--   Homoscedasticity: residuals are equally spread (good)
--   Heteroscedasticity: residuals get wider or narrower as predictions change (bad)
+- Homoscedasticity: residuals are equally spread (good)
+- Heteroscedasticity: residuals get wider or narrower as predictions change (bad)
 
 The Breusch-Pagan test provides insights for this. To perform this in R, we will use the `bptest()` function from the `lmtest` package (\@-Rlmtest).
 
@@ -311,11 +307,11 @@ bptest(pizza_lm)
 
 The main focus point here is the p-value:
 
--   
+- 
 
-    > 0.05 Fail to reject H₀ → residuals are homoscedastic (good)
+  > 0.05 Fail to reject H₀ → residuals are homoscedastic (good)
 
--   \< 0.05 Reject H₀ → residuals are heteroscedastic (not ideal)
+- \< 0.05 Reject H₀ → residuals are heteroscedastic (not ideal)
 
 Since our p-value is less than .05, our residuals are heteroscedastic.
 
@@ -417,67 +413,67 @@ Don't underestimate how powerful regression models can be. With a line equation,
 
 ## Key Takeaways {#sec-linear-reg-takeaways}
 
--   Linear regression helps us predict one variable (Y) from another (X) using a line of best fit.
--   The equation of the line is y = mx + b, where:
-    -   m = slope (how much Y changes for every 1-unit change in X)
-    -   b = intercept (the value of Y when X = 0)
--   The slope tells us both the direction and strength of the relationship.
--   Residuals = actual - predicted values; smaller residuals = better model fit.
--   A good model has random, evenly scattered residuals (homoscedasticity).
--   R² tells us how much variance in Y is explained by X.
--   Adjusted R² penalizes unnecessary predictors in multiple regression models.
--   AIC helps compare models: lower AIC = better balance between fit and simplicity.
--   Parsimonious models (simpler ones that still explain the data well) are preferred.
--   Stepwise regression automatically selects the most parsimonious model using AIC.
--   Correlation shows association; regression goes further by predicting and quantifying impact.
--   Always visualize both your model fit and your residuals before interpreting results!
+- Linear regression helps us predict one variable (Y) from another (X) using a line of best fit.
+- The equation of the line is y = mx + b, where:
+  - m = slope (how much Y changes for every 1-unit change in X)
+  - b = intercept (the value of Y when X = 0)
+- The slope tells us both the direction and strength of the relationship.
+- Residuals = actual - predicted values; smaller residuals = better model fit.
+- A good model has random, evenly scattered residuals (homoscedasticity).
+- R² tells us how much variance in Y is explained by X.
+- Adjusted R² penalizes unnecessary predictors in multiple regression models.
+- AIC helps compare models: lower AIC = better balance between fit and simplicity.
+- Parsimonious models (simpler ones that still explain the data well) are preferred.
+- Stepwise regression automatically selects the most parsimonious model using AIC.
+- Correlation shows association; regression goes further by predicting and quantifying impact.
+- Always visualize both your model fit and your residuals before interpreting results!
 
 ## Checklist {#sec-linear-reg-checklist}
 
 *When running linear regressions, have you:*
 
--   [ ] Loaded and inspected your data (skim, summary, str)
--   [ ] Cleaned and renamed your variables as needed
--   [ ] Graphed your variables with scatterplots and trend lines
--   [ ] Checked that the relationship looks linear
--   [ ] Calculated correlations before fitting your model
--   [ ] Built your model using lm(y \~ x)
--   [ ] Examined coefficients (intercept and slope) and their significance
--   [ ] Computed predicted values and residuals
--   [ ] Graphed residuals to ensure randomness (no U-shape or funnel)
--   [ ] Tested for homoscedasticity using bptest() (Breusch–Pagan test)
--   [ ] (Optional) Checked residual normality with a histogram or QQ plot
--   [ ] Interpreted R² and Adjusted R² to describe model performance
--   [ ] Added additional predictors for multiple regression if needed
--   [ ] Compared models using AIC or stepwise regression
--   [ ] Selected the most parsimonious model (best fit with the least complexity)
--   [ ] Clearly interpreted what the slope and intercept mean in real-world terms
--   [ ] Reported results visually (scatterplot, line of best fit, residual plot)
+- [ ] Loaded and inspected your data (skim, summary, str)
+- [ ] Cleaned and renamed your variables as needed
+- [ ] Graphed your variables with scatterplots and trend lines
+- [ ] Checked that the relationship looks linear
+- [ ] Calculated correlations before fitting your model
+- [ ] Built your model using lm(y \~ x)
+- [ ] Examined coefficients (intercept and slope) and their significance
+- [ ] Computed predicted values and residuals
+- [ ] Graphed residuals to ensure randomness (no U-shape or funnel)
+- [ ] Tested for homoscedasticity using bptest() (Breusch–Pagan test)
+- [ ] (Optional) Checked residual normality with a histogram or QQ plot
+- [ ] Interpreted R² and Adjusted R² to describe model performance
+- [ ] Added additional predictors for multiple regression if needed
+- [ ] Compared models using AIC or stepwise regression
+- [ ] Selected the most parsimonious model (best fit with the least complexity)
+- [ ] Clearly interpreted what the slope and intercept mean in real-world terms
+- [ ] Reported results visually (scatterplot, line of best fit, residual plot)
 
 ## Key Functions & Commands {#sec-linear-reg-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support linear regression modeling, diagnostics, and model selection.
 
--   `lm()` *(stats)*
-    -   Fits linear and multiple linear regression models using a formula interface.
--   `summary()` *(base R)*
-    -   Summarizes regression model results, including coefficients, R², F-statistic, and p-values.
--   `cor.test()` *(stats)*
-    -   Computes and tests correlations to assess whether predictors are suitable for regression.
--   `predict()` *(stats)*
-    -   Generates predicted values from a fitted regression model.
--   `residuals()` *(stats)*
-    -   Extracts residuals (actual − predicted values) from a regression model.
--   `tidy()` *(broom)*
-    -   Converts regression coefficients into a clean, tidy data frame.
--   `glance()` *(broom)*
-    -   Extracts model-level statistics (e.g., R², adjusted R², AIC) into a single-row summary.
--   `bptest()` *(lmtest)*
-    -   Performs the Breusch–Pagan test to assess heteroscedasticity of residuals.
--   `AIC()` *(stats)*
-    -   Compares regression models using Akaike Information Criterion to balance fit and complexity.
--   `step()` *(stats)*
-    -   Performs stepwise model selection to identify a parsimonious regression model.
+- `lm()` *(stats)*
+  - Fits linear and multiple linear regression models using a formula interface.
+- `summary()` *(base R)*
+  - Summarizes regression model results, including coefficients, R², F-statistic, and p-values.
+- `cor.test()` *(stats)*
+  - Computes and tests correlations to assess whether predictors are suitable for regression.
+- `predict()` *(stats)*
+  - Generates predicted values from a fitted regression model.
+- `residuals()` *(stats)*
+  - Extracts residuals (actual − predicted values) from a regression model.
+- `tidy()` *(broom)*
+  - Converts regression coefficients into a clean, tidy data frame.
+- `glance()` *(broom)*
+  - Extracts model-level statistics (e.g., R², adjusted R², AIC) into a single-row summary.
+- `bptest()` *(lmtest)*
+  - Performs the Breusch–Pagan test to assess heteroscedasticity of residuals.
+- `AIC()` *(stats)*
+  - Compares regression models using Akaike Information Criterion to balance fit and complexity.
+- `step()` *(stats)*
+  - Performs stepwise model selection to identify a parsimonious regression model.
 
 ## Example APA-style Write-up {#sec-linear-reg-apa}
 
@@ -496,9 +492,9 @@ Linear regression models involve many analytic choices, including which variable
 Before fitting a model, visualize relationships and examine correlations to justify why predictors are included. After fitting the model, report diagnostics—such as residual plots and measures of fit—to demonstrate that assumptions were checked.
 
 ::: callout-warning
-## Remember:
+### Remember:
 
-Adding more variables does not always lead to a better model.
+*Adding more variables does not always lead to a better model*.
 :::
 
 Regression results are only reproducible when both the code *and the reasoning behind the model* are transparent.

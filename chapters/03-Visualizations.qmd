@@ -1,13 +1,12 @@
----
-title: "Visualizations"
----
+
+# Visualizations {#sec-viz}
 
 ## Introduction {#sec-intro-viz}
 
 Whoever said a picture is worth 1,000 words severely understated how many words a picture is actually worth. When working with data, there is a strong argument to make that **nothing** is more important than visuals.
 
 ::: callout-tip
-## If there is one piece of advice to take from this textbook, it is this:
+### If there is one piece of advice to take from this textbook, it is this:
 
 After running summary statistics, always visualize your data!
 :::
@@ -64,14 +63,14 @@ This chapter is meant less to be a lesson, and more to be a reference page to co
 
 By the end of this chapter, you will be able to:
 
--   Explain why visualizing data is a critical step alongside summary statistics
--   Describe the core grammar of graphics used by `ggplot2` (data, aesthetics, geometry)
--   Create common plot types using `ggplot2`, including scatterplots, bar charts, column charts, histograms, density plots, boxplots, and line graphs
--   Map and customize aesthetics such as color, shape, size, fill, and transparency
--   Enhance visual clarity using labels, themes, facets, coordinate transformations, and reference lines
--   Add contextual information to plots using trend lines, error bars, and text labels
--   Interpret visual patterns to identify relationships, distributions, outliers, and trends in data
--   Create visualizations that are interpretable and reproducible when viewed independently of accompanying text
+- Explain why visualizing data is a critical step alongside summary statistics
+- Describe the core grammar of graphics used by `ggplot2` (data, aesthetics, geometry)
+- Create common plot types using `ggplot2`, including scatterplots, bar charts, column charts, histograms, density plots, boxplots, and line graphs
+- Map and customize aesthetics such as color, shape, size, fill, and transparency
+- Enhance visual clarity using labels, themes, facets, coordinate transformations, and reference lines
+- Add contextual information to plots using trend lines, error bars, and text labels
+- Interpret visual patterns to identify relationships, distributions, outliers, and trends in data
+- Create visualizations that are interpretable and reproducible when viewed independently of accompanying text
 
 With that being said, let's get right to it.
 
@@ -120,7 +119,7 @@ Additionally, `ggplot2` is part of the `tidyverse` package. So, you can either l
 When using `ggplot2`, there are unlimited possibilities on what you can manipulate/influence. This may be daunting, but always remember that all plots work on the same framework.
 
 ::: callout-tip
-## ggplot2 framework
+#### ggplot2 framework
 
 plot = data + aesthetics + geometry
 :::
@@ -144,10 +143,10 @@ ggplot(data = mpg, aes(x = cty, y = hwy)) +
 
 This is our first ggplot (a scatterplot) we have created, so let's break this down:
 
--   The data: we are using the mpg dataset.
--   The aesthetics: the x variable is cty and the y is hwy.
--   The geometry: `geom_point()`, which creates points on the graph.
-    -   Importantly, to add geometry, you do need to add the + sign.
+- The data: we are using the mpg dataset.
+- The aesthetics: the x variable is cty and the y is hwy.
+- The geometry: `geom_point()`, which creates points on the graph.
+  - Importantly, to add geometry, you do need to add the + sign.
 
 With only two lines of code, a scatterplot was created! Since the framework has been established, it is time to build some visualizations!
 
@@ -288,9 +287,9 @@ ggplot(class_counts, aes(x = class, y = n)) +
 
 There are a few things you can do to a column chart to add some flavor. For example:
 
--   Use the `reorder` command to reorder the columns into ascending or descending order based on their n values.
--   Inside of `geom_col` change the `width` of the columns.
--   Depending on the bars, you can change the `legend.position` to a particular spot (or remove it entirely) from the visualization.
+- Use the `reorder` command to reorder the columns into ascending or descending order based on their n values.
+- Inside of `geom_col` change the `width` of the columns.
+- Depending on the bars, you can change the `legend.position` to a particular spot (or remove it entirely) from the visualization.
 
 ```{r}
 #| label: fig-columnchart-aesthetics
@@ -327,8 +326,8 @@ ggplot(mpg, aes(x = hwy)) +
 
 R automatically assigns bins when creating a histogram unless otherwise instructed. There are several things that can be influenced:
 
--   bin width: use `binwidth` to change the width of the bins
--   boundary: use `boundary` to set the separation between the bins
+- bin width: use `binwidth` to change the width of the bins
+- boundary: use `boundary` to set the separation between the bins
 
 ```{r}
 #| label: fig-styled-histogram
@@ -386,13 +385,13 @@ ggplot(diamonds |> filter(cut %in% c("Good", "Ideal", "Premium")),
 
 Commonly known as a box and whisker plot, boxplots are fantastic for providing numerical insights between categorical variables. There are a few different pieces of a boxplot:
 
--   Whiskers: there are two whiskers on each boxplot
-    -   Lower Whisker: shows the lower 25% of the data. The bottom is the lowest value in the dataset
-    -   Upper Whisker: shows the upper 25% of the data. The top is the highest value in the dataset
--   Box: the box itself shows the middle 50% of the data. This includes:
-    -   Interquartile Range (IQR): the lowest line in the bar is the 25th percentile and the top is the 75th percentile
-    -   Median: the darker line inside of the box
--   Outliers: any data point that is above or below the upper and lower whisker, respectively.
+- Whiskers: there are two whiskers on each boxplot
+  - Lower Whisker: shows the lower 25% of the data. The bottom is the lowest value in the dataset
+  - Upper Whisker: shows the upper 25% of the data. The top is the highest value in the dataset
+- Box: the box itself shows the middle 50% of the data. This includes:
+  - Interquartile Range (IQR): the lowest line in the bar is the 25th percentile and the top is the 75th percentile
+  - Median: the darker line inside of the box
+- Outliers: any data point that is above or below the upper and lower whisker, respectively.
 
 The geometry for a boxplot is `geom_boxplot()`.
 
@@ -537,26 +536,26 @@ ggplot(mpg, aes(displ, hwy)) +
 
 ## Key Takeaways {#sec-ggplot-takeaways}
 
--   **Always visualize your data**! Summary statistics can hide patterns (and problems) in your data.
--   `ggplot2` follows a consistent grammar: data + aesthetics + geometry.
--   `geom_bar()` counts rows automatically; `geom_col()` plots pre-summarized values.
--   Use `labs()`, `theme()`, and `coord_flip()` to improve clarity and readability.
--   `facet_wrap()` helps compare groups by creating small multiples.
--   Trend lines (`geom_smooth()`), error bars (`geom_errorbar()`), labels (`geom_text()`), and reference lines (`geom_hline()`, `geom_vline()`) help communicate the story in your data.
+- **Always visualize your data**! Summary statistics can hide patterns (and problems) in your data.
+- `ggplot2` follows a consistent grammar: data + aesthetics + geometry.
+- `geom_bar()` counts rows automatically; `geom_col()` plots pre-summarized values.
+- Use `labs()`, `theme()`, and `coord_flip()` to improve clarity and readability.
+- `facet_wrap()` helps compare groups by creating small multiples.
+- Trend lines (`geom_smooth()`), error bars (`geom_errorbar()`), labels (`geom_text()`), and reference lines (`geom_hline()`, `geom_vline()`) help communicate the story in your data.
 
 ## Checklist {#sec-ggplot-checklist}
 
 **When creating a visualization, have you:**
 
--   [ ] Started by visualizing your data (not relying only on summary statistics)?
--   [ ] Chosen a plot type that matches your goal?
--   [ ] Confirmed whether your data are raw counts (`geom_bar()`) or pre-summarized values (`geom_col()`)?
--   [ ] Clearly defined aesthetics (`x`, `y`, `color`, `shape`, `fill`) and mapped them intentionally?
--   [ ] Added informative labels using `labs()` (title, axes, legend)?
--   [ ] Adjusted the layout for readability (e.g., `coord_flip()`, `facet_wrap()`)?
--   [ ] Considered whether trend lines, error bars, labels, or reference lines would help communicate the story?
--   [ ] Checked that the visualization is interpretable *without* additional explanation?
--   [ ] Asked: *What question does this plot help answer?*
+- [ ] Started by visualizing your data (not relying only on summary statistics)?
+- [ ] Chosen a plot type that matches your goal?
+- [ ] Confirmed whether your data are raw counts (`geom_bar()`) or pre-summarized values (`geom_col()`)?
+- [ ] Clearly defined aesthetics (`x`, `y`, `color`, `shape`, `fill`) and mapped them intentionally?
+- [ ] Added informative labels using `labs()` (title, axes, legend)?
+- [ ] Adjusted the layout for readability (e.g., `coord_flip()`, `facet_wrap()`)?
+- [ ] Considered whether trend lines, error bars, labels, or reference lines would help communicate the story?
+- [ ] Checked that the visualization is interpretable *without* additional explanation?
+- [ ] Asked: *What question does this plot help answer?*
 
 ## ggplot2 Visualization Reference {#sec-ggplot-keyfunctions}
 
@@ -566,35 +565,35 @@ Unlike other chapters, visualization relies on combining multiple components rat
 
 Below is a list of plot types, their purpose, and the geom command used:
 
--   *Scatterplot* - **Relationships** - `geom_point()`
--   *Bar Chart* - **Counts** - `geom_bar()`
--   *Column Chart* - **Pre-summarized values** - `geom_col()`
--   *Histogram* - **Distribution** - `geom_histogram()`
--   *Density Plot* - **Distribution** - `geom_density()`
--   *Boxplot* - **Group comparison** - `geom_boxplot()`
--   *Line Graph* - **Time** - `geom_line()`
+- *Scatterplot* - **Relationships** - `geom_point()`
+- *Bar Chart* - **Counts** - `geom_bar()`
+- *Column Chart* - **Pre-summarized values** - `geom_col()`
+- *Histogram* - **Distribution** - `geom_histogram()`
+- *Density Plot* - **Distribution** - `geom_density()`
+- *Boxplot* - **Group comparison** - `geom_boxplot()`
+- *Line Graph* - **Time** - `geom_line()`
 
 ### Summary of other ggplot commands {#sec-ggplot-commands}
 
 Below is a list of other commands used to alter plots:
 
--   Aesthetics:
-    -   `color`: Changes the color of the points.
-    -   `shape`: Changes the shape of the points.
-    -   `alpha`: Changes the opacity of the point.
-    -   `size`: Changes the size of the point.
-    -   `fill`: Controls the interior color of shapes
--   `labs()`: Creates labels, including title, x-axis, and y-axis.
--   `facet_wrap()`: Creates individual plots and puts it into one graphic.
--   `coord_flip()`: Flips the axes without changing the underlying variables.
--   `theme()`: Controls the overall appearance of the plot
--   `theme_minimal()`: Makes the most basic looking plot.
--   `theme(legend.position = "...")`: Dictates where (if at all) the legend appears on the plot.
--   `geom_text()`: Adds text to the data points within the plot.
--   `geom_hline()`: Adds a horizontal reference line.
--   `geom_vline()`: Adds a vertical reference line.
--   `geom_smooth()`: Adds trend lines.
--   `reorder()`: Reorders categorical variables based on the values of another variable.
+- Aesthetics:
+  - `color`: Changes the color of the points.
+  - `shape`: Changes the shape of the points.
+  - `alpha`: Changes the opacity of the point.
+  - `size`: Changes the size of the point.
+  - `fill`: Controls the interior color of shapes
+- `labs()`: Creates labels, including title, x-axis, and y-axis.
+- `facet_wrap()`: Creates individual plots and puts it into one graphic.
+- `coord_flip()`: Flips the axes without changing the underlying variables.
+- `theme()`: Controls the overall appearance of the plot
+- `theme_minimal()`: Makes the most basic looking plot.
+- `theme(legend.position = "...")`: Dictates where (if at all) the legend appears on the plot.
+- `geom_text()`: Adds text to the data points within the plot.
+- `geom_hline()`: Adds a horizontal reference line.
+- `geom_vline()`: Adds a vertical reference line.
+- `geom_smooth()`: Adds trend lines.
+- `reorder()`: Reorders categorical variables based on the values of another variable.
 
 ## 💡 *Reproducibility Tip:* {#sec-viz-tip}
 

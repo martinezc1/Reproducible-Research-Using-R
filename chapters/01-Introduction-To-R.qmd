@@ -1,6 +1,4 @@
----
-title: "Introduction To R"
----
+# Introduction To R {#sec-R}
 
 Welcome to the programming language R!
 
@@ -61,7 +59,7 @@ Here, there are 4 quadrants/panes
   - There are many tabs here, which are mostly self-explanatory
 
 ::: callout-note
-## Don't panic if your screen looks different!
+### Don't panic if your screen looks different!
 
 You can click and drag the panes to rearrange them, but the **names** of the quadrants (Source, Console, Environment, Files) will always be the same.
 :::
@@ -122,7 +120,7 @@ In R, we are able to create variables and assign values to objects. In R, instea
 Note: Once each piece of code is run and the objects are created, we should be able to see them in the "Values" part of our environment pane. It will show the name of the value as well as what it is equal to.
 
 ::: callout-note
-## Within R, we can always follow this formula:
+### Within R, we can always follow this formula:
 
 value name `<-` whatever you want inside the value
 :::
@@ -139,7 +137,7 @@ Now, a few tips:
 Below is some code to demonstrate.
 
 ::: callout-note
-## Color and Numbers:
+### Color and Numbers:
 
 Notice how all of the numbers change color in your code.
 :::
@@ -172,7 +170,7 @@ class(x) # x is numeric, as we already knew!
 ```
 
 ::: callout-tip
-## Creating vs calling:
+### Creating vs calling:
 
 Notice that **creating** and **calling** the data are different. I create `x <- 5`, but in order to call it, I just run `x` (after it has been created).
 :::
@@ -186,7 +184,7 @@ Now that objects have been created, it is time to use those same principles to c
 This is exactly where vectors come in.
 
 ::: callout-note
-## There are two very important things that come into play when creating a vector:
+### There are two very important things that come into play when creating a vector:
 
 1.  Everything must go inside parenthesis
 2.  Before the parenthesis, you have to call the `c` function. The purpose of this is to literally combine values into a vector.
@@ -237,7 +235,7 @@ number_vector * 10
 Just like with numeric data, we can create vectors with characters inside. Unlike with numeric values in R, characters must be in between quotation marks. Notice once quotation marks are used, everything inside (and the quotation marks themselves) change color in your script.
 
 ::: callout-warning
-## Quotation Marks
+#### Quotation Marks
 
 Be careful, as the positioning of quotation marks can severely change your vector (see below).
 :::
@@ -260,7 +258,7 @@ Take note how in `fruits` each fruit was it's own value, but in `Fruits`, they w
 ### Logical Vectors {#sec-intro-vectors-logical}
 
 ::: callout-tip
-## Time for a quick question:
+#### Time for a quick question:
 
 True or False: logical vectors are possible in R?
 :::
@@ -273,7 +271,7 @@ R is able to handle logistic values (True and False). In R, you can either write
 - `T` or `F`
 
 ::: callout-tip
-## See anything in particular regarding your code?
+#### See anything in particular regarding your code?
 
 Notice how in your code, logic also changes color, the same color as numeric.
 :::
@@ -303,7 +301,7 @@ class(truth_logic)
 Above we used the `class()` command to check to see what type of data we were creating. `some_truth` and `some_lies` were both *logical*, while `truth_logic` was *character*.
 
 ::: callout-tip
-## When creating something in R:
+#### When creating something in R:
 
 It is always *crucial* to check that what you've created matches your desired output.
 :::
@@ -313,7 +311,7 @@ It is always *crucial* to check that what you've created matches your desired ou
 When character values have levels, it becomes categorical data. In R, this is best handled as factors. To turn a character string into factors, utilize the `factor()` command.
 
 ::: callout-tip
-## Look at your screen!
+#### Look at your screen!
 
 Notice how when you type the name of a color in R, the text actually changes to that color. R really does put the **r** in Artist!
 :::
@@ -363,7 +361,7 @@ class(mix)
 It defaults to character!
 
 ::: callout-tip
-## As a rule of thumb:
+#### As a rule of thumb:
 
 Quotation marks rule. If a vector has quotation marks, R defaults it to a character string.
 :::

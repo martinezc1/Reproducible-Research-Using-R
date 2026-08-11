@@ -1,6 +1,5 @@
----
-title: "Analyzing Categorical Data"
----
+
+# Analyzing Categorical Data {#sec-cat-analysis}
 
 ## Introduction {#sec-intro-cat-analysis}
 
@@ -9,7 +8,7 @@ In some situations, we do not have numerical data, and only categorical data. Wh
 In situations like these, when we **only** have categorical values, we undergo a *Categorical Analysis.* Today, we will be looking at three different treatment options aimed at inhibiting infections.
 
 ::: callout-note
-## In this lesson, the question we are trying to answer is:
+### In this lesson, the question we are trying to answer is:
 
 *Does the type of treatment people get affect whether they get an infection?*
 :::
@@ -20,15 +19,15 @@ We'll use a dataset called `infection_treatments`. Each row is a unique particip
 
 By the end of this chapter, you will be able to:
 
--   Identify situations in which categorical analysis is appropriate and numerical methods are not
--   Load and inspect categorical data to confirm variable types and structure
--   Create and interpret contingency tables using base R and tidyverse tools
--   Calculate and interpret row- and column-based percentages for categorical data
--   Visualize relationships between categorical variables using stacked and grouped bar charts
--   Conduct and interpret a chi-square test of independence using `chisq.test()`
--   Explain the role of expected counts, degrees of freedom, and p-values in chi-square testing
--   Use residuals and standardized residuals to identify cells that contribute most to a chi-square result
--   Quantify the strength of association between categorical variables using Cramer’s V
+- Identify situations in which categorical analysis is appropriate and numerical methods are not
+- Load and inspect categorical data to confirm variable types and structure
+- Create and interpret contingency tables using base R and tidyverse tools
+- Calculate and interpret row- and column-based percentages for categorical data
+- Visualize relationships between categorical variables using stacked and grouped bar charts
+- Conduct and interpret a chi-square test of independence using `chisq.test()`
+- Explain the role of expected counts, degrees of freedom, and p-values in chi-square testing
+- Use residuals and standardized residuals to identify cells that contribute most to a chi-square result
+- Quantify the strength of association between categorical variables using Cramer’s V
 
 ## Loading Our Data {#sec-cat-analysis-data}
 
@@ -132,7 +131,7 @@ It seems that **cranberry** is taking an early lead in terms of which treatment 
 With purely categorical data, the visualization most commonly recommended would be a *bar chart.* With a bar chart, a viewer can interpret differences between the variables. There are two main options, a **stacked** or **grouped** bar chart. The main difference from a coding perspective is what we enter inside the `geom_bar` command.
 
 ::: callout-tip
-## Adding Flavor to Your Visualizations
+### Adding Flavor to Your Visualizations
 
 If you’d like to enhance the aesthetic of your plots, consider using the `ggthemes` package (@R-ggthemes). It provides a variety of alternative themes that can quickly change the look and feel of your graphics.
 
@@ -210,7 +209,7 @@ ggplotly(grouped)
 ```
 
 ::: callout-note
-## When using ggplotly:
+### When using ggplotly:
 
 Move your cursor over the bars to gather more insights about your graph/data.
 :::
@@ -269,7 +268,7 @@ chi_square_test$stdres
 ```
 
 ::: callout-tip
-## Rule of Thumb:
+### Rule of Thumb:
 
 Think of standardized residuals like z-scores: values greater than +2 or less than -2 are the 'statistically interesting' parts of your table that are driving your p-value.
 :::
@@ -310,9 +309,9 @@ ggplot(plot_data, aes(x = Treatment, y = Counts, fill = Type)) +
 
 Our deep dive uncovered some very important things about our experiment:
 
--   Expected: all of the values were different from what we the actual observations were. If there was no relationship between the two variables, it was expected that each treatment would have about 35 people not infected, and 15 people infected
--   Residuals/stdres: this is where we really start to tie everything together. With the residuals, we are looking for if it is positive/negative, and then strength in relation to the other. **Cranberry** if the only one of the three where there are less people infected than anticipated, almost 2 standard deviations less than expected. Both other treatments have more people infected than expected.
-    -   Note: Standardized residuals behave like z-scores — values beyond ±2 suggest cells contributing most strongly to the overall χ² statistic.
+- Expected: all of the values were different from what we the actual observations were. If there was no relationship between the two variables, it was expected that each treatment would have about 35 people not infected, and 15 people infected
+- Residuals/stdres: this is where we really start to tie everything together. With the residuals, we are looking for if it is positive/negative, and then strength in relation to the other. **Cranberry** if the only one of the three where there are less people infected than anticipated, almost 2 standard deviations less than expected. Both other treatments have more people infected than expected.
+  - Note: Standardized residuals behave like z-scores — values beyond ±2 suggest cells contributing most strongly to the overall χ² statistic.
 
 We tie this information together to get a very strong case for **cranberry.** There is just one piece of the puzzle left to bring this home.
 
@@ -337,15 +336,15 @@ CrossTable(infection$Treatment, infection$Infection,
 
 `CrossTable` gave us a lot of information (nothing we can not handle). Thankfully, there is an legend in the beginning of the results that identifies what each number is. Some of these we already discovered, such as expected values and the chi-square X\^2 value, but also some new information. Specifically, we are able to see the chi-square contribution. To break this down:
 
--   When we run the chi-square test, we get the X\^2 value. Importantly, each combination of the variables contributes **individually** to this number. We are looking for the biggest contributors to not only understand the chi-square value better, but to also understand what is the most impactful.
--   For this result, our third number's in each cell are the *chi-square contribution.* It is evident that **cranberry** has the highest contribution to the chi-square test statistic.
+- When we run the chi-square test, we get the X\^2 value. Importantly, each combination of the variables contributes **individually** to this number. We are looking for the biggest contributors to not only understand the chi-square value better, but to also understand what is the most impactful.
+- For this result, our third number's in each cell are the *chi-square contribution.* It is evident that **cranberry** has the highest contribution to the chi-square test statistic.
 
 ## Contribution {#sec-cat-analysis-contribution}
 
 If we want to hone in on this more, we can take the contributions and turn them into percentages.
 
 ::: callout-tip
-## To find out more about the X\^2 value, it is important to answer the question:
+### To find out more about the X\^2 value, it is important to answer the question:
 
 What percentage of the X\^2 value is each contribution responsible for?
 :::
@@ -360,7 +359,7 @@ contributions
 ```
 
 ::: callout-tip
-## The formula for calculating the chi-square statistic is:
+### The formula for calculating the chi-square statistic is:
 
 $$X^2= ((observed-expected)^2)/expected$$
 :::
@@ -439,62 +438,62 @@ Treatment, overall, had a weak-moderate effect on outcome overall. This suggests
 
 ## Interpretation {#sec-cat-analysis-interpretation}
 
--   The chi-square test shows X\^2 = 7.78, df = 2, p = 0.02
--   This means there is a statistically significant relationship between Treatment and Infection.
--   The Cranberry group had fewer infections than expected and contributes most to the chi-square statistic.
--   Cramer’s V shows the relationship is weak-to-moderate in strength.
--   **Drink your cranberry juice!**
+- The chi-square test shows X\^2 = 7.78, df = 2, p = 0.02
+- This means there is a statistically significant relationship between Treatment and Infection.
+- The Cranberry group had fewer infections than expected and contributes most to the chi-square statistic.
+- Cramer’s V shows the relationship is weak-to-moderate in strength.
+- **Drink your cranberry juice!**
 
 ## Key Takeaways {#sec-cat-analysis-takeaways}
 
--   The Chi-Square test helps us determine whether two categorical variables are related.
--   It compares the **observed** frequencies (what we saw) to the **expected** frequencies (what we’d expect by chance).
--   A large Chi-Square statistic and a p-value \< .05 suggest that the relationship is **statistically significant**.
--   Degrees of freedom (df) are based on the number of categories: (rows - 1) \* (columns - 1).
--   Cramer’s V measures the *strength* of the relationship, similar to a correlation coefficient:
-    -   0.00–0.10 = very weak \| 0.10–0.30 = weak \| 0.30–0.50 = moderate \| \>0.50 = strong
--   Residuals show which specific groups contribute most to the Chi-Square result.
--   Visualizations (like bar charts or heatmaps) make it easier to interpret where the differences lie.
--   Statistical significance ≠ practical significance — even weak relationships can be significant with large samples.
--   Example takeaway: Cranberry treatment showed fewer infections than expected — a weak but meaningful effect!
+- The Chi-Square test helps us determine whether two categorical variables are related.
+- It compares the **observed** frequencies (what we saw) to the **expected** frequencies (what we’d expect by chance).
+- A large Chi-Square statistic and a p-value \< .05 suggest that the relationship is **statistically significant**.
+- Degrees of freedom (df) are based on the number of categories: (rows - 1) \* (columns - 1).
+- Cramer’s V measures the *strength* of the relationship, similar to a correlation coefficient:
+  - 0.00–0.10 = very weak \| 0.10–0.30 = weak \| 0.30–0.50 = moderate \| \>0.50 = strong
+- Residuals show which specific groups contribute most to the Chi-Square result.
+- Visualizations (like bar charts or heatmaps) make it easier to interpret where the differences lie.
+- Statistical significance ≠ practical significance — even weak relationships can be significant with large samples.
+- Example takeaway: Cranberry treatment showed fewer infections than expected — a weak but meaningful effect!
 
 ## Checklist {#sec-cat-analysis-checklist}
 
 **When running a Chi-Square test, have you:**
 
--   [ ] Identified both variables as **categorical** (not numeric)?
--   [ ] Created a **contingency table** to summarize the counts?
--   [ ] Calculated **expected counts** to compare against observed values?
--   [ ] Verified that no expected counts are too small (all \> 5 is ideal)?
--   [ ] Visualized your data (stacked/grouped bar charts)?
--   [ ] Interpreted the Chi-Square statistic, df, and p-value?
--   [ ] Calculated **Cramer’s V** to assess the strength of association?
--   [ ] Checked which cells contribute most using **standardized residuals**?
--   [ ] (Optional) Created a **heatmap** to visualize contributions or residuals?
--   [ ] Written a clear interpretation that answers your research question?
+- [ ] Identified both variables as **categorical** (not numeric)?
+- [ ] Created a **contingency table** to summarize the counts?
+- [ ] Calculated **expected counts** to compare against observed values?
+- [ ] Verified that no expected counts are too small (all \> 5 is ideal)?
+- [ ] Visualized your data (stacked/grouped bar charts)?
+- [ ] Interpreted the Chi-Square statistic, df, and p-value?
+- [ ] Calculated **Cramer’s V** to assess the strength of association?
+- [ ] Checked which cells contribute most using **standardized residuals**?
+- [ ] (Optional) Created a **heatmap** to visualize contributions or residuals?
+- [ ] Written a clear interpretation that answers your research question?
 
 ## Key Functions & Commands {#sec-cat-analysis-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support categorical data analysis, contingency tables, and Chi-Square testing.
 
--   `table()` *(base R)*
-    -   Creates basic contingency (frequency) tables for categorical variables.
--   `xtabs()` *(base R)*
-    -   Constructs contingency tables using a formula interface, useful for multi-way tables.
--   `tabyl()` *(janitor)*
-    -   Generates clean contingency tables that integrate easily with percentage calculations.
--   `adorn_percentages()` *(janitor)*
-    -   Converts contingency table counts into row- or column-based percentages.
--   `adorn_ns()` *(janitor)*
-    -   Displays counts and percentages together for clearer interpretation.
--   `chisq.test()` *(stats)*
-    -   Performs a Chi-Square test of independence to assess whether two categorical variables are related.
--   `CrossTable()` *(gmodels)*
-    -   Produces detailed cross-tabulations including expected counts, proportions, and chi-square contributions.
--   `pheatmap()` *(pheatmap)*
-    -   Visualizes Chi-Square contributions or residuals using a heatmap.
--   `cramerV()` *(rcompanion)*
-    -   Computes Cramer’s V to measure the strength of association between categorical variables.
+- `table()` *(base R)*
+  - Creates basic contingency (frequency) tables for categorical variables.
+- `xtabs()` *(base R)*
+  - Constructs contingency tables using a formula interface, useful for multi-way tables.
+- `tabyl()` *(janitor)*
+  - Generates clean contingency tables that integrate easily with percentage calculations.
+- `adorn_percentages()` *(janitor)*
+  - Converts contingency table counts into row- or column-based percentages.
+- `adorn_ns()` *(janitor)*
+  - Displays counts and percentages together for clearer interpretation.
+- `chisq.test()` *(stats)*
+  - Performs a Chi-Square test of independence to assess whether two categorical variables are related.
+- `CrossTable()` *(gmodels)*
+  - Produces detailed cross-tabulations including expected counts, proportions, and chi-square contributions.
+- `pheatmap()` *(pheatmap)*
+  - Visualizes Chi-Square contributions or residuals using a heatmap.
+- `cramerV()` *(rcompanion)*
+  - Computes Cramer’s V to measure the strength of association between categorical variables.
 
 ## Example APA-style Write-up {#sec-cat-analysis-apa}
 

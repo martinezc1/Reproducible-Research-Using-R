@@ -1,13 +1,12 @@
----
-title: "Correlation"
----
+
+# Correlation {#sec-cor}
 
 ## Introduction {#sec-intro-cor}
 
 In everyday communication, the word **correlation** is thrown around a lot, but, what does it actually mean? In this lesson, we will explore how to use **correlations** to better understand how our variables interact with each other.
 
 ::: callout-note
-## We'll be trying to answer the question:
+### We'll be trying to answer the question:
 
 *How do anxiety scores and studying time influence exam scores?*
 :::
@@ -18,11 +17,11 @@ We’ll use a dataset called `exam_data`, which includes students’ exam scores
 
 By the end of this chapter, you will be able to:
 
--   Interpret the direction and strength of correlations.
--   Compute correlations in R using `cor()` and `cor.test()`.
--   Explain and calculate R² as variance explained.
--   Run and interpret partial and point-biserial correlations.
--   Visualize relationships using scatterplots and correlation matrices.
+- Interpret the direction and strength of correlations.
+- Compute correlations in R using `cor()` and `cor.test()`.
+- Explain and calculate R² as variance explained.
+- Run and interpret partial and point-biserial correlations.
+- Visualize relationships using scatterplots and correlation matrices.
 
 ## Loading Our Data {#sec-loading-data}
 
@@ -133,10 +132,11 @@ Intuitively, these graphs make sense (which is what we want to see). From a visu
 
 One of the main reasons why we visualize our data is to see if it is linear. We are only going to be talking about linear relationships in this chapter.
 
-:::::: callout-warning
-## Be careful with your scatterplots:
+::: callout-warning
+### Be careful with your scatterplots:
 
 **If your scatterplot ever shows a curve, use a non-parametric alternative like Spearman’s rank correlation instead.**
+:::
 
 For today, we are focusing on studying time, anxiety scores, and exam scores. If we did not want to manually create 3 different scatterplots, we could utilize the `pairs` command.
 
@@ -170,10 +170,10 @@ Since the cat is out of the bag, it is now time for us to *officially* run some 
 
 The end result of running a correlation is to get the **correlation coefficient (r)**, which is a number between -1 and 1. There are two things we look for in a correlation coefficient:
 
--   Direction: this is denoted by whether the coefficient is negative or positive. *A negative number does not mean it is bad, and a positive number does not mean it is good.* It is simply saying that if it is:
-    -   Negative- then when one variable increases, the other decreases (Anxiety vs Exam)
-    -   Positive- when one variable increases, the other also increases (Studying vs Exam)
--   Strength: this is how close to -1 or 1 it is. The closer to -1 or 1, the stronger the correlation between the two variables. The inverse is also true: the closer to 0 the number is, the weaker the correlation is.
+- Direction: this is denoted by whether the coefficient is negative or positive. *A negative number does not mean it is bad, and a positive number does not mean it is good.* It is simply saying that if it is:
+  - Negative- then when one variable increases, the other decreases (Anxiety vs Exam)
+  - Positive- when one variable increases, the other also increases (Studying vs Exam)
+- Strength: this is how close to -1 or 1 it is. The closer to -1 or 1, the stronger the correlation between the two variables. The inverse is also true: the closer to 0 the number is, the weaker the correlation is.
 
 *By definition, the correlation coefficient measures the strength and direction of a linear relationship between two variables.*
 
@@ -229,7 +229,7 @@ cor.test(examData$studying_hours, examData$anxiety_score)  # Study time vs anxie
 Turns out all three are statistically significant! There’s something just as important as the r value and p value: the method used to calculate it. By default cor and cor.test use Pearson's method. Going back to visualizing our data, we can only use Pearson's method if our data is linear.
 
 ::: callout-tip
-## Running one by one can take a lot of time.
+### Running one by one can take a lot of time.
 
 What if we do not want to run all the correlations one by one...
 :::
@@ -239,9 +239,9 @@ What if we do not want to run all the correlations one by one...
 Right now, we only have three variables we want to run correlations with. But, what if we had 50? Are we going to run 50 lines of code? No! We can, instead, run a correlation matrix, which conducts a correlation between *any and all* numeric values. The key here is that your data must *only* contain numeric values, so make sure you clean your data first. Again, as before, we can utilize the `cor` command.
 
 ::: callout-tip
-## Hint:
+### Hint:
 
-Use = "pairwise.complete.obs" handles any missing values safely
+Use `= "pairwise.complete.obs"` handles any missing values safely
 :::
 
 ```{r}
@@ -296,7 +296,7 @@ When we were looking at our R\^2 values, we saw a decent percentage of the varia
 To account for this, we can utilize the `ppcor` library (\@R-ppcor) and run a partial correlation using the `pcor.test()` command.
 
 ::: callout-tip
-## Hint:
+### Hint:
 
 When running a partial correlation using `pcor.test()`, the last variable in the command is the one being controlled for.
 :::
@@ -380,46 +380,46 @@ In the next chapter, we will build on this foundation by moving beyond descripti
 
 ## Key Takeaways {#sec-cor-takeaways}
 
--   Always visualize relationships before interpreting numbers!!!
--   Pearson correlations measure linear relationships between numeric variables.
--   Correlation ≠ causation
--   *Correlation coefficient (r):* Measures the strength and direction of a linear relationship.
--   *Coefficient of determination (R²):* Proportion of variance in Y explained by X.
--   *Partial correlation:* Correlation between two variables after controlling for another.
--   *Point-biserial correlation:* Correlation between a continuous and dichotomous variable.
+- Always visualize relationships before interpreting numbers!!!
+- Pearson correlations measure linear relationships between numeric variables.
+- Correlation ≠ causation
+- *Correlation coefficient (r):* Measures the strength and direction of a linear relationship.
+- *Coefficient of determination (R²):* Proportion of variance in Y explained by X.
+- *Partial correlation:* Correlation between two variables after controlling for another.
+- *Point-biserial correlation:* Correlation between a continuous and dichotomous variable.
 
 ## Checklist {#sec-cor-checklist}
 
 **When running correlations, have you:**
 
--   [ ] Checked which variables are numeric and suitable for correlation
--   [ ] Graphed your variables using scatterplots to visualize relationships
--   [ ] Confirmed the relationships appear linear?
--   [ ] Addressed any missing values or extreme outliers
--   [ ] Selected the appropriate type of correlation (Pearson, Spearman, or Point-Biserial)
--   [ ] Ran correlation analyses and interpreted both the direction and strength of r
--   [ ] Created a correlation matrix if working with multiple variables
--   [ ] Computed R² values to describe shared variance when appropriate
--   [ ] Ran a partial correlation if controlling for a third variable was relevant
+- [ ] Checked which variables are numeric and suitable for correlation
+- [ ] Graphed your variables using scatterplots to visualize relationships
+- [ ] Confirmed the relationships appear linear?
+- [ ] Addressed any missing values or extreme outliers
+- [ ] Selected the appropriate type of correlation (Pearson, Spearman, or Point-Biserial)
+- [ ] Ran correlation analyses and interpreted both the direction and strength of r
+- [ ] Created a correlation matrix if working with multiple variables
+- [ ] Computed R² values to describe shared variance when appropriate
+- [ ] Ran a partial correlation if controlling for a third variable was relevant
 
 ## Key Functions & Commands {#sec-cor-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support correlation analysis and related exploratory techniques.
 
--   `cor()` *(stats)*
-    -   Computes the Pearson correlation coefficient between two numeric variables.
--   `cor.test()` *(stats)*
-    -   Calculates the correlation coefficient and tests whether the relationship is statistically significant.
--   `pairs()` *(base R)*
-    -   Creates a matrix of scatterplots for exploring relationships among multiple numeric variables.
--   `ggpairs()` *(GGally)*
-    -   Produces an enhanced scatterplot matrix that includes distributions and correlation coefficients.
--   `pcor.test()` *(ppcor)*
-    -   Computes partial correlations while controlling for one or more additional variables.
--   `ifelse()` *(base R)*
-    -   Recodes variables for use in point-biserial or conditional correlation analyses.
--   `clean_names()` *(janitor)*
-    -   Renames column headers by replacing all spaces with underscores and making all letters lowercase.
+- `cor()` *(stats)*
+  - Computes the Pearson correlation coefficient between two numeric variables.
+- `cor.test()` *(stats)*
+  - Calculates the correlation coefficient and tests whether the relationship is statistically significant.
+- `pairs()` *(base R)*
+  - Creates a matrix of scatterplots for exploring relationships among multiple numeric variables.
+- `ggpairs()` *(GGally)*
+  - Produces an enhanced scatterplot matrix that includes distributions and correlation coefficients.
+- `pcor.test()` *(ppcor)*
+  - Computes partial correlations while controlling for one or more additional variables.
+- `ifelse()` *(base R)*
+  - Recodes variables for use in point-biserial or conditional correlation analyses.
+- `clean_names()` *(janitor)*
+  - Renames column headers by replacing all spaces with underscores and making all letters lowercase.
 
 ## Example APA-style Write-up {#sec-cor-apa}
 

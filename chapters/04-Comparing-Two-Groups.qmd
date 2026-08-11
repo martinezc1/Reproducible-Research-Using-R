@@ -1,6 +1,5 @@
----
-title: "Comparing Two Groups: Data Wrangling, Visualization, and t-Tests"
----
+
+# Comparing Two Groups: Data Wrangling, Visualization, and t-Tests {#sec-two-means}
 
 ## Introduction {#sec-intro-two-means}
 
@@ -9,7 +8,7 @@ A tale as old as time. You have two different groups, and you want to really fig
 When you have two different groups with a numeric data point, one of the first (and best) things to do is to **compare the two means**. There is more to uncover than just seeing if there is a difference between the actual means, which is exactly what we are going to be covering today.
 
 ::: callout-note
-## In this lesson, we will be answering the question:
+### In this lesson, we will be answering the question:
 
 *Do the Mets or Yankess score a significantly different amount of runs in their games?*
 :::
@@ -20,20 +19,20 @@ Not only will we be answering this question, but we’ll also walk through a com
 
 By the end of this chapter, you will be able to:
 
--   Create simple data frames in R to represent grouped numeric data
--   Combine datasets by binding rows and joining tables using base R and tidyverse tools
--   Calculate and interpret group means using `mean()`
--   Visualize differences between two groups using appropriate plots (e.g., boxplots with jittered points)
--   Conduct and interpret an independent samples *t-test* using `t.test()`
--   Evaluate statistical significance using p-values and distinguish statistical significance from differences in averages
+- Create simple data frames in R to represent grouped numeric data
+- Combine datasets by binding rows and joining tables using base R and tidyverse tools
+- Calculate and interpret group means using `mean()`
+- Visualize differences between two groups using appropriate plots (e.g., boxplots with jittered points)
+- Conduct and interpret an independent samples *t-test* using `t.test()`
+- Evaluate statistical significance using p-values and distinguish statistical significance from differences in averages
 
 ## Creating a Sample Dataset {#sec-creating-datasets}
 
 There are many different ways to get data into R. The most common are:
 
--   Loading an excel file or CSV
--   Calling data into R using an API
--   Loading data from a particular package (see chapter 7)
+- Loading an excel file or CSV
+- Calling data into R using an API
+- Loading data from a particular package (see chapter 7)
 
 What happens if you do not have data to insert into R? What if you want to **create** your own data in R to run analyses, merge, and graph?
 
@@ -93,7 +92,7 @@ What if we want our two datasets together?
 We have data for the first 20 games for the mets and yankees but they're split into the first 10 and second 10 games. What if we want to see all 20 games for each individual team? We can use a command in base R called `rbind`. The r stands for "rows" so this command is literally telling R to "bind the rows."
 
 ::: callout-note
-## When it comes to rbind:
+#### When it comes to rbind:
 
 *It only works when the column names in the binding datasets are the same.*
 :::
@@ -141,16 +140,16 @@ Fantastic! We now have one complete dataset with the scores of the Mets and Yank
 
 We previously used the `merge` command, however, R also allows for SQL code! Here is a quick overview of the main joins using SQL in R:
 
--   inner_join: Keeps only rows that match in both datasets
-    -   Overlap
--   full_join: Keeps all rows from both datasets, matching when possible
-    -   Everything
--   left_join: Keeps all rows from the left dataset, and matches from the right when possible
--   All left
--   right_join: Keeps all rows from the right dataset, and matches from the left when possible
-    -   All right
--   anti_join: Keeps rows from the left dataset that do NOT appear in the right
--   What's missing
+- inner_join: Keeps only rows that match in both datasets
+  - Overlap
+- full_join: Keeps all rows from both datasets, matching when possible
+  - Everything
+- left_join: Keeps all rows from the left dataset, and matches from the right when possible
+- All left
+- right_join: Keeps all rows from the right dataset, and matches from the left when possible
+  - All right
+- anti_join: Keeps rows from the left dataset that do NOT appear in the right
+- What's missing
 
 ```{r}
 #| label: fig-sql-image
@@ -163,7 +162,6 @@ library(knitr)
 library(here)
 knitr::include_graphics(here("images", "sql.png"))
 ```
-
 
 In this case, we are going to use `inner_join`, since we know that both of our datasets have the same 20 games.
 
@@ -245,9 +243,9 @@ overall_average
 
 Here is a breakdown of the means:
 
--   Yankees Average Scores: 3.85
--   Mets Average Scores: 6
--   Overall Average Scores: 4.925
+- Yankees Average Scores: 3.85
+- Mets Average Scores: 6
+- Overall Average Scores: 4.925
 
 It isn't necessary, but let us take this time to round our means
 
@@ -277,14 +275,14 @@ There has already been a lot of work done with our data, and through both visual
 
 A t-test compares the difference between two group means relative to the variability in the data. Depending on your data, you will either be running a **Paired** or **Unpaired** t.test:
 
--   Paired t-test: use when measurements come in matched pairs (same participant twice, same game for both teams).
-    -   Example: Ten people first run a race just drinking water. Then, those same ten people run the same race but drinking coffee.
--   Unpaired t-test: use when the two groups are independent (different participants, no pairing).
-    -   Example: Ten people drink water, then ten different people drink coffee, and all of them run a race at the same time.
--   Pairing is about the **design** of the data, not how the table looks.
+- Paired t-test: use when measurements come in matched pairs (same participant twice, same game for both teams).
+  - Example: Ten people first run a race just drinking water. Then, those same ten people run the same race but drinking coffee.
+- Unpaired t-test: use when the two groups are independent (different participants, no pairing).
+  - Example: Ten people drink water, then ten different people drink coffee, and all of them run a race at the same time.
+- Pairing is about the **design** of the data, not how the table looks.
 
 ::: callout-tip
-## Rule of thumb:
+#### Rule of thumb:
 
 If you can draw a line connecting observations across groups (same person, matched pair, same unit measured twice), it’s paired.
 :::
@@ -301,7 +299,7 @@ baseball_t_test
 ```
 
 ::: callout-tip
-## If you are working with long data, you cal use the formula:
+#### If you are working with long data, you cal use the formula:
 
 t.test(y \~ x, data = data_long)
 
@@ -310,63 +308,63 @@ t.test(Score \~ Team, data = baseball_data_long)
 
 The output when we call baseball_t_test tells us something extremely important: p-value. When looking at a p-value, we are looking to see if it is above or below the 0.05 mark.
 
--   If p \< 0.05: reject the null hypothesis (evidence of a difference)
--   If p ≥ 0.05: fail to reject the null (not enough evidence of a difference)
+- If p \< 0.05: reject the null hypothesis (evidence of a difference)
+- If p ≥ 0.05: fail to reject the null (not enough evidence of a difference)
 
 So, while the two averages are not the same, our p-value is 0.07928, which is above the 0.05 threshold. This means that there **is not** a statistical difference between the average runs scored in the first 20 games between the Yankees and Mets. Even though the Mets scored more runs on average, this difference was not statistically significant, reminding us that magnitude and statistical significance are not the same thing. In real research, this distinction matters. **Decisions should not be made on differences in averages alone.**
 
 ## Key Takeaways {#sec-means-takeaways}
 
--   To create data frames in R, use the `data.frame` command.
--   To merge data in R, you can:
-    -   Bind rows (`rbind()`)
-    -   Join (merge or any of the SQL commands, depending on the desired outcome)
--   Use `pivot_longer()` to turn wide formatted data into long format
--   Use `pivot_wider()` to turn long formatted data into wide format
--   Just because the means/averages of two variables are different **does not mean** that they are statistically different.
--   To check to see if the difference between two means is statistically significant, perform a t.test using the `t.test()` command
-    -   Depending on how the data is structured, this will either be a paired or unpaired t.test.
+- To create data frames in R, use the `data.frame` command.
+- To merge data in R, you can:
+  - Bind rows (`rbind()`)
+  - Join (merge or any of the SQL commands, depending on the desired outcome)
+- Use `pivot_longer()` to turn wide formatted data into long format
+- Use `pivot_wider()` to turn long formatted data into wide format
+- Just because the means/averages of two variables are different **does not mean** that they are statistically different.
+- To check to see if the difference between two means is statistically significant, perform a t.test using the `t.test()` command
+  - Depending on how the data is structured, this will either be a paired or unpaired t.test.
 
 ## Checklist {#sec-means-checklist}
 
 ### Data Creation & Import {#sec-checklist-create-import}
 
--   [ ] Loaded or created your datasets in R (data.frame, CSV, API, or package)
--   [ ] Inspected your data using `head()`, `str()`, or `summary()`
--   [ ] Combined datasets by rows using `rbind()` when appropriate
--   [ ] Joined datasets using `merge()` or a SQL-style join
--   [ ] Verified merges by checking row and column counts (`nrow()`, `ncol()`)
--   [ ] Reshaped data if needed using `pivot_longer()` or `pivot_wider()`
+- [ ] Loaded or created your datasets in R (data.frame, CSV, API, or package)
+- [ ] Inspected your data using `head()`, `str()`, or `summary()`
+- [ ] Combined datasets by rows using `rbind()` when appropriate
+- [ ] Joined datasets using `merge()` or a SQL-style join
+- [ ] Verified merges by checking row and column counts (`nrow()`, `ncol()`)
+- [ ] Reshaped data if needed using `pivot_longer()` or `pivot_wider()`
 
 ### Comparing Two Means {#sec-checklist-means}
 
--   [ ] Calculated group means using `mean()`
--   [ ] Determined whether the design is paired or independent
--   [ ] Selected the correct t-test (paired or unpaired)
--   [ ] Ran the t-test using `t.test()`
--   [ ] Compared the p-value to the 0.05 threshold
--   [ ] Clearly stated your conclusion in plain language
+- [ ] Calculated group means using `mean()`
+- [ ] Determined whether the design is paired or independent
+- [ ] Selected the correct t-test (paired or unpaired)
+- [ ] Ran the t-test using `t.test()`
+- [ ] Compared the p-value to the 0.05 threshold
+- [ ] Clearly stated your conclusion in plain language
 
 ## Key Functions & Commands {#sec-means-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support data restructuring, joining, and basic statistical comparison.
 
--   `data.frame()` *(base R)*
-    -   Creates a data frame object for storing tabular data.
--   `rbind()` *(base R)*
-    -   Combines multiple data frames by binding rows together.
--   `merge()` *(base R)*
-    -   Joins two data frames together based on a shared key variable.
--   `inner_join()` *(dplyr)*
-    -   Performs a SQL-style inner join, keeping only rows that match in both datasets.
--   `pivot_longer()` *(tidyr)*
-    -   Converts data from wide format to long format.
--   `pivot_wider()` *(tidyr)*
-    -   Converts data from long format back to wide format.
--   `mean()` *(base R)*
-    -   Calculates the average value of a numeric variable.
--   `t.test()` *(stats)*
-    -   Performs a hypothesis test to evaluate whether the means of two groups differ significantly.
+- `data.frame()` *(base R)*
+  - Creates a data frame object for storing tabular data.
+- `rbind()` *(base R)*
+  - Combines multiple data frames by binding rows together.
+- `merge()` *(base R)*
+  - Joins two data frames together based on a shared key variable.
+- `inner_join()` *(dplyr)*
+  - Performs a SQL-style inner join, keeping only rows that match in both datasets.
+- `pivot_longer()` *(tidyr)*
+  - Converts data from wide format to long format.
+- `pivot_wider()` *(tidyr)*
+  - Converts data from long format back to wide format.
+- `mean()` *(base R)*
+  - Calculates the average value of a numeric variable.
+- `t.test()` *(stats)*
+  - Performs a hypothesis test to evaluate whether the means of two groups differ significantly.
 
 ## Example APA-style Write-up {#sec-means-apa}
 
@@ -377,7 +375,7 @@ The following example demonstrates one acceptable way to report a comparison of 
 An independent samples $t$-test was conducted to examine whether the average number of runs scored differed between the New York Yankees and the New York Mets across the first 20 games of the season. The Mets scored more runs on average ($M = 6.00, SD = 4.79$) than the Yankees ($M = 3.85, SD = 2.13$); however, this difference was not statistically significant, $t(25.9) = 1.80, p = .084$. Although the Mets had a higher mean score, this result indicates insufficient evidence that the teams differed in average runs scored.
 
 ::: callout-note
-## Reporting Note:
+### Reporting Note:
 
 The degrees of freedom ($25.9$) reflect a Welch’s $t$-test, which is the default in R and does not assume equal variances between groups.
 :::

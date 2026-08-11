@@ -1,6 +1,5 @@
----
-title: "Logistic Regression"
----
+
+# Logistic Regression {#sec-log-reg}
 
 ## Introduction {#sec-intro-log-reg}
 
@@ -9,7 +8,7 @@ Two chapters ago, we did a great job of creating linear regression models, which
 However, that was when we had numeric data. What happens when we do not have any numeric data? From our last chapter, we know that is where a chi-square comes in, but what if we want to still do some predicting? This is exactly where **Logistic Regression** comes into play.
 
 ::: callout-note
-## The question we are trying to answer is:
+### The question we are trying to answer is:
 
 Can we predict if someone will default on their credit cards based on other factors about them?
 :::
@@ -22,18 +21,18 @@ Using the `ISLR2` package, we will be working with the `Default` dataset.
 
 By the end of this chapter, you will be able to:
 
--   Explain when logistic regression is appropriate and how it differs from linear regression
--   Interpret probabilities, odds, log-odds, and odds ratios in the context of binary outcomes
--   Perform exploratory data analysis for a binary response variable, including calculating proportions and odds
--   Visualize relationships between a binary outcome and predictor variables
--   Split data into training and testing sets for predictive modeling
--   Fit a logistic regression model using `glm()` with a binomial family
--   Interpret logistic regression coefficients and convert them to odds ratios using `exp()`
--   Assess model fit using McFadden’s pseudo-R²
--   Evaluate predictor importance and check for multicollinearity using VIF
--   Generate predicted probabilities and classifications from a fitted model
--   Evaluate classification performance using confusion matrices, sensitivity, specificity, and balanced accuracy
--   Assess model discrimination using ROC curves and the Area Under the Curve (AUC)
+- Explain when logistic regression is appropriate and how it differs from linear regression
+- Interpret probabilities, odds, log-odds, and odds ratios in the context of binary outcomes
+- Perform exploratory data analysis for a binary response variable, including calculating proportions and odds
+- Visualize relationships between a binary outcome and predictor variables
+- Split data into training and testing sets for predictive modeling
+- Fit a logistic regression model using `glm()` with a binomial family
+- Interpret logistic regression coefficients and convert them to odds ratios using `exp()`
+- Assess model fit using McFadden’s pseudo-R²
+- Evaluate predictor importance and check for multicollinearity using VIF
+- Generate predicted probabilities and classifications from a fitted model
+- Evaluate classification performance using confusion matrices, sensitivity, specificity, and balanced accuracy
+- Assess model discrimination using ROC curves and the Area Under the Curve (AUC)
 
 ## Load and Preview Data {#sec-log-reg-data}
 
@@ -62,7 +61,7 @@ Our data contains 10,000 rows of data, each relating to a particular person. Two
 4.  income: Income of customer
 
 ::: callout-note
-## Regarding the ISLR2 package:
+### Regarding the ISLR2 package:
 
 *The definitions of the columns come directly from the description found in the package*
 :::
@@ -75,10 +74,10 @@ First, let's do a little digging to find out more about our data.
 
 Before we predict if a person defaults or not, it is good to find out more about the default variable, answering some questions like:
 
--   How many people have defaulted?
--   What **percentage** of people have defaulted?
--   What are the **odds** that someone will default?
--   What are the preliminary relationships between default and the other variables?
+- How many people have defaulted?
+- What **percentage** of people have defaulted?
+- What are the **odds** that someone will default?
+- What are the preliminary relationships between default and the other variables?
 
 ```{r}
 #| label: tbl-proportion-odds
@@ -132,14 +131,14 @@ favstats(balance ~ default, data = cc_data)
 
 Some things that were uncovered in the code above:
 
--   The probability of someone defaulting is 0.0333.
--   The percentage of people defaulting is 3.33%.
--   **Note**: Probabilities are always going to be a number between 0 and 1. This is incredibly important later when we are trying to create our line.
--   1 in every 29 people will default on their credit card. These are the **odds,** which by definition, compare successes (defaults) to failures (non-defaults).
--   While probabilities are between 0 and 1, odds are between 0 and ∞.
--   An overwhelming majority of students did not default.
--   The mean income of people who do not default is only slightly higher than people who do.
--   The mean balance of people who **do** default is more than *double* the amount than people who **don't**.
+- The probability of someone defaulting is 0.0333.
+- The percentage of people defaulting is 3.33%.
+- **Note**: Probabilities are always going to be a number between 0 and 1. This is incredibly important later when we are trying to create our line.
+- 1 in every 29 people will default on their credit card. These are the **odds,** which by definition, compare successes (defaults) to failures (non-defaults).
+- While probabilities are between 0 and 1, odds are between 0 and ∞.
+- An overwhelming majority of students did not default.
+- The mean income of people who do not default is only slightly higher than people who do.
+- The mean balance of people who **do** default is more than *double* the amount than people who **don't**.
 
 Overall, most people don't default on their credit cards, and while we see differences in means, we do not know if the difference is statistically significant or not.
 
@@ -246,7 +245,7 @@ When building a logistic regression model, it is going to look very similar to t
 Before we create our model, let's take a step back. Logistic regression, just like linear regression, is a tool to help us predict an outcome. Specifically, we are predicting the **probability** of an outcome.
 
 ::: callout-note
-## The formula for the logistic regression is as follows:
+### The formula for the logistic regression is as follows:
 
 $$\log\left(\frac{p}{1 - p}\right) = \beta\_0 + \beta\_1 \cdot \text{balance} + \beta\_2 \cdot \text{income} + \beta\_3 \cdot \text{student}$$
 :::
@@ -318,9 +317,9 @@ exp(coef(train_model))
 
 A very important thing to note is that **odds and probability are not the same thing.** With odds ratios, we are looking to see how much larger or smaller it is than 1.
 
--   OR = 1 → no change
--   OR \> 1 → increase
--   OR \< 1 → decrease
+- OR = 1 → no change
+- OR \> 1 → increase
+- OR \< 1 → decrease
 
 Breaking this down using our model:
 
@@ -417,19 +416,19 @@ Another wall of data. The first thing we see if a table of Reference vs Predicti
 
 Next, we get some performance metrics. Here is an initial breakdown of what we see:
 
--   Accuracy ≈ how often model is correct overall.
-    -   The model is very accurate, at about 97%.
--   95% CI: Where the accuracy of our model most likely lies.
--   No Information Rate (NIR): If we just predicted "No" for each row, how accurate would we be.
-    -   This is not much different from the actual accuracy.
--   P-value \[Acc \> NIR\]: Is our model statistically different than if we just put "No" for each.
-    -   The p-value is not statistically significant, meaning there is no difference between running our model or just predicting "No" for each person.
--   Sensitivity: how well it finds actual defaults.
-    -   Only 29% of actual defaulters are detected.
--   Specificity: how well it identifies non-defaulters.
-    -   It predicts non-defaulters at almost 100%.
--   High accuracy but low sensitivity means the model misses many rare defaults.
--   Balanced Accuracy is a better metric for imbalanced data.
+- Accuracy ≈ how often model is correct overall.
+  - The model is very accurate, at about 97%.
+- 95% CI: Where the accuracy of our model most likely lies.
+- No Information Rate (NIR): If we just predicted "No" for each row, how accurate would we be.
+  - This is not much different from the actual accuracy.
+- P-value \[Acc \> NIR\]: Is our model statistically different than if we just put "No" for each.
+  - The p-value is not statistically significant, meaning there is no difference between running our model or just predicting "No" for each person.
+- Sensitivity: how well it finds actual defaults.
+  - Only 29% of actual defaulters are detected.
+- Specificity: how well it identifies non-defaulters.
+  - It predicts non-defaulters at almost 100%.
+- High accuracy but low sensitivity means the model misses many rare defaults.
+- Balanced Accuracy is a better metric for imbalanced data.
 
 ## ROC Curve + AUC {#sec-log-reg-roc}
 
@@ -454,9 +453,9 @@ auc(roc_obj)
 
 Interpretation:
 
--   ROC curve shows sensitivity vs. 1 - specificity.
--   AUC = 0.95 → excellent ability to distinguish defaulters from non-defaulters.
--   Random guessing = 0.5; perfect model = 1.0
+- ROC curve shows sensitivity vs. 1 - specificity.
+- AUC = 0.95 → excellent ability to distinguish defaulters from non-defaulters.
+- Random guessing = 0.5; perfect model = 1.0
 
 ## Interpretation {#sec-log-reg-interpretation}
 
@@ -464,85 +463,85 @@ Our logistic regression model predicts the probability that a person will defaul
 
 Coefficients:
 
--   The model found a significant positive relationship between balance and default.
-    -   As balance increases, the odds of default rise sharply.
-    -   The student variable had a negative coefficient, meaning students are less likely
-    -   to default than non-students (about 57% lower odds, holding other factors constant).
--   Income showed a very small, non-significant effect once balance was included.
+- The model found a significant positive relationship between balance and default.
+  - As balance increases, the odds of default rise sharply.
+  - The student variable had a negative coefficient, meaning students are less likely
+  - to default than non-students (about 57% lower odds, holding other factors constant).
+- Income showed a very small, non-significant effect once balance was included.
 
 Model Fit:
 
--   McFadden’s R² ≈ 0.46, suggesting the model explains a moderate amount of variation.
--   The AUC = 0.95, indicating excellent ability to distinguish between defaulters and non-defaulters.
--   Confusion Matrix: high overall accuracy (\~97%), but this is inflated due to the low number of defaults (class imbalance).
--   The model is excellent at identifying people who will *not* default, but less effective at catching rare defaults.
+- McFadden’s R² ≈ 0.46, suggesting the model explains a moderate amount of variation.
+- The AUC = 0.95, indicating excellent ability to distinguish between defaulters and non-defaulters.
+- Confusion Matrix: high overall accuracy (\~97%), but this is inflated due to the low number of defaults (class imbalance).
+- The model is excellent at identifying people who will *not* default, but less effective at catching rare defaults.
 
 In short:
 
--   Balance is the strongest predictor.
--   Students are less likely to default.
--   Income doesn’t matter much here.
--   The model performs very well overall.
+- Balance is the strongest predictor.
+- Students are less likely to default.
+- Income doesn’t matter much here.
+- The model performs very well overall.
 
 ## Key Takeaways {#sec-log-reg-takeaways}
 
--   Logistic Regression predicts the *probability* of a categorical (binary) outcome.
--   Instead of fitting a straight line, it models the **log-odds** of the outcome.
--   Coefficients tell us how each variable changes the *log-odds* of the event.
--   Positive coefficients increase the odds; negative ones decrease them.
--   We exponentiate coefficients (exp()) to interpret them as **odds ratios**.
--   Example: An odds ratio of 1.50 means 50% higher odds of the outcome.
--   AUC (Area Under the Curve) tells how well the model separates the two groups:
-    -   0.5 = no skill, 0.7–0.8 = good, 0.8–0.9 = great, \>0.9 = excellent.
--   Accuracy can be misleading when classes are imbalanced — check sensitivity and specificity instead.
--   ROC curves and confusion matrices help visualize model performance.
--   Logistic regression is a gateway to machine learning — it’s the foundation for classification models in predictive analytics.
+- Logistic Regression predicts the *probability* of a categorical (binary) outcome.
+- Instead of fitting a straight line, it models the **log-odds** of the outcome.
+- Coefficients tell us how each variable changes the *log-odds* of the event.
+- Positive coefficients increase the odds; negative ones decrease them.
+- We exponentiate coefficients (exp()) to interpret them as **odds ratios**.
+- Example: An odds ratio of 1.50 means 50% higher odds of the outcome.
+- AUC (Area Under the Curve) tells how well the model separates the two groups:
+  - 0.5 = no skill, 0.7–0.8 = good, 0.8–0.9 = great, \>0.9 = excellent.
+- Accuracy can be misleading when classes are imbalanced — check sensitivity and specificity instead.
+- ROC curves and confusion matrices help visualize model performance.
+- Logistic regression is a gateway to machine learning — it’s the foundation for classification models in predictive analytics.
 
 ## Checklist {#sec-log-reg-checklist}
 
 **When running a logistic regression, have you:**
 
--   [ ] Identified your outcome variable as binary (two categories only)?
--   [ ] Verified your predictors are correctly coded (numeric or factor as needed)?
--   [ ] Explored the data first (EDA, visualizations, proportions, odds)?
--   [ ] Split your data into training and testing sets?
--   [ ] Fit your model using glm(..., family = "binomial")?
--   [ ] Checked model summary for significant predictors?
--   [ ] Converted coefficients to odds ratios using exp()?
--   [ ] Checked for multicollinearity using VIF (\< 5 recommended)?
--   [ ] Calculated a Pseudo-R² (e.g., McFadden’s R²) to assess model fit?
--   [ ] Generated predicted probabilities (type = "response") for the test set?
--   [ ] Chosen a classification threshold (e.g., 0.5) and created predicted classes?
--   [ ] Used a confusion matrix to evaluate accuracy, sensitivity, specificity?
--   [ ] Created an ROC curve and reported the AUC value?
--   [ ] Written a clear interpretation that answers your original research question?
+- [ ] Identified your outcome variable as binary (two categories only)?
+- [ ] Verified your predictors are correctly coded (numeric or factor as needed)?
+- [ ] Explored the data first (EDA, visualizations, proportions, odds)?
+- [ ] Split your data into training and testing sets?
+- [ ] Fit your model using glm(..., family = "binomial")?
+- [ ] Checked model summary for significant predictors?
+- [ ] Converted coefficients to odds ratios using exp()?
+- [ ] Checked for multicollinearity using VIF (\< 5 recommended)?
+- [ ] Calculated a Pseudo-R² (e.g., McFadden’s R²) to assess model fit?
+- [ ] Generated predicted probabilities (type = "response") for the test set?
+- [ ] Chosen a classification threshold (e.g., 0.5) and created predicted classes?
+- [ ] Used a confusion matrix to evaluate accuracy, sensitivity, specificity?
+- [ ] Created an ROC curve and reported the AUC value?
+- [ ] Written a clear interpretation that answers your original research question?
 
 ## Key Functions & Commands {#sec-log-reg-keyfunctions}
 
 The following functions and commands are introduced or reinforced in this chapter to support logistic regression modeling, classification, and model evaluation.
 
--   `glm()` *(stats)*
-    -   Fits generalized linear models, including logistic regression when using the binomial family.
--   `summary()` *(base R)*
-    -   Summarizes logistic regression output, including coefficients, standard errors, and p-values.
--   `exp()` *(base R)*
-    -   Converts log-odds coefficients into odds ratios for interpretation.
--   `predict()` *(stats)*
-    -   Generates predicted probabilities or classifications from a fitted logistic regression model.
--   `sample.split()` *(caTools)*
-    -   Splits data into training and testing sets for model validation.
--   `confusionMatrix()` *(caret)*
-    -   Evaluates classification performance using accuracy, sensitivity, specificity, and related metrics.
--   `pR2()` *(pscl)*
-    -   Computes pseudo R² measures (e.g., McFadden’s R²) for logistic regression models.
--   `varImp()` *(caret)*
-    -   Assesses the relative importance of predictors in a classification model.
--   `vif()` *(car)*
-    -   Detects multicollinearity among predictors using variance inflation factors.
--   `roc()` *(pROC)*
-    -   Constructs a Receiver Operating Characteristic (ROC) curve to evaluate classification performance.
--   `auc()` *(pROC)*
-    -   Calculates the Area Under the ROC Curve (AUC) as a summary measure of model discrimination.
+- `glm()` *(stats)*
+  - Fits generalized linear models, including logistic regression when using the binomial family.
+- `summary()` *(base R)*
+  - Summarizes logistic regression output, including coefficients, standard errors, and p-values.
+- `exp()` *(base R)*
+  - Converts log-odds coefficients into odds ratios for interpretation.
+- `predict()` *(stats)*
+  - Generates predicted probabilities or classifications from a fitted logistic regression model.
+- `sample.split()` *(caTools)*
+  - Splits data into training and testing sets for model validation.
+- `confusionMatrix()` *(caret)*
+  - Evaluates classification performance using accuracy, sensitivity, specificity, and related metrics.
+- `pR2()` *(pscl)*
+  - Computes pseudo R² measures (e.g., McFadden’s R²) for logistic regression models.
+- `varImp()` *(caret)*
+  - Assesses the relative importance of predictors in a classification model.
+- `vif()` *(car)*
+  - Detects multicollinearity among predictors using variance inflation factors.
+- `roc()` *(pROC)*
+  - Constructs a Receiver Operating Characteristic (ROC) curve to evaluate classification performance.
+- `auc()` *(pROC)*
+  - Calculates the Area Under the ROC Curve (AUC) as a summary measure of model discrimination.
 
 ## Example APA-style Write-up {#sec-log-reg-apa}
 
