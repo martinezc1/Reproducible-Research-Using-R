@@ -143,8 +143,7 @@ You can think of the pipe as meaning **"and then."** It allows you to write code
 
 For example, in base R, we can find the square root of a number using:
 
-```         
-#| label: pipe-intro
+```
 sqrt(42)
 ```
 
@@ -183,7 +182,6 @@ For reference, `str_to_upper()` capitalizes everything in a string, while `str_t
 Without piping, we could write:
 
 ```         
-#| label: pipe-cleaning
 str_to_upper(str_trim(" i love r! "))
 ```
 
