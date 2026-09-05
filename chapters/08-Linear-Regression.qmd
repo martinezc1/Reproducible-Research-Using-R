@@ -49,7 +49,9 @@ skim(pizza_sales)
 
 ## Cleaning Our Data {#sec-linear-reg-cleaning-data}
 
-In @sec-cleaning-data-correlation we had to clean our data because of the spaces in the column headers. Our current data has the same issue, as "Total Volume" and "Total Price" both have a space in them. Looks like the `clean_names()` command will come in handy again like in @sec-cleaning-data-correlation. Let's also do some other cleaning while we are at it.
+In @sec-cleaning-data-correlation we had to clean our data because of the spaces in the column headers. Our current data has the same issue, as "Total Volume" and "Total Price" both have a space in them. Looks like the `clean_names()` command will come in handy again! 
+
+Let's also do some other cleaning while we are at it.
 
 ```{r}
 #| label: cleaning-regression

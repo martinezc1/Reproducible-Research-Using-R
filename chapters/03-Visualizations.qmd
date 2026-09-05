@@ -32,7 +32,7 @@ anscombe_quartet |>
   kable(digits = 2,caption = "A breakdown of summary statistics from the four individual datasets Anscombe created.")
 ```
 
-As @tbl-anscombe shows, all four of the different datasets show the same means, variances, and correlations (more on that in chapter @sec-cor). With *just* these summary statistics, you'd likely think "eh, all the data is the same, these datasets are basically identical."
+As @tbl-anscombe shows, all four of the different datasets show the same means, variances, and correlations (more on that in @sec-cor). With *just* these summary statistics, you'd likely think "eh, all the data is the same, these datasets are basically identical."
 
 **Wrong.**
 
@@ -75,7 +75,7 @@ With that being said, let's get right to it.
 
 ## Base R {#sec-viz-base-r}
 
-One of the strongest qualities in R is its ability to create visualizations, powered by `ggplot2` (@R-ggplot2). However, it is possible to use base R to create plots as well. It is recommended to use ggplot2; however, you may encounter base R plots in older scripts or documentation, so an example is included for familiarity.
+One of the strongest qualities in R is its ability to create visualizations, powered by `ggplot2` (@R-ggplot2). However, it is possible to use base R to create plots as well. It is recommended to use `ggplot2`; however, you may encounter base R plots in older scripts or documentation, so an example is included for familiarity.
 
 ```{r}
 #| label: fig-baseR-plot
@@ -131,7 +131,7 @@ No matter what ggplot you are making, no matter how many characteristics you inf
 
 With only those three things, you can make **any** type of visualization you want or need. From there, you can build as far as your mind can see. When you do want to add more levels to your plot, you do so by using the + sign.
 
-Here is an example of a basic graph made with ggplot:
+Here is an example of a basic graph made with `ggplot2`:
 
 ```{r}
 #| label: fig-example-ggplot2
@@ -140,7 +140,7 @@ ggplot(data = mpg, aes(x = cty, y = hwy)) +
   geom_point()
 ```
 
-This is our first ggplot (a scatterplot) we have created, so let's break this down:
+This is our first `ggplot2` (a scatterplot) we have created, so let's break this down:
 
 - The data: we are using the mpg dataset.
 - The aesthetics: the x variable is cty and the y is hwy.

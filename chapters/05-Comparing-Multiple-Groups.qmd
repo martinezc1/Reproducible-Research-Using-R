@@ -2,7 +2,7 @@
 
 ## Introduction {#sec-intro-anova}
 
-In Chapter @sec-intro-two-means we learned what to do when we have two groups and want to compare their means. However, not every situation only has two groups.
+In @sec-two-means we learned what to do when we have two groups and want to compare their means. However, not every situation only has two groups.
 
 Picture this: You just ran an experiment and had three groups. You want to see if they performed differently, but do not know how. You learned in the last chapter that if we had two groups, we could run a t.test, but now you have one more. This sounds like the perfect opportunity to run an **Analysis of Variance** (ANOVA). An **ANOVA** tests whether the means of three or more groups are significantly different from one another. It does this by comparing the variance between groups to the variance within groups.
 

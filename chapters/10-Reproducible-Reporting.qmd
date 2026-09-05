@@ -161,7 +161,7 @@ It is best practice to either use one long word or use a `-` in between your wor
 
 It has already been established that in order to write R code, you need to create an R chunk. Inside an R chunk, you are able to code as normally as you would in an R script. The same rules (even adding comments) apply inside an R chunk. Think of each R chunk as a mini R script.
 
-Take the code below. This, as well as *all* of the code in the book is written inside R chunks. Below is some code that is from all the way back from section @sec-tidyverse-together of the book.
+Take the code below. This, as well as *all* of the code in the book is written inside R chunks. Below is some code that is from all the way back from @sec-tidyverse-together of the book.
 
 ```{r}
 #| message: false
@@ -206,7 +206,7 @@ Now let's move on to displaying tables and graphs.
 
 ##### Tables {#sec-quarto-tables}
 
-Let's go back to that `penguins_new` dataset. Before in section @sec-code-chunks, we "created" it. Now, let's see what happens when we call the output.
+Let's go back to that `penguins_new` dataset. Before in @sec-code-chunks, we "created" it. Now, let's see what happens when we call the output.
 
 ```{r}
 penguins_new
@@ -284,7 +284,7 @@ ggplot(data = mpg, aes(x = cty, y = hwy)) +
   geom_point()
 ```
 
-This visualization, which we originally built in Section @sec-ggplot-scatterplot, not only displays the data, but provides a caption to explain the visualization, all thanks to `fig-cap:`.
+This visualization, which we originally built in @sec-ggplot-scatterplot, not only displays the data, but provides a caption to explain the visualization, all thanks to `fig-cap:`.
 
 Yes, a picture is worth 1,000 words, but sometimes it can be helpful to add some words to help *guide* viewers.
 

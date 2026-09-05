@@ -55,7 +55,7 @@ While we have all of the data needed to begin answering our question, there is o
 
 Not only does R love it when our column headers do not have spaces, it is also best practice for making our analyzes reproducible.
 
-We could use the `rename()` command from the `dplyr` package like in Section @sec-tidyverse-rename, but there is more than one column, so we can streamline this process. Using the `clean_names()` function from the `janitor` package, we can easily remove the spaces in our column names
+We could use the `rename()` command from the `dplyr` package like in @sec-tidyverse-rename, but there is more than one column, so we can streamline this process. Using the `clean_names()` function from the `janitor` package, we can easily remove the spaces in our column names
 
 ```{r}
 #| label: cleaning-names
@@ -73,7 +73,7 @@ Looking at the before and after, we see that the `clean_names()` function replac
 
 Before we start running any statistical analyses, we always want to begin by graphing our data, providing us with a visual understanding of what story our data is telling us. With *correlations*, we want to focus on scatterplots. As a reminder, a scatterplot needs two numerical values.
 
-Since we are trying to better understand exam data, let's create three scatterplots: one showing the relationship between studying and exam scores, one between anxiety and exam scores, and one between studying and anxiety. If you haven't already, take some time to review scatterplots in Section @sec-ggplot-scatterplot.
+Since we are trying to better understand exam data, let's create three scatterplots: one showing the relationship between studying and exam scores, one between anxiety and exam scores, and one between studying and anxiety. If you haven't already, take some time to review scatterplots in @sec-ggplot-scatterplot.
 
 ```{r}
 #| label: fig-scatterplot-correlation
@@ -440,7 +440,7 @@ anx_p <- round(res_anx$p.value, 3)
 anx_r2 <- round(anx_r^2 * 100, 1)
 ```
 
-A Pearson correlation was conducted to examine the relationship between exam anxiety and exam performance. There was a statistically significant negative correlation between anxiety scores and exam scores, ***r*** **= `r anx_r`, *p* = `r anx_p`**, indicating that higher anxiety levels were associated with lower exam performance. Approximately **`r anx_r2`%** of the variance in exam scores was shared with anxiety levels.
+A Pearson correlation was conducted to examine the relationship between exam anxiety and exam performance. There was a statistically significant negative correlation between anxiety scores and exam scores, *r* = `r anx_r`, *p* = `r anx_p`, indicating that higher anxiety levels were associated with lower exam performance. Approximately `r anx_r2`% of the variance in exam scores was shared with anxiety levels.
 
 ### Positive Correlation {#sec-cor-apa-positive}
 
@@ -456,4 +456,8 @@ When interpreting correlations, statistical strength alone is not enough—resul
 
 With the right dataset, it is easy to find strong correlations between variables that have no meaningful connection (for example, volcanic eruptions and how often my grandma goes to the supermarket). While such relationships may be statistically strong, they are not scientifically meaningful.
 
-For correlations to be reproducible, the variables involved should have a plausible relationship grounded in theory, logic, or prior evidence. Always ask whether the correlation makes sense *before* interpreting or reporting it. ::::::
+For correlations to be reproducible, the variables involved should have a plausible relationship grounded in theory, logic, or prior evidence.
+
+::: callout-tip
+Always ask whether the correlation makes sense *before* interpreting or reporting it.
+:::
