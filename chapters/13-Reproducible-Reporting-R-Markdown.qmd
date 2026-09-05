@@ -1,4 +1,3 @@
-
 # Reproducible Reporting: R Markdown {#sec-markdown}
 
 ## Introduction {#sec-intro-r-markdown}

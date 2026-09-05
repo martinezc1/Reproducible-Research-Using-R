@@ -1,4 +1,3 @@
-
 # Reproducibility Checklist for Data Analysis in R {#sec-checklist}
 
 This appendix synthesizes the reproducibility principles and workflow habits introduced throughout this book.\

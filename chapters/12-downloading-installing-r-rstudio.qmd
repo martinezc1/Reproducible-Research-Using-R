@@ -1,0 +1,89 @@
+# Downloading and Installing R and RStudio {#sec-downloading-r}
+
+In order to use R on your computer, you will need both R and RStudio. Why both?
+
+- *R* is the programming language itself. It does the actual work and runs the code.
+- *RStudio* is the program we will use to write and work with R code.
+
+One way to think about it: R is the language, while RStudio is the workspace where we write and use that language.
+
+::: callout-tip
+## Install R First!
+
+You should install R before installing RStudio.
+:::
+
+## 1. Downloading and Installing R
+
+R is free to download and is available for both Windows and Mac computers.
+
+Choose the appropriate link for your computer:
+
+- **Mac:** [Download R for macOS](https://cran.r-project.org/bin/macosx/)
+- **Windows:** [Download R for Windows](https://cran.r-project.org/bin/windows/base/)
+
+After downloading the installer:
+
+1.  Open the downloaded file.
+2.  Follow the installation instructions.
+3.  You can generally keep the **default installation options**.
+4.  Allow the installation to finish.
+
+::: callout-tip
+### Don't touch R once it is installed!
+
+You do not need to open or configure R after installing it. Once R is installed, you can move on to installing RStudio.
+:::
+
+## 2. Downloading and Installing RStudio
+
+Next, we will install **RStudio**, which is where we will do most of our work throughout the course.
+
+Use the link below to access the available RStudio downloads:
+
+- [Download RStudio](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads)
+
+Select the version that matches your computer and operating system.
+
+![](images/rstudio-screenshot.png)
+
+After downloading RStudio:
+
+1.  Open the downloaded installer.
+2.  Follow the installation instructions.
+3.  You can generally keep the **default installation options**.
+4.  Allow the installation to finish.
+
+## 3. Make Sure Everything Works
+
+Once **R and RStudio** are both installed, open **RStudio** (not **R**).
+
+You should see several different sections of the RStudio window. Don't worry about understanding everything you see yet—we will learn how to use RStudio together.
+
+Look for the **Console**, usually located on the left side of the RStudio window.
+
+![](images/console-screenshot-02.png)
+
+Next to the `>` symbol, type:
+
+``` r
+2 + 2
+```
+
+Press **Enter**.
+
+You should see:
+
+``` text
+[1] 4
+```
+
+If you see `4`, congratulations! **R and RStudio are installed and working correctly.**
+
+::: callout-note
+### Having Trouble?
+
+If RStudio does not open, you receive an error, or your screen looks very different from the examples in this guide, don't worry.
+
+Take a screenshot of what you see so we can troubleshoot the issue together.
+:::

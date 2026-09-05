@@ -1,4 +1,3 @@
-
 # Comparing Multiple Groups {#sec-anova}
 
 ## Introduction {#sec-intro-anova}
@@ -337,7 +336,7 @@ We will review model comparisons in more detail in @sec-more-variables. For righ
 - [ ] Compared models using **AIC** or another fit statistic?\
 - [ ] Written a clear interpretation that answers your research question?
 
-## Key Functions & Commands {#sec-anova-keyfunctions}
+## Key Functions & Commands {#sec-anova-key-functions}
 
 The following functions and commands are introduced or reinforced in this chapter to support analysis of variance (ANOVA), post-hoc testing, and model comparison.
 

@@ -1,4 +1,3 @@
-
 # Correlation {#sec-cor}
 
 ## Introduction {#sec-intro-cor}
@@ -402,7 +401,7 @@ In the next chapter, we will build on this foundation by moving beyond descripti
 - [ ] Computed R² values to describe shared variance when appropriate
 - [ ] Ran a partial correlation if controlling for a third variable was relevant
 
-## Key Functions & Commands {#sec-cor-keyfunctions}
+## Key Functions & Commands {#sec-cor-key-functions}
 
 The following functions and commands are introduced or reinforced in this chapter to support correlation analysis and related exploratory techniques.
 
@@ -457,5 +456,4 @@ When interpreting correlations, statistical strength alone is not enough—resul
 
 With the right dataset, it is easy to find strong correlations between variables that have no meaningful connection (for example, volcanic eruptions and how often my grandma goes to the supermarket). While such relationships may be statistically strong, they are not scientifically meaningful.
 
-For correlations to be reproducible, the variables involved should have a plausible relationship grounded in theory, logic, or prior evidence. Always ask whether the correlation makes sense *before* interpreting or reporting it.
-::::::
+For correlations to be reproducible, the variables involved should have a plausible relationship grounded in theory, logic, or prior evidence. Always ask whether the correlation makes sense *before* interpreting or reporting it. ::::::

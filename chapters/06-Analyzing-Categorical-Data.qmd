@@ -1,4 +1,3 @@
-
 # Analyzing Categorical Data {#sec-cat-analysis}
 
 ## Introduction {#sec-intro-cat-analysis}
@@ -472,7 +471,7 @@ Treatment, overall, had a weak-moderate effect on outcome overall. This suggests
 - [ ] (Optional) Created a **heatmap** to visualize contributions or residuals?
 - [ ] Written a clear interpretation that answers your research question?
 
-## Key Functions & Commands {#sec-cat-analysis-keyfunctions}
+## Key Functions & Commands {#sec-cat-analysis-key-functions}
 
 The following functions and commands are introduced or reinforced in this chapter to support categorical data analysis, contingency tables, and Chi-Square testing.
 

@@ -143,7 +143,7 @@ You can think of the pipe as meaning **"and then."** It allows you to write code
 
 For example, in base R, we can find the square root of a number using:
 
-```
+```         
 sqrt(42)
 ```
 
@@ -646,7 +646,7 @@ The tidyverse is a collection of R packages designed to make data analysis more 
 - [ ] Applied `group_by()` *before* `summarize()` when computing grouped summaries?
 - [ ] Re-run your entire pipeline from top to bottom to ensure it is fully reproducible?
 
-## Key Functions & Commands {#sec-tidyverse-keyfunctions}
+## Key Functions & Commands {#sec-tidyverse-key-functions}
 
 The following functions and commands are introduced or reinforced in this chapter.
 

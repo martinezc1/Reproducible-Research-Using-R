@@ -1,4 +1,3 @@
-
 # Comparing Two Groups: Data Wrangling, Visualization, and t-Tests {#sec-two-means}
 
 ## Introduction {#sec-intro-two-means}
@@ -345,7 +344,7 @@ So, while the two averages are not the same, our p-value is 0.07928, which is ab
 - [ ] Compared the p-value to the 0.05 threshold
 - [ ] Clearly stated your conclusion in plain language
 
-## Key Functions & Commands {#sec-means-keyfunctions}
+## Key Functions & Commands {#sec-means-key-functions}
 
 The following functions and commands are introduced or reinforced in this chapter to support data restructuring, joining, and basic statistical comparison.
 

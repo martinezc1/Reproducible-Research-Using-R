@@ -1,4 +1,3 @@
-
 # Visualizations {#sec-viz}
 
 ## Introduction {#sec-intro-viz}
@@ -33,7 +32,7 @@ anscombe_quartet |>
   kable(digits = 2,caption = "A breakdown of summary statistics from the four individual datasets Anscombe created.")
 ```
 
-As @tbl-anscombe shows, all four of the different datasets show the same means, variances, and correlations (more on that in chapter 6). With *just* these summary statistics, you'd likely think "eh, all the data is the same, these datasets are basically identical."
+As @tbl-anscombe shows, all four of the different datasets show the same means, variances, and correlations (more on that in chapter @sec-cor). With *just* these summary statistics, you'd likely think "eh, all the data is the same, these datasets are basically identical."
 
 **Wrong.**
 
@@ -112,7 +111,7 @@ kable(head(diamonds), caption = "A base R dataset: Prices of over 50,000 round c
 kable(head(mtcars), caption = "A base R dataset: Motor Trend Car Road Tests.")
 ```
 
-Additionally, `ggplot2` is part of the `tidyverse` package. So, you can either load `ggplot2` or `tidyverse` if you want to visualize using `ggplot2`. Because `ggplot2` is part of the `tidyverse`, everything you learned in Chapter @sec-intro-tidyverse about pipelines and data manipulation carries directly into visualizations.
+Additionally, `ggplot2` is part of the `tidyverse` package. So, you can either load `ggplot2` or `tidyverse` if you want to visualize using `ggplot2`. Because `ggplot2` is part of the `tidyverse`, everything you learned in Chapter @sec-tidyverse about pipelines and data manipulation carries directly into visualizations.
 
 ### Basics {#sec-ggplot-basics}
 
@@ -121,7 +120,7 @@ When using `ggplot2`, there are unlimited possibilities on what you can manipula
 ::: callout-tip
 #### ggplot2 framework
 
-plot = data + aesthetics + geometry
+$$plot = data + aesthetics + geometry$$
 :::
 
 No matter what ggplot you are making, no matter how many characteristics you influence, all ggplot2 needs are three things:
@@ -158,7 +157,7 @@ In this chapter, there will be basic examples of each visualization type, and ad
 
 ### Scatterplot - geom_point() {#sec-ggplot-scatterplot}
 
-When data has two continuous (for example, numeric) variables, and you want to visualize their relationship, a scatterplot is a fantastic choice. This is the basis for relationship analysis that topics such as linear regression (more about this in Chapter @sec-linear-reg) rely on.
+When data has two continuous (for example, numeric) variables, and you want to visualize their relationship, a scatterplot is a fantastic choice. This is the basis for relationship analysis that topics such as linear regression (more about this in @sec-linear-reg) rely on.
 
 The geometry that needs to be specified is `geom_point()`.
 

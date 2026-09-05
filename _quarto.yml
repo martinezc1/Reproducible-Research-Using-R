@@ -20,9 +20,11 @@ book:
     - chapters/10-Reproducible-Reporting.qmd
   appendices:
     - chapters/11-Appendix.qmd
-    - chapters/12-Reproducible-Reporting-R-Markdown.qmd
-    - chapters/13-Package-References.qmd
-    - chapters/14-References.qmd
+    - chapters/12-downloading-installing-r-rstudio.qmd
+    - chapters/13-Reproducible-Reporting-R-Markdown.qmd
+    - chapters/14-Package-References.qmd
+    - chapters/15-References.qmd
+
 
 bibliography: bibliography/packages.bib
 link-citations: true

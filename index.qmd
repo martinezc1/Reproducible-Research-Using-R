@@ -116,6 +116,8 @@ If it isn't already evident, this textbook is about the programming language R. 
 
 If you are not able to download both on your computer but still want to learn/use R, you can use the online version [here](https://posit.cloud/content/yours?sort=name_asc).
 
+Instructions on how to download and install both R and RStudio on your computer can be found in @sec-downloading-r.
+
 ## The Accidental Author {#sec-accidental-author}
 
 The learning experience built around this textbook extends beyond completing individual assignments. It is informed by *The Accidental Author*, a teaching framework designed around a simple idea: **student work should outlive the semester**.

@@ -450,7 +450,7 @@ Don't underestimate how powerful regression models can be. With a line equation,
 - [ ] Clearly interpreted what the slope and intercept mean in real-world terms
 - [ ] Reported results visually (scatterplot, line of best fit, residual plot)
 
-## Key Functions & Commands {#sec-linear-reg-keyfunctions}
+## Key Functions & Commands {#sec-linear-reg-key-functions}
 
 The following functions and commands are introduced or reinforced in this chapter to support linear regression modeling, diagnostics, and model selection.
 

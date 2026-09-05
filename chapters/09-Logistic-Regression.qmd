@@ -1,4 +1,3 @@
-
 # Logistic Regression {#sec-log-reg}
 
 ## Introduction {#sec-intro-log-reg}
@@ -516,7 +515,7 @@ In short:
 - [ ] Created an ROC curve and reported the AUC value?
 - [ ] Written a clear interpretation that answers your original research question?
 
-## Key Functions & Commands {#sec-log-reg-keyfunctions}
+## Key Functions & Commands {#sec-log-reg-key-functions}
 
 The following functions and commands are introduced or reinforced in this chapter to support logistic regression modeling, classification, and model evaluation.
 
