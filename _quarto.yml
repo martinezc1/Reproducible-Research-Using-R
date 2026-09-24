@@ -6,6 +6,7 @@ book:
   title: "Reproducible Research Using R"
   author: "Christian Martinez"
   date: "2026-02-01"
+  google-analytics: "G-XKJ7C6DWDE"
   chapters:
     - index.qmd
     - chapters/01-Introduction-To-R.qmd
@@ -35,7 +36,6 @@ format:
     theme:
       - cosmo
       - brand
-    google-analytics: "G-XKJ7C6DWDE"
     code-copy: true
     code-summary: "Show the code"
     toc: true
