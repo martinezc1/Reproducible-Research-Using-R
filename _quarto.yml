@@ -35,6 +35,7 @@ format:
     theme:
       - cosmo
       - brand
+    google-analytics: "G-XKJ7C6DWDE"
     code-copy: true
     code-summary: "Show the code"
     toc: true
