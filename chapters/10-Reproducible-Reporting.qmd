@@ -452,6 +452,120 @@ There are a few things to notice:
 
 These can be a fantastic tool to help guide your readers through whatever analytical, reproducible story you're trying to tell in your Quarto documents.
 
+### Citing R Packages {#sec-quarto-citations}
+
+Another important part of reproducible research is acknowledging the software used in our analyses.
+
+Just like we cite researchers for their ideas and discoveries, we should cite software developers for the tools that make our research possible - like the R packages that helped us conduct our research! These developers helped us, and the least we can do is give them some credit!
+
+Fortunately, Quarto makes this relatively straightforward.
+
+#### What Is a Bibliography?
+
+A bibliography is a collection of references used in a document.
+
+In Quarto, we can store references to our R packages in a `.bib` file, which we'll call `packages.bib.`
+
+This file will contain references to the R packages used throughout our analysis.
+
+#### Generate Our Bibliography
+
+To generate a bibliography, we can use the `write_bib()` function from the `knitr` package.
+
+::: callout-note
+##### What Does This Code Do?
+
+The `write_bib()` function automatically retrieves citation information for installed R packages and saves it in a bibliography file.
+
+Instead of manually typing each reference, we can let R generate the bibliography for us!
+:::
+
+Inside of the `write_bib()` command, you put *all* of the packages you've used throughout your analysis. So, if I used `nycOpenData`, `tidyverse`, and `knitr`, my code would look like this:
+
+```r
+knitr::write_bib(
+  c(
+    "nycOpenData",
+    "tidyverse",
+    "knitr"
+  ),
+  "packages.bib"
+)
+```
+
+Make sure the file appears in the same folder as your Quarto document.
+
+::: callout-note
+##### Explore an Individual Citation
+
+In your R Console, run:
+
+```r
+citation("nycOpenData")
+```
+
+Which looks like this:
+
+```text
+To cite nycOpenData in publications use:
+
+Martinez C (2026). nycOpenData: A Lightweight Interface to NYC Open Data APIs. R package version 0.2.3, <https://github.com/ropensci/nycOpenData>.
+
+A BibTeX entry for LaTeX users is
+
+@Manual{,
+  title = {nycOpenData: A Lightweight Interface to NYC Open Data APIs},
+  author = {Christian Martinez},
+  year = {2026},
+  note = {R package version 0.2.3},
+  url = {https://github.com/ropensci/nycOpenData},
+}
+```
+
+Some packages may provide multiple citations, including references to published research articles.
+
+Always check the recommended citation information provided by the package developers!
+:::
+
+#### Cite a Package in Quarto
+
+Remember our handy dandy YAML code from @sec-yaml? If we want references in our document, we need to add:
+
+```yaml
+bibliography: packages.bib
+```
+
+We add this inside our YAML, which tells Quarto where to find our references.
+
+For example, our YAML might look like this:
+
+```yaml
+---
+title: "My Research Report"
+author: "Your Name"
+format: html
+bibliography: packages.bib
+---
+```
+
+Now we can cite packages directly in our writing. For example:
+
+```text
+We retrieved our data using nycOpenData [@R-nycOpenData].
+```
+
+When Quarto renders the document, it will automatically format the citations and generate a reference list at the end of the report. You do not need to type these references manually!
+
+::: callout-tip
+##### Check Your Citation Keys!
+
+Open `packages.bib` and look at the citation keys.
+
+They often look like `R-nycOpenData`, but you should use the actual key stored in your bibliography file.
+
+Some packages may have multiple citation entries, so make sure you're using the correct one!
+:::
+
 ### Changing Settings for Specific R Chunks {#sec-quarto-settings}
 
 To the right of each R chunk there is a circular gear icon. Here is where you can change some of the settings of each R chunk. There are three things you'll see:
@@ -468,6 +582,7 @@ You will notice that each of these manipulations add a line to the beginning of 
 
 Each R chunk is unique and requires different settings based on what is inside and what you want the viewer to see from it.
 
+
 ## Key Takeaways {#sec-quarto-takeaways}
 
 - Quarto allows you to combine **code, narrative text, and output** in a single document, making analyses easier to understand, evaluate, share, and reproduce.
@@ -482,6 +597,8 @@ Each R chunk is unique and requires different settings based on what is inside a
 - Cross-referencing automates the connection between your narrative and your results; by using the `@` symbol with proper prefixes (fig-, tbl-, or sec-), Quarto handles all numbering and hyperlinking for you, ensuring your document remains organized even as you add or move content.
 - Rendering a Quarto document runs the entire analysis in a **clean session**, helping expose missing packages, undefined objects, and hidden dependencies.
 - Publishing a Quarto document transforms an analysis into a **polished, shareable artifact** that can be viewed outside of R.
+- Citing R packages acknowledges the developers whose software makes our analyses possible and helps give credit to their contributions.
+- Quarto can automatically format citations and generate a reference list using a bibliography file (`.bib`), such as `packages.bib`.
 - This chapter demonstrates how all earlier analytical skills—data wrangling, visualization, and modeling—come together in a clear, reproducible final report.
 
 ## Checklist {#sec-quarto-checklist}
@@ -500,6 +617,9 @@ Each R chunk is unique and requires different settings based on what is inside a
 - [ ] Utilized cross-references (\@) for sections, tables, and figures to help the reader navigate the document?
 - [ ] Avoided displaying unnecessary or distracting output (e.g., very large tables or intermediate objects)?
 - [ ] Used text formatting (bold, italics, lists, quotes) intentionally to guide the reader?
+- [ ] Generated a bibliography file (`packages.bib`) containing references to the R packages used in the analysis?
+- [ ] Added `bibliography: packages.bib` to the YAML?
+- [ ] Cited the R packages used in the report and confirmed that the references appear when rendered?
 - [ ] Asked yourself: *Could someone unfamiliar with this project understand the analysis by reading this document alone?*
 
 ## Key Functions & Commands {#sec-quarto-key-functions}
@@ -514,6 +634,10 @@ The following functions and commands are introduced or reinforced in this chapte
   - A convenient tool for displaying clean, readable tables in rendered Quarto output.
 - **Rendering**
   - Executes the entire document in a fresh session, producing a complete, reproducible report.
+- `knitr::write_bib()`
+  - Automatically generates a bibliography file containing citation information for R packages.
+- `citation()`
+  - Displays the recommended citation information for an installed R package.
 
 ## Summary of Common Quarto Syntax {#sec-quarto-syntax-summary}
 
@@ -547,6 +671,10 @@ In addition to R functions, Quarto relies on a small set of Markdown syntax rule
   - `:::`: Ends a callout box.
 - Cross-Referencing
   - `@`: The symbol used to trigger a link to a label (e.g., `@sec-name`, `@fig-name`, or `@tbl-name`).
+- Citations and Bibliographies:
+  - `bibliography: packages.bib`: Added to the YAML to connect a bibliography file to the document.
+  - `[@R-nycOpenData]`: Cites an R package using its citation key from the bibliography file.
+  - `packages.bib`: A bibliography file containing references to R packages used in the analysis.
 
 ## Common Rendering Errors and How to Fix Them {#sec-quarto-render-errors}
 
@@ -560,6 +688,10 @@ In addition to R functions, Quarto relies on a small set of Markdown syntax rule
   - *Fix*: Check file names, capitalization, and that files are stored in the correct directory.
 - Code runs in console but not when rendering: The document relies on objects outside the file.
   - Fix: Restart R and render the document to confirm it runs in a clean session.
+- Bibliography file not found: Quarto cannot locate the `.bib` file specified in the YAML.
+  - *Fix*: Make sure `packages.bib` exists and that the file path in the YAML is correct.
+- Citation not appearing correctly: A citation key does not match an entry in the bibliography.
+  - *Fix*: Open `packages.bib`, check the citation keys, and use the correct key in your document.
 
 ## 💡 *Reproducibility Tip:* {#sec-quarto-tip}
 
@@ -568,7 +700,7 @@ A reproducible Quarto document should render successfully from top to bottom in 
 Because rendering re-runs every chunk in order, it helps expose missing packages, undefined objects, and hidden dependencies that can make analyses difficult to reproduce. To support this, always load required packages within the document and avoid relying on objects created outside the document.
 
 ::: callout-tip
-## Making sure your Quarto document runs in any R Session:
+### Making sure your Quarto document runs in any R Session:
 
 You can check whether these criteria are met by shutting down your R session completely, opening your Quarto document in a brand new R session, and pressing *Render*.
 :::
